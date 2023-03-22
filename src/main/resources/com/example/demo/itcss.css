@@ -1,10 +1,10 @@
 #rect1 {
     -fx-background-color: linear-gradient(#1E6BFF, #2871FFAB, #6197FF5C);
-    -fx-pref-height: 512;
+    -fx-pref-height: 1020;
 }
 #rect2 {
     -fx-background-color: linear-gradient(#001AFF5E, #001AFF00);
-    -fx-pref-height: 512;
+    -fx-pref-height: 1024;
 }
 #maintxt {
     -fx-font-size: 96;

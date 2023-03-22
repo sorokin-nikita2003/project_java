@@ -133,12 +133,12 @@
             </Button>
             <Group layoutX="112.0" layoutY="46.0">
                <children>
-                  <Button id="btn1" mnemonicParsing="false" prefHeight="152.0" prefWidth="429.0" style="-fx-background-radius: 70; -fx-background-color: radial-gradient(focus-distance 0%, center 50% 50%, radius 55%, #FF002E 0%, #5B0010 100%);" styleClass="btn1" text="Игра с ботом" textFill="WHITE">
+                  <Button id="btn2" mnemonicParsing="false" prefHeight="152.0" prefWidth="429.0" style="-fx-background-radius: 70; -fx-background-color: radial-gradient(focus-distance 0%, center 50% 50%, radius 55%, #FF002E 0%, #5B0010 100%);" styleClass="btn1" text="Игра с ботом" textFill="WHITE">
                      <font>
                         <Font name="Calibri Bold" size="32.0" />
                      </font>
                   </Button>
-                  <Button id="btn1" layoutX="792.0" layoutY="2.0" mnemonicParsing="false" prefHeight="152.0" prefWidth="429.0" style="-fx-background-radius: 70; -fx-background-color: radial-gradient(focus-distance 0%, center 50% 50%, radius 55%, #FF002E 0%, #5B0010 100%);" styleClass="btn1" text="Игра вдвоем" textFill="WHITE">
+                  <Button id="btn3" layoutX="792.0" layoutY="2.0" mnemonicParsing="false" prefHeight="152.0" prefWidth="429.0" style="-fx-background-radius: 70; -fx-background-color: radial-gradient(focus-distance 0%, center 50% 50%, radius 55%, #FF002E 0%, #5B0010 100%);" styleClass="btn1" text="Игра вдвоем" textFill="WHITE">
                      <font>
                         <Font name="Calibri Bold" size="32.0" />
                      </font>
