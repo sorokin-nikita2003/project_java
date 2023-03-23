@@ -18,7 +18,7 @@ public class HelloApplication extends Application {
 //        BorderPane root = new BorderPane();
 //        BorderPane.setAlignment(root, Pos.CENTER);
 
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("frame_2.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("frame_1.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1500, 750);
         stage.setTitle("Hello!");
         stage.setScene(scene);

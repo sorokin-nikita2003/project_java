@@ -11,3 +11,12 @@
     -fx-font-family: Calibri;
 }
 
+#btn1, #btn2, #btn3 {
+    -fx-background-color: radial-gradient(focus-distance 0%, center 50% 50%, radius 55%, #FF002E 0%, #5B0010 100%);
+    -fx-background-radius: 70;
+}
+
+#btn1:hover, #btn2:hover, #btn3:hover {
+    -fx-background-color: radial-gradient(focus-distance 0%, center 50% 50%, radius 55%, #f58e93 0%, #5B0010 100%);
+    -fx-cursor:hand
+}
