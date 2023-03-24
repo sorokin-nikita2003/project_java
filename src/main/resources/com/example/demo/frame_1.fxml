@@ -103,17 +103,17 @@
                   <Circle fill="DODGERBLUE" layoutX="164.0" layoutY="49.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
                   <Group fx:id="ships" layoutX="-478.0" layoutY="-75.0">
                      <children>
-                        <ImageView fitHeight="292.0" fitWidth="514.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="292.0" fitWidth="514.0" layoutY="-37.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="C:\Users\sorok\Downloads\image 1.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="292.0" fitWidth="514.0" layoutX="599.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="292.0" fitWidth="514.0" layoutX="599.0" layoutY="-37.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="C:\Users\sorok\Downloads\image 2.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="262.0" fitWidth="867.0" layoutX="135.0" layoutY="-108.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="262.0" fitWidth="867.0" layoutX="135.0" layoutY="-145.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="C:\Users\sorok\Downloads\Linked Path Group.png" />
                            </image>
@@ -126,19 +126,19 @@
       </AnchorPane>
       <AnchorPane id="rect1" prefHeight="604.0" prefWidth="1491.0" stylesheets="@itcss.css">
          <children>
-            <Button stylesheets="@itcss.css" id="btn1" layoutX="521.0" layoutY="280.0" mnemonicParsing="false" prefHeight="152.0" prefWidth="429.0" styleClass="btn1" text="Выйти" textFill="WHITE">
+            <Button id="btn1" layoutX="521.0" layoutY="198.0" mnemonicParsing="false" onAction="#handleButtonClick_3" prefHeight="152.0" prefWidth="429.0" styleClass="btn1" stylesheets="@itcss.css" text="Выйти" textFill="WHITE">
                <font>
                   <Font name="Calibri Bold" size="32.0" />
                </font>
             </Button>
             <Group layoutX="112.0" layoutY="46.0">
                <children>
-                  <Button stylesheets="@itcss.css" id="btn2" onAction="#handleButtonClick" mnemonicParsing="false" prefHeight="152.0" prefWidth="429.0" styleClass="btn1" text="Игра с ботом" textFill="WHITE">
+                  <Button id="btn2" layoutX="9.0" layoutY="-16.0" mnemonicParsing="false" onAction="#handleButtonClick" prefHeight="152.0" prefWidth="429.0" styleClass="btn1" stylesheets="@itcss.css" text="Игра с ботом" textFill="WHITE">
                      <font>
                         <Font name="Calibri Bold" size="32.0" />
                      </font>
                   </Button>
-                  <Button stylesheets="@itcss.css" id="btn3" layoutX="792.0" layoutY="2.0" mnemonicParsing="false" prefHeight="152.0" prefWidth="429.0" styleClass="btn1" text="Игра вдвоем" textFill="WHITE">
+                  <Button id="btn3" layoutX="801.0" layoutY="-18.0" mnemonicParsing="false" onAction="#handleButtonClick_2" prefHeight="152.0" prefWidth="429.0" styleClass="btn1" stylesheets="@itcss.css" text="Игра вдвоем" textFill="WHITE">
                      <font>
                         <Font name="Calibri Bold" size="32.0" />
                      </font>

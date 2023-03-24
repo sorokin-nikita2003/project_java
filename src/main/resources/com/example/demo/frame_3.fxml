@@ -106,7 +106,7 @@
                         <Group fx:id="ships" layoutX="-478.0" layoutY="-75.0" />
                     </children>
                 </Group>
-                <Group layoutX="92.0" layoutY="220.0">
+                <Group layoutX="96.0" layoutY="99.0">
                     <children>
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5993ffb0" height="49.0" stroke="BLACK" strokeType="INSIDE" width="49.0" />
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5993ffb0" height="49.0" layoutX="48.0" stroke="BLACK" strokeType="INSIDE" width="49.0" />
@@ -256,93 +256,93 @@
                       </Text>
                     </children>
                 </Group>
-                <Text layoutX="156.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1" wrappingWidth="16.0687255859375">
+                <Text layoutX="160.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1" wrappingWidth="16.0687255859375">
                     <font>
                         <Font size="40.0" />
                     </font>
                 </Text>
-                <Text layoutX="205.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2" wrappingWidth="16.0687255859375">
+                <Text layoutX="209.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2" wrappingWidth="16.0687255859375">
                     <font>
                         <Font size="40.0" />
                     </font>
                 </Text>
-                <Text layoutX="252.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3" wrappingWidth="16.0687255859375">
+                <Text layoutX="256.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3" wrappingWidth="16.0687255859375">
                     <font>
                         <Font size="40.0" />
                     </font>
                 </Text>
-                <Text layoutX="300.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4" wrappingWidth="16.0687255859375">
+                <Text layoutX="304.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4" wrappingWidth="16.0687255859375">
                     <font>
                         <Font size="40.0" />
                     </font>
                 </Text>
-                <Text layoutX="348.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5" wrappingWidth="16.0687255859375">
+                <Text layoutX="352.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5" wrappingWidth="16.0687255859375">
                     <font>
                         <Font size="40.0" />
                     </font>
                 </Text>
-                <Text layoutX="396.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="6" wrappingWidth="16.0687255859375">
+                <Text layoutX="400.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="6" wrappingWidth="16.0687255859375">
                     <font>
                         <Font size="40.0" />
                     </font>
                 </Text>
-                <Text layoutX="444.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="7" wrappingWidth="16.0687255859375">
+                <Text layoutX="448.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="7" wrappingWidth="16.0687255859375">
                     <font>
                         <Font size="40.0" />
                     </font>
                 </Text>
-                <Text layoutX="492.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="8" wrappingWidth="16.0687255859375">
+                <Text layoutX="496.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="8" wrappingWidth="16.0687255859375">
                     <font>
                         <Font size="40.0" />
                     </font>
                 </Text>
-                <Text layoutX="540.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="9" wrappingWidth="16.0687255859375">
+                <Text layoutX="544.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="9" wrappingWidth="16.0687255859375">
                     <font>
                         <Font size="40.0" />
                     </font>
                 </Text>
-                <Text layoutX="573.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10" wrappingWidth="48.999999999999886">
+                <Text layoutX="577.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10" wrappingWidth="48.999999999999886">
                     <font>
                         <Font size="40.0" />
                     </font>
                 </Text>
-                <Text layoutX="108.0" layoutY="307.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A" wrappingWidth="16.0687255859375">
+                <Text layoutX="112.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A" wrappingWidth="16.0687255859375">
                     <font>
                         <Font size="40.0" />
                     </font>
                 </Text>
-                <Text layoutX="108.0" layoutY="355.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B" wrappingWidth="16.0687255859375">
+                <Text layoutX="112.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B" wrappingWidth="16.0687255859375">
                     <font>
                         <Font size="40.0" />
                     </font>
                 </Text>
-                <Text layoutX="108.0" layoutY="499.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E" wrappingWidth="16.0687255859375">
+                <Text layoutX="112.0" layoutY="378.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E" wrappingWidth="16.0687255859375">
                     <font>
                         <Font size="40.0" />
                     </font>
                 </Text>
-                <Text layoutX="108.0" layoutY="547.0" strokeType="OUTSIDE" strokeWidth="0.0" text="F" wrappingWidth="16.0687255859375">
+                <Text layoutX="112.0" layoutY="426.0" strokeType="OUTSIDE" strokeWidth="0.0" text="F" wrappingWidth="16.0687255859375">
                     <font>
                         <Font size="40.0" />
                     </font>
                 </Text>
-                <Text layoutX="111.0" layoutY="691.0" strokeType="OUTSIDE" strokeWidth="0.0" text="I" wrappingWidth="16.0687255859375">
+                <Text layoutX="115.0" layoutY="570.0" strokeType="OUTSIDE" strokeWidth="0.0" text="I" wrappingWidth="16.0687255859375">
                     <font>
                         <Font size="40.0" />
                     </font>
                 </Text>
-                <Button onAction="#handleButtonClickExit" fx:id="btn1" layoutX="607.0" layoutY="794.0" mnemonicParsing="false" prefHeight="90.68" prefWidth="297.0" style="-fx-background-radius: 70; -fx-background-color: radial-gradient(focus-distance 0%, center 50% 50%, radius 55%, #FF002E 0%, #5B0010 100%);" text="Выйти" textFill="WHITE">
+                <Button fx:id="btn1" layoutX="611.0" layoutY="673.0" mnemonicParsing="false" onAction="#handleButtonClickExit" prefHeight="90.68" prefWidth="297.0" stylesheets="@itcss.css" text="Выйти" textFill="WHITE">
                     <font>
                         <Font name="Calibri Bold" size="32.0" />
                     </font>
                 </Button>
-            <Label layoutX="250.0" layoutY="126.0" prefHeight="77.0" prefWidth="228.0" text="Игрок 1">
+            <Label layoutX="254.0" layoutY="5.0" prefHeight="77.0" prefWidth="228.0" text="Игрок 1">
                <font>
                   <Font name="Calibri Bold" size="64.0" />
                </font>
             </Label>
-            <Polygon fill="green" layoutX="720.0" layoutY="440.0" points="0.0, 0.0, 0.0, 140.0, 50.0, 70.0" stroke="BLACK" strokeType="INSIDE" />
-            <Group layoutX="861.0" layoutY="219.0">
+            <Polygon fill="green" layoutX="724.0" layoutY="319.0" points="0.0, 0.0, 0.0, 140.0, 50.0, 70.0" stroke="BLACK" strokeType="INSIDE" />
+            <Group layoutX="865.0" layoutY="98.0">
                <children>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5993ffb0" height="49.0" stroke="BLACK" strokeType="INSIDE" width="49.0" />
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5993ffb0" height="49.0" layoutX="48.0" stroke="BLACK" strokeType="INSIDE" width="49.0" />
@@ -492,82 +492,82 @@
                   </Text>
                </children>
             </Group>
-            <Text layoutX="925.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1" wrappingWidth="16.0687255859375">
+            <Text layoutX="929.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1" wrappingWidth="16.0687255859375">
                <font>
                   <Font size="40.0" />
                </font>
             </Text>
-            <Text layoutX="974.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2" wrappingWidth="16.0687255859375">
+            <Text layoutX="978.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2" wrappingWidth="16.0687255859375">
                <font>
                   <Font size="40.0" />
                </font>
             </Text>
-            <Text layoutX="1021.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3" wrappingWidth="16.0687255859375">
+            <Text layoutX="1025.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3" wrappingWidth="16.0687255859375">
                <font>
                   <Font size="40.0" />
                </font>
             </Text>
-            <Text layoutX="1069.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4" wrappingWidth="16.0687255859375">
+            <Text layoutX="1073.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4" wrappingWidth="16.0687255859375">
                <font>
                   <Font size="40.0" />
                </font>
             </Text>
-            <Text layoutX="1117.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5" wrappingWidth="16.0687255859375">
+            <Text layoutX="1121.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5" wrappingWidth="16.0687255859375">
                <font>
                   <Font size="40.0" />
                </font>
             </Text>
-            <Text layoutX="1165.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="6" wrappingWidth="16.0687255859375">
+            <Text layoutX="1169.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="6" wrappingWidth="16.0687255859375">
                <font>
                   <Font size="40.0" />
                </font>
             </Text>
-            <Text layoutX="1213.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="7" wrappingWidth="16.0687255859375">
+            <Text layoutX="1217.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="7" wrappingWidth="16.0687255859375">
                <font>
                   <Font size="40.0" />
                </font>
             </Text>
-            <Text layoutX="1261.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="8" wrappingWidth="16.0687255859375">
+            <Text layoutX="1265.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="8" wrappingWidth="16.0687255859375">
                <font>
                   <Font size="40.0" />
                </font>
             </Text>
-            <Text layoutX="1309.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" text="9" wrappingWidth="16.0687255859375">
+            <Text layoutX="1313.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="9" wrappingWidth="16.0687255859375">
                <font>
                   <Font size="40.0" />
                </font>
             </Text>
-            <Text layoutX="1342.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10" wrappingWidth="48.999999999999886">
+            <Text layoutX="1346.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10" wrappingWidth="48.999999999999886">
                <font>
                   <Font size="40.0" />
                </font>
             </Text>
-            <Text layoutX="877.0" layoutY="306.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A" wrappingWidth="16.0687255859375">
+            <Text layoutX="881.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A" wrappingWidth="16.0687255859375">
                <font>
                   <Font size="40.0" />
                </font>
             </Text>
-            <Text layoutX="877.0" layoutY="354.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B" wrappingWidth="16.0687255859375">
+            <Text layoutX="881.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B" wrappingWidth="16.0687255859375">
                <font>
                   <Font size="40.0" />
                </font>
             </Text>
-            <Text layoutX="877.0" layoutY="498.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E" wrappingWidth="16.0687255859375">
+            <Text layoutX="881.0" layoutY="377.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E" wrappingWidth="16.0687255859375">
                <font>
                   <Font size="40.0" />
                </font>
             </Text>
-            <Text layoutX="877.0" layoutY="546.0" strokeType="OUTSIDE" strokeWidth="0.0" text="F" wrappingWidth="16.0687255859375">
+            <Text layoutX="881.0" layoutY="425.0" strokeType="OUTSIDE" strokeWidth="0.0" text="F" wrappingWidth="16.0687255859375">
                <font>
                   <Font size="40.0" />
                </font>
             </Text>
-            <Text layoutX="880.0" layoutY="690.0" strokeType="OUTSIDE" strokeWidth="0.0" text="I" wrappingWidth="16.0687255859375">
+            <Text layoutX="884.0" layoutY="569.0" strokeType="OUTSIDE" strokeWidth="0.0" text="I" wrappingWidth="16.0687255859375">
                <font>
                   <Font size="40.0" />
                </font>
             </Text>
-            <Label layoutX="1017.0" layoutY="124.0" prefHeight="77.0" prefWidth="228.0" text="Игрок 1">
+            <Label layoutX="1021.0" layoutY="3.0" prefHeight="77.0" prefWidth="228.0" text="Игрок 1">
                <font>
                   <Font name="Calibri Bold" size="64.0" />
                </font>
