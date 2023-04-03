@@ -133,12 +133,12 @@
             </Button>
             <Group layoutX="112.0" layoutY="46.0">
                <children>
-                  <Button id="btn2" layoutX="9.0" layoutY="-16.0" mnemonicParsing="false" onAction="#handleButtonClick" prefHeight="152.0" prefWidth="429.0" styleClass="btn1" stylesheets="@itcss.css" text="Игра с ботом" textFill="WHITE">
+                  <Button id="btn2" layoutX="9.0" layoutY="-16.0" mnemonicParsing="false" onAction="#handleButtonClickBot" prefHeight="152.0" prefWidth="429.0" styleClass="btn1" stylesheets="@itcss.css" text="Игра с ботом" textFill="WHITE">
                      <font>
                         <Font name="Calibri Bold" size="32.0" />
                      </font>
                   </Button>
-                  <Button id="btn3" layoutX="801.0" layoutY="-18.0" mnemonicParsing="false" onAction="#handleButtonClick_2" prefHeight="152.0" prefWidth="429.0" styleClass="btn1" stylesheets="@itcss.css" text="Игра вдвоем" textFill="WHITE">
+                  <Button id="btn3" layoutX="801.0" layoutY="-18.0" mnemonicParsing="false" onAction="#handleButtonClickTogether" prefHeight="152.0" prefWidth="429.0" styleClass="btn1" stylesheets="@itcss.css" text="Игра вдвоем" textFill="WHITE">
                      <font>
                         <Font name="Calibri Bold" size="32.0" />
                      </font>

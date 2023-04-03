@@ -30,21 +30,32 @@ public class frame_1Controller {
     @FXML
     private Group btn3;
 
+    private String lastButtonPressed;
+
     @FXML
-    private void handleButtonClick(ActionEvent event) throws IOException {
-        Parent pane = FXMLLoader.load(getClass().getResource("frame_2.fxml"));
-        Scene scene = new Scene(pane);
+    private void handleButtonClickBot(ActionEvent event) throws IOException {
+//        frame_2Controller controller = new frame_2Controller();
+//        controller.setLastButtonPressed("bot");
+//        controller.check();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("frame_2.fxml"));
+        Parent pane = loader.load();
+        frame_2Controller controller = loader.getController();
+        controller.setLastButtonPressed("bot");
 //        scene.setCursor(Cursor.HAND);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(pane);
         window.setScene(scene);
         window.show();
     }
     @FXML
-    private void handleButtonClick_2(ActionEvent event) throws IOException {
-        Parent pane = FXMLLoader.load(getClass().getResource("frame_2.fxml"));
-        Scene scene = new Scene(pane);
+    private void handleButtonClickTogether(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("frame_2.fxml"));
+        Parent pane = loader.load();
+        frame_2Controller controller = loader.getController();
+        controller.setLastButtonPressed("together_1");
 //        scene.setCursor(Cursor.HAND);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(pane);
         window.setScene(scene);
         window.show();
     }
