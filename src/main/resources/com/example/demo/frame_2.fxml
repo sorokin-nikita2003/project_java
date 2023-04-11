@@ -334,52 +334,52 @@
             </Text>
             <ImageView fitHeight="49.0" fitWidth="254.0" layoutX="769.0" layoutY="257.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="C:\Users\sorok\Downloads\ship 4 cells.png" />
+                  <Image url="@img/ship_4_cells.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="49.0" fitWidth="184.0" layoutX="769.0" layoutY="353.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="C:\Users\sorok\Downloads\ship 3 cells.png" />
+                  <Image url="@img/ship_3_cells.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="49.0" fitWidth="200.0" layoutX="769.0" layoutY="449.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="C:\Users\sorok\Downloads\ship 2 cells.png" />
+                  <Image url="@img/ship_2_cells.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="49.0" fitWidth="49.0" layoutX="769.0" layoutY="546.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="C:\Users\sorok\Downloads\ship 1 cell.png" />
+                  <Image url="@img/ship_1_cell.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="49.0" fitWidth="184.0" layoutX="980.0" layoutY="353.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="C:\Users\sorok\Downloads\ship 3 cells.png" />
+                  <Image url="@img/ship_3_cells.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="49.0" fitWidth="200.0" layoutX="925.0" layoutY="449.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="C:\Users\sorok\Downloads\ship 2 cells.png" />
+                  <Image url="@img/ship_2_cells.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="49.0" fitWidth="200.0" layoutX="1095.0" layoutY="449.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="C:\Users\sorok\Downloads\ship 2 cells.png" />
+                  <Image url="@img/ship_2_cells.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="49.0" fitWidth="49.0" layoutX="879.0" layoutY="546.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="C:\Users\sorok\Downloads\ship 1 cell.png" />
+                  <Image url="@img/ship_1_cell.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="49.0" fitWidth="49.0" layoutX="994.0" layoutY="546.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="C:\Users\sorok\Downloads\ship 1 cell.png" />
+                  <Image url="@img/ship_1_cell.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="49.0" fitWidth="49.0" layoutX="1104.0" layoutY="546.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="C:\Users\sorok\Downloads\ship 1 cell.png" />
+                  <Image url="@img/ship_1_cell.png" />
                </image>
             </ImageView>
             <Button fx:id="btn1" layoutX="762.0" layoutY="646.0" mnemonicParsing="false" onAction="#handleButtonClickBack" prefHeight="90.68" prefWidth="297.0" stylesheets="@itcss.css" text="Назад" textFill="WHITE">

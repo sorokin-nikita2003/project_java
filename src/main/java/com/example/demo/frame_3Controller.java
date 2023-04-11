@@ -18,6 +18,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class frame_3Controller {
     @FXML
@@ -47,12 +48,13 @@ public class frame_3Controller {
         Button btn_yes = new Button("Да");
         btn_yes.setLayoutX(400);
         btn_yes.setLayoutY(60);
+
         btn_yes.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 Parent pane = null;
                 try {
-                    pane = FXMLLoader.load(getClass().getResource("frame_1.fxml"));
+                    pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("frame_1.fxml")));
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }

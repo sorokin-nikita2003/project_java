@@ -56,7 +56,7 @@ public class frame_2Controller {
             public void handle(ActionEvent event) {
                 Parent pane = null;
                 try {
-                    pane = FXMLLoader.load(getClass().getResource("frame_1.fxml"));
+                    pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("frame_1.fxml")));
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
