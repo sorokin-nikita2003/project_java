@@ -9,7 +9,9 @@ import javafx.geometry.Pos;
 import javafx.scene.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -17,7 +19,6 @@ import java.io.IOException;
 
 
 public class frame_1Controller {
-
     @FXML
     private Group ships;
 
@@ -44,6 +45,8 @@ public class frame_1Controller {
 //        scene.setCursor(Cursor.HAND);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(pane);
+        window.centerOnScreen();
+        window.setMaximized(true);
         window.setScene(scene);
         window.show();
     }
@@ -56,6 +59,8 @@ public class frame_1Controller {
 //        scene.setCursor(Cursor.HAND);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(pane);
+        window.centerOnScreen();
+        window.setMaximized(true);
         window.setScene(scene);
         window.show();
     }
@@ -85,7 +90,8 @@ public class frame_1Controller {
         btn_yes.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                javafx.application.Platform.exit();
+                Platform.exit();
+                System.exit(0);
             }
         });
         btn_no.setOnAction(new EventHandler<ActionEvent>() {
@@ -101,7 +107,7 @@ public class frame_1Controller {
         root.getChildren().add(btn_no);
 
         window.setScene(scene);
-        window.showAndWait();
+        window.show();
     }
 
 //    @FXML
@@ -110,6 +116,7 @@ public class frame_1Controller {
 //        btn2.setCursor(Cursor.HAND);
 //        btn3.setCursor(Cursor.HAND);
 //    }
-
-
+    public static void main(String[] args) {
+        System.out.println("2324");
+    }
 }

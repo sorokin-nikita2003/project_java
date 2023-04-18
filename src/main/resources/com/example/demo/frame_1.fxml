@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="1024" prefWidth="1491.0" spacing="20.0" stylesheets="itcss.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.frame_1Controller">
+<VBox alignment="CENTER" styleClass="vbox" prefHeight="1024" prefWidth="1491.0" spacing="20.0" stylesheets="itcss.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.frame_1Controller">
    <children>
       <AnchorPane id="rect2" prefHeight="493.0" prefWidth="1491.0" styleClass="rect2" stylesheets="@itcss.css">
          <children>

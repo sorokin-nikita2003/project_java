@@ -27,11 +27,8 @@ public class frame_3Controller {
     @FXML
     private void handleButtonClickExit(ActionEvent event) throws IOException {
         Stage window = new Stage();
-        window.initModality(Modality.APPLICATION_MODAL);
 
-        Pane pane = new Pane();
-
-
+//        Pane pane = new Pane();
 
         Group root = new Group();
         Scene scene = new Scene(root, 600,100);
@@ -49,22 +46,28 @@ public class frame_3Controller {
         btn_yes.setLayoutX(400);
         btn_yes.setLayoutY(60);
 
+
         btn_yes.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("frame_1.fxml"));
                 Parent pane = null;
                 try {
-                    pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("frame_1.fxml")));
+                    pane = loader.load();
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
-                Scene scene = new Scene(pane);
+//            frame_2Controller controller = loader.getController();
+//            controller.setLastButtonPressed("bot");
 //        scene.setCursor(Cursor.HAND);
-                Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-                window.setScene(scene);
-                Stage stage = (Stage) btn1.getScene().getWindow();
-                stage.close();
-                window.show();
+                Stage window1 = (Stage)((Node)event.getSource()).getScene().getWindow();
+                Stage window2 = (Stage)btn1.getScene().getWindow();
+                Scene scene = new Scene(pane);
+                window.close();
+                window2.close();
+                window1.setMaximized(true);
+                window1.setScene(scene);
+                window1.show();
             }
         });
         btn_no.setOnAction(new EventHandler<ActionEvent>() {
@@ -74,13 +77,13 @@ public class frame_3Controller {
             }
         });
 
-
         root.getChildren().add(label);
         root.getChildren().add(btn_yes);
         root.getChildren().add(btn_no);
 
         window.setScene(scene);
+        window.initModality(Modality.WINDOW_MODAL);
+//        window.initOwner(parentStage);
         window.showAndWait();
-
     }
 }

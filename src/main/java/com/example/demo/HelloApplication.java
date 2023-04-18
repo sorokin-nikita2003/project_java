@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
@@ -19,7 +20,9 @@ public class HelloApplication extends Application {
 //        BorderPane.setAlignment(root, Pos.CENTER);
 
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("frame_1.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1500, 750);
+        Scene scene = new Scene(fxmlLoader.load());
+//        stage.centerOnScreen();
+        stage.setMaximized(true);
         stage.setTitle("Морской бой");
         stage.setScene(scene);
         stage.show();
