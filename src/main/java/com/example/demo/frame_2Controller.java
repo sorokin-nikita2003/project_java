@@ -5,12 +5,12 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
-import javafx.scene.Group;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.scene.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -19,6 +19,9 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class frame_2Controller {
+    double x, y;
+    @FXML
+    private ImageView ship_4;
     @FXML
     private Button btn1;
 
@@ -28,6 +31,24 @@ public class frame_2Controller {
     private String lastButtonPressed;
     public void setLastButtonPressed(String lastButtonPressed) {
         this.lastButtonPressed = lastButtonPressed;
+    }
+
+    @FXML
+    public void onImagePressed(MouseEvent event) {
+        x = event.getX() - ship_4.getLayoutBounds().getWidth();
+//        System.out.println(x);
+        y = event.getY() - ship_4.getLayoutBounds().getHeight();
+        ship_4.setCursor(Cursor.MOVE);
+    }
+
+    @FXML
+    public void onImageDragged(MouseEvent event) {
+        ship_4.setLayoutX(event.getSceneX() + x);
+        ship_4.setLayoutY(event.getSceneY() + y);
+    }
+
+    public void onImageReleased(MouseEvent mouseEvent) {
+//        if()
     }
 
     @FXML

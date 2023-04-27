@@ -5,26 +5,42 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import  javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 
-public class frame_1Controller {
+public class frame_1Controller implements Initializable {
+    @FXML
+    private Group group1;
+    @FXML
+    private Group group2;
+    @FXML
+    private VBox frame1;
+    @FXML
+    private ResourceBundle rb;
     @FXML
     private Group ships;
-
+    @FXML
+    private AnchorPane rect2;
+    @FXML
+    private AnchorPane rect1;
     @FXML
     private Button btn1;
-
     @FXML
     private Button btn2;
 
@@ -109,6 +125,33 @@ public class frame_1Controller {
         window.setScene(scene);
         window.show();
     }
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        double screenWidth = Screen.getPrimary().getBounds().getWidth();
+//        double parentWidth1 = group1.getParent().getLayoutBounds().getWidth();
+//        double parentHeight = group1.getParent().getLayoutBounds().getHeight();
+        double groupWidth1 = group1.getBoundsInParent().getWidth();
+//        double groupHeight = group1.getBoundsInParent().getHeight();
+        group1.setLayoutX(screenWidth/2 - groupWidth1/1.3);
+//        double screenWidth2 = Screen.getPrimary().getBounds().getWidth();
+//        double parentWidth2 = group1.getParent().getLayoutBounds().getWidth();
+//        double parentHeight = group1.getParent().getLayoutBounds().getHeight();
+        double groupWidth2 = group2.getBoundsInParent().getWidth();
+//        double groupHeight = group1.getBoundsInParent().getHeight();
+        group2.setLayoutX(screenWidth/2 - groupWidth2/2);
+//        group1.setLayoutY((parentHeight + groupHeight) / 2);
+//        btn3.setLayoutX(100);
+
+
+        System.out.println(groupWidth2);
+//        rect1.setAlignment(Pos.CENTER);
+
+//        btn1.setLayoutX(screenWidth/2);
+//        frame1.setAlignment(btn1 ,Pos.CENTER);
+//        frame1.setPrefWidth(vboxWidth);
+//        vBox.setPrefHeight(vboxHeight);
+
+    }
 
 //    @FXML
 //    private void handleButtonHover() {
@@ -116,7 +159,7 @@ public class frame_1Controller {
 //        btn2.setCursor(Cursor.HAND);
 //        btn3.setCursor(Cursor.HAND);
 //    }
-    public static void main(String[] args) {
-        System.out.println("2324");
-    }
+//    public static void main(String[] args) {
+//        System.out.println("2324");
+//    }
 }
