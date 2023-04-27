@@ -44,26 +44,29 @@ public class HelloApplication extends Application {
         int y = random.nextInt(9);
         player2[x][y] = 4;
         int ship = 4;
-        int c = 0;
+        String move2 = "";
         //System.out.println(Arrays.deepToString(player2));
         int move =  random.nextInt(3);
-        while (c <= ship) {
             try {
                 switch (move) {
                     case (0):
                         player2[x + 1][y] = 4;
+                        move2 = "right";
                         x = x + 1;
                         break;
                     case (1):
                         player2[x - 1][y] = 4;
+                        move2 = "left";
                         x = x - 1;
                         break;
                     case (2):
                         player2[x][y + 1] = 4;
+                        move2 = "up";
                         y = y + 1;
                         break;
                     case (3):
                         player2[x][y - 1] = 4;
+                        move2 = "down";
                         y = y - 1;
                         break;
                 }
@@ -71,26 +74,27 @@ public class HelloApplication extends Application {
                 switch (move) {
                     case (0):
                         player2[x - 1][y] = 4;
+                        move2 = "left";
                         x = x - 1;
                         break;
                     case (1):
                         player2[x + 1][y] = 4;
+                        move2 = "right";
                         x = x + 1;
                         break;
                     case (2):
                         player2[x][y - 1] = 4;
+                        move2 = "down";
                         y = y - 1;
                         break;
                     case (3):
                         player2[x][y + 1] = 4;
+                        move2 = "up";
                         y = y + 1;
                         break;
                 }
             }
-            finally {
-                c += 1;
-            }
-        }
+
         PrintArray(player2);
     }
     private static void PrintArray(int[][] Array){
