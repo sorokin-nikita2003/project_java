@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" styleClass="vbox" prefHeight="1024" prefWidth="1491.0" spacing="20.0" stylesheets="itcss.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.frame_1Controller">
+<VBox fx:id="frame1" alignment="CENTER" prefHeight="1024" prefWidth="1491.0" spacing="20.0" styleClass="vbox" stylesheets="itcss.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.frame_1Controller">
    <children>
       <AnchorPane id="rect2" prefHeight="493.0" prefWidth="1491.0" styleClass="rect2" stylesheets="@itcss.css">
          <children>
@@ -103,17 +103,14 @@
                   <Circle fill="DODGERBLUE" layoutX="164.0" layoutY="49.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
                   <Group fx:id="ships" layoutX="-478.0" layoutY="-75.0">
                      <children>
-                        <ImageView fitHeight="292.0" fitWidth="514.0" layoutY="-37.0" pickOnBounds="true"
-                                   preserveRatio="true">
-                           <Image url="@img/image_1.png"/>
+                        <ImageView fitHeight="292.0" fitWidth="514.0" layoutY="-37.0" pickOnBounds="true" preserveRatio="true">
+                           <Image url="@img/image_1.png" />
                         </ImageView>
-                        <ImageView fitHeight="292.0" fitWidth="514.0" layoutX="599.0" layoutY="-37.0"
-                                   pickOnBounds="true" preserveRatio="true">
-                           <Image url="@img/image_2.png"/>
+                        <ImageView fitHeight="292.0" fitWidth="514.0" layoutX="599.0" layoutY="-37.0" pickOnBounds="true" preserveRatio="true">
+                           <Image url="@img/image_2.png" />
                         </ImageView>
-                        <ImageView fitHeight="262.0" fitWidth="867.0" layoutX="135.0" layoutY="-145.0"
-                                   pickOnBounds="true" preserveRatio="true">
-                           <Image url="@img/Linked_Path_Group.png"/>
+                        <ImageView fitHeight="262.0" fitWidth="867.0" layoutX="135.0" layoutY="-145.0" pickOnBounds="true" preserveRatio="true">
+                           <Image url="@img/Linked_Path_Group.png" />
                         </ImageView>
                      </children>
                   </Group>
@@ -123,11 +120,6 @@
       </AnchorPane>
       <AnchorPane id="rect1" prefHeight="604.0" prefWidth="1491.0" stylesheets="@itcss.css">
          <children>
-            <Button id="btn1" layoutX="521.0" layoutY="198.0" mnemonicParsing="false" onAction="#handleButtonClick_3" prefHeight="152.0" prefWidth="429.0" styleClass="btn1" stylesheets="@itcss.css" text="Выйти" textFill="WHITE">
-               <font>
-                  <Font name="Calibri Bold" size="32.0" />
-               </font>
-            </Button>
             <Group layoutX="112.0" layoutY="46.0">
                <children>
                   <Button id="btn2" layoutX="9.0" layoutY="-16.0" mnemonicParsing="false" onAction="#handleButtonClickBot" prefHeight="152.0" prefWidth="429.0" styleClass="btn1" stylesheets="@itcss.css" text="Игра с ботом" textFill="WHITE">
@@ -140,8 +132,14 @@
                         <Font name="Calibri Bold" size="32.0" />
                      </font>
                   </Button>
+                  <Button id="btn1" layoutX="410.0" layoutY="151.0" maxHeight="152.0" maxWidth="429.0" minHeight="152.0" minWidth="429.0" mnemonicParsing="false" onAction="#handleButtonClick_3" prefHeight="152.0" prefWidth="429.0" styleClass="btn1" stylesheets="@itcss.css" text="Выйти" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri Bold" size="32.0" />
+                     </font>
+                  </Button>
                </children>
             </Group>
-         </children></AnchorPane>
+         </children>
+      </AnchorPane>
    </children>
 </VBox>
