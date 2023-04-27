@@ -26,6 +26,10 @@ import java.util.ResourceBundle;
 
 public class frame_1Controller implements Initializable {
     @FXML
+    private Group group1;
+    @FXML
+    private Group group2;
+    @FXML
     private VBox frame1;
     @FXML
     private ResourceBundle rb;
@@ -124,10 +128,22 @@ public class frame_1Controller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         double screenWidth = Screen.getPrimary().getBounds().getWidth();
+//        double parentWidth1 = group1.getParent().getLayoutBounds().getWidth();
+//        double parentHeight = group1.getParent().getLayoutBounds().getHeight();
+        double groupWidth1 = group1.getBoundsInParent().getWidth();
+//        double groupHeight = group1.getBoundsInParent().getHeight();
+        group1.setLayoutX(screenWidth/2 - groupWidth1/1.3);
+//        double screenWidth2 = Screen.getPrimary().getBounds().getWidth();
+//        double parentWidth2 = group1.getParent().getLayoutBounds().getWidth();
+//        double parentHeight = group1.getParent().getLayoutBounds().getHeight();
+        double groupWidth2 = group2.getBoundsInParent().getWidth();
+//        double groupHeight = group1.getBoundsInParent().getHeight();
+        group2.setLayoutX(screenWidth/2 - groupWidth2/2);
+//        group1.setLayoutY((parentHeight + groupHeight) / 2);
 //        btn3.setLayoutX(100);
 
-//        System.out.println(screenWidth);
-//        System.out.println(rect1.getPrefWidth());
+
+        System.out.println(groupWidth2);
 //        rect1.setAlignment(Pos.CENTER);
 
 //        btn1.setLayoutX(screenWidth/2);

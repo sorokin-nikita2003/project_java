@@ -12,115 +12,117 @@
 <VBox fx:id="frame1" alignment="CENTER" prefHeight="1024" prefWidth="1491.0" spacing="20.0" styleClass="vbox" stylesheets="itcss.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.frame_1Controller">
    <children>
       <AnchorPane id="rect2" prefHeight="493.0" prefWidth="1491.0" styleClass="rect2" stylesheets="@itcss.css">
-         <children>
-            <Group layoutX="66.91999816894531" layoutY="158.9199981689453">
-               <children>
-                  <Circle fill="DODGERBLUE" layoutY="54.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="76.0" layoutY="38.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="67.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="34.0" layoutY="70.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="29.0" layoutY="18.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="135.0" layoutY="12.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="67.0" layoutY="79.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="106.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="112.0" layoutY="82.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="115.0" layoutY="45.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="164.0" layoutY="49.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-               </children>
-            </Group>
-            <Group layoutX="419.0" layoutY="72.0">
-               <children>
-                  <Circle fill="DODGERBLUE" layoutY="54.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="76.0" layoutY="38.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="67.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="34.0" layoutY="70.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="29.0" layoutY="18.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="135.0" layoutY="12.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="67.0" layoutY="79.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="106.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="112.0" layoutY="82.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="115.0" layoutY="45.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="164.0" layoutY="49.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-               </children>
-            </Group>
-            <Group layoutX="832.0" layoutY="48.0">
-               <children>
-                  <Circle fill="DODGERBLUE" layoutY="54.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="76.0" layoutY="38.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="67.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="34.0" layoutY="70.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="29.0" layoutY="18.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="135.0" layoutY="12.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="67.0" layoutY="79.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="106.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="112.0" layoutY="82.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="115.0" layoutY="45.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="164.0" layoutY="49.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-               </children>
-            </Group>
-            <Group layoutX="1211.0" layoutY="156.0">
-               <children>
-                  <Circle fill="DODGERBLUE" layoutY="54.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="76.0" layoutY="38.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="67.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="34.0" layoutY="70.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="29.0" layoutY="18.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="135.0" layoutY="12.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="67.0" layoutY="79.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="106.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="112.0" layoutY="82.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="115.0" layoutY="45.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="164.0" layoutY="49.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-               </children>
-            </Group>
-            <Group layoutX="849.0" layoutY="227.0">
-               <children>
-                  <Circle fill="DODGERBLUE" layoutY="54.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="76.0" layoutY="38.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="67.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="34.0" layoutY="70.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="29.0" layoutY="18.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="135.0" layoutY="12.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="67.0" layoutY="79.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="106.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="112.0" layoutY="82.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="115.0" layoutY="45.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="164.0" layoutY="49.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-               </children>
-            </Group>
-            <Group layoutX="636.0" layoutY="270.0">
-               <children>
-                  <Circle fill="DODGERBLUE" layoutY="54.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="76.0" layoutY="38.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="67.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="34.0" layoutY="70.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="29.0" layoutY="18.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="135.0" layoutY="12.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="67.0" layoutY="79.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="106.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="112.0" layoutY="82.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="115.0" layoutY="45.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Circle fill="DODGERBLUE" layoutX="164.0" layoutY="49.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
-                  <Group fx:id="ships" layoutX="-478.0" layoutY="-75.0">
-                     <children>
-                        <ImageView fitHeight="292.0" fitWidth="514.0" layoutY="-37.0" pickOnBounds="true" preserveRatio="true">
-                           <Image url="@img/image_1.png" />
-                        </ImageView>
-                        <ImageView fitHeight="292.0" fitWidth="514.0" layoutX="599.0" layoutY="-37.0" pickOnBounds="true" preserveRatio="true">
-                           <Image url="@img/image_2.png" />
-                        </ImageView>
-                        <ImageView fitHeight="262.0" fitWidth="867.0" layoutX="135.0" layoutY="-145.0" pickOnBounds="true" preserveRatio="true">
-                           <Image url="@img/Linked_Path_Group.png" />
-                        </ImageView>
-                     </children>
-                  </Group>
-               </children>
-            </Group>
-         </children>
+         <Group fx:id="group2">
+            <children>
+               <Group layoutX="66.91999816894531" layoutY="158.9199981689453">
+                  <children>
+                     <Circle fill="DODGERBLUE" layoutY="54.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="76.0" layoutY="38.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="67.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="34.0" layoutY="70.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="29.0" layoutY="18.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="135.0" layoutY="12.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="67.0" layoutY="79.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="106.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="112.0" layoutY="82.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="115.0" layoutY="45.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="164.0" layoutY="49.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                  </children>
+               </Group>
+               <Group layoutX="419.0" layoutY="72.0">
+                  <children>
+                     <Circle fill="DODGERBLUE" layoutY="54.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="76.0" layoutY="38.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="67.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="34.0" layoutY="70.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="29.0" layoutY="18.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="135.0" layoutY="12.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="67.0" layoutY="79.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="106.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="112.0" layoutY="82.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="115.0" layoutY="45.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="164.0" layoutY="49.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                  </children>
+               </Group>
+               <Group layoutX="832.0" layoutY="48.0">
+                  <children>
+                     <Circle fill="DODGERBLUE" layoutY="54.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="76.0" layoutY="38.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="67.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="34.0" layoutY="70.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="29.0" layoutY="18.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="135.0" layoutY="12.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="67.0" layoutY="79.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="106.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="112.0" layoutY="82.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="115.0" layoutY="45.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="164.0" layoutY="49.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                  </children>
+               </Group>
+               <Group layoutX="1211.0" layoutY="156.0">
+                  <children>
+                     <Circle fill="DODGERBLUE" layoutY="54.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="76.0" layoutY="38.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="67.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="34.0" layoutY="70.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="29.0" layoutY="18.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="135.0" layoutY="12.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="67.0" layoutY="79.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="106.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="112.0" layoutY="82.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="115.0" layoutY="45.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="164.0" layoutY="49.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                  </children>
+               </Group>
+               <Group layoutX="849.0" layoutY="227.0">
+                  <children>
+                     <Circle fill="DODGERBLUE" layoutY="54.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="76.0" layoutY="38.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="67.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="34.0" layoutY="70.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="29.0" layoutY="18.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="135.0" layoutY="12.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="67.0" layoutY="79.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="106.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="112.0" layoutY="82.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="115.0" layoutY="45.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="164.0" layoutY="49.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                  </children>
+               </Group>
+               <Group layoutX="636.0" layoutY="270.0">
+                  <children>
+                     <Circle fill="DODGERBLUE" layoutY="54.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="76.0" layoutY="38.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="67.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="34.0" layoutY="70.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="29.0" layoutY="18.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="135.0" layoutY="12.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="67.0" layoutY="79.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="106.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="112.0" layoutY="82.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="115.0" layoutY="45.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Circle fill="DODGERBLUE" layoutX="164.0" layoutY="49.0" radius="29.08" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #91F3FA; -fx-stroke: #91F3FA;" styleClass="circle1" />
+                     <Group fx:id="ships" layoutX="-478.0" layoutY="-75.0">
+                        <children>
+                           <ImageView fitHeight="292.0" fitWidth="514.0" layoutY="-37.0" pickOnBounds="true" preserveRatio="true">
+                              <Image url="@img/image_1.png" />
+                           </ImageView>
+                           <ImageView fitHeight="292.0" fitWidth="514.0" layoutX="599.0" layoutY="-37.0" pickOnBounds="true" preserveRatio="true">
+                              <Image url="@img/image_2.png" />
+                           </ImageView>
+                           <ImageView fitHeight="262.0" fitWidth="867.0" layoutX="135.0" layoutY="-145.0" pickOnBounds="true" preserveRatio="true">
+                              <Image url="@img/Linked_Path_Group.png" />
+                           </ImageView>
+                        </children>
+                     </Group>
+                  </children>
+               </Group>
+            </children>
+         </Group>
       </AnchorPane>
       <AnchorPane id="rect1" prefHeight="604.0" prefWidth="1491.0" stylesheets="@itcss.css">
          <children>
-            <Group layoutX="112.0" layoutY="46.0">
+            <Group fx:id="group1" layoutX="112.0" layoutY="46.0">
                <children>
                   <Button id="btn2" layoutX="9.0" layoutY="-16.0" mnemonicParsing="false" onAction="#handleButtonClickBot" prefHeight="152.0" prefWidth="429.0" styleClass="btn1" stylesheets="@itcss.css" text="Игра с ботом" textFill="WHITE">
                      <font>
