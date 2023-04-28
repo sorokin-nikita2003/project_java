@@ -35,16 +35,19 @@ public class frame_2Controller {
 
     @FXML
     public void onImagePressed(MouseEvent event) {
-        x = event.getX() - ship_4.getLayoutBounds().getWidth();
+//        String imageViewId = ((ImageView) event.getSource()).getId();
+        ImageView clickedImageView = (ImageView) event.getSource();
+        x = event.getX() - clickedImageView.getLayoutBounds().getWidth();
 //        System.out.println(x);
-        y = event.getY() - ship_4.getLayoutBounds().getHeight();
-        ship_4.setCursor(Cursor.MOVE);
+        y = event.getY() - clickedImageView.getLayoutBounds().getHeight();
+        clickedImageView.setCursor(Cursor.MOVE);
     }
 
     @FXML
     public void onImageDragged(MouseEvent event) {
-        ship_4.setLayoutX(event.getSceneX() + x);
-        ship_4.setLayoutY(event.getSceneY() + y);
+        ImageView clickedImageView = (ImageView) event.getSource();
+        clickedImageView.setLayoutX(event.getSceneX() + x);
+        clickedImageView.setLayoutY(event.getSceneY() + y);
     }
 
     public void onImageReleased(MouseEvent mouseEvent) {
@@ -65,12 +68,12 @@ public class frame_2Controller {
         label.setStyle("-fx-font-size:40;-fx-font-size:40");
 
         Button btn_no = new Button("Нет");
-        btn_no.setLayoutX(100);
+        btn_no.setLayoutX(400);
         btn_no.setLayoutY(60);
 
 
         Button btn_yes = new Button("Да");
-        btn_yes.setLayoutX(400);
+        btn_yes.setLayoutX(100);
         btn_yes.setLayoutY(60);
 
 

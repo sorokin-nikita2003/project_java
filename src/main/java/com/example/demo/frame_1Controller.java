@@ -96,12 +96,12 @@ public class frame_1Controller implements Initializable {
         label.setStyle("-fx-font-size:40;-fx-font-size:40");
 
         Button btn_no = new Button("Нет");
-        btn_no.setLayoutX(100);
+        btn_no.setLayoutX(400);
         btn_no.setLayoutY(60);
 
 
         Button btn_yes = new Button("Да");
-        btn_yes.setLayoutX(400);
+        btn_yes.setLayoutX(100);
         btn_yes.setLayoutY(60);
         btn_yes.setOnAction(new EventHandler<ActionEvent>() {
             @Override
