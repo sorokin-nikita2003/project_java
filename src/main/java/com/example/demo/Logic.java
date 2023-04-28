@@ -29,27 +29,22 @@ public class Logic {
     static Random random = new Random();
     static int[][] player1 = new int[10][10];
     static int[][] player2 = new int[10][10];
-    protected static void generate_ships() {
+    protected static void set_ship(int ship) {
         ArrayDeque<Integer> index_ship = new ArrayDeque<Integer>();
-        int[] nymbers_ships = {4, 3, 2, 1};
-        int ship = 4;
         int power_ship = ship - 1;
-        int x0 = random.nextInt(10);
-        int y0 = random.nextInt(10);
-        int x1 = x0;
-        int y1 = y0;
+        int x1 = random.nextInt(10);
+        int y1 = random.nextInt(10);
+        int move = random.nextInt(4);
+        player2[x1][y1] = ship;
         index_ship.add(x1);
         index_ship.add(y1);
-        int move = random.nextInt(4);
-        player2[x0][y0] = ship;
-        //for (int i = 0; i <= nymbers_ships)
         while (power_ship > 0) {
             try {
                 try {
                     switch (move){
                         case (0):
                             if(player2[x1 + 1][y1] == 0) {
-                                player2[x1 + 1][y1] = 4;
+                                player2[x1 + 1][y1] = ship;
                                 generate_stuff(x1,y1);
                                 x1 = x1 + 1;
                                 power_ship -= 1;
@@ -62,7 +57,7 @@ public class Logic {
                             break;
                         case(1):
                             if(player2[x1 - 1][y1] == 0) {
-                                player2[x1 - 1][y1] = 4;
+                                player2[x1 - 1][y1] = ship;
                                 x1 = x1 - 1;
                                 power_ship -= 1;
                             }
@@ -74,7 +69,7 @@ public class Logic {
                             break;
                         case(2):
                             if(player2[x1][y1 + 1] == 0) {
-                                player2[x1][y1 + 1] = 4;
+                                player2[x1][y1 + 1] = ship;
                                 y1 = y1 + 1;
                                 power_ship -= 1;
                             }
@@ -86,7 +81,7 @@ public class Logic {
                             break;
                         case(3):
                             if(player2[x1][y1 - 1] == 0) {
-                                player2[x1][y1 - 1] = 4;
+                                player2[x1][y1 - 1] = ship;
                                 y1 = y1 - 1;
                                 power_ship -= 1;
                             }
@@ -102,7 +97,7 @@ public class Logic {
                     switch (move){
                         case (0):
                             if(player2[x1 - 1][y1] == 0) {
-                                player2[x1 - 1][y1] = 4;
+                                player2[x1 - 1][y1] = ship;
                                 x1 = x1 - 1;
                                 move = 1;
                                 power_ship -= 1;
@@ -114,7 +109,7 @@ public class Logic {
                             break;
                         case(1):
                             if(player2[x1 + 1][y1] == 0) {
-                                player2[x1 + 1][y1] = 4;
+                                player2[x1 + 1][y1] = ship;
                                 x1 = x1 + 1;
                                 move = 0;
                                 power_ship -= 1;
@@ -126,7 +121,7 @@ public class Logic {
                             break;
                         case(2):
                             if(player2[x1][y1 - 1] == 0) {
-                                player2[x1][y1 - 1] = 4;
+                                player2[x1][y1 - 1] = ship;
                                 y1 = y1 - 1;
                                 move = 3;
                                 power_ship -= 1;
@@ -138,7 +133,7 @@ public class Logic {
                             break;
                         case(3):
                             if(player2[x1][y1 + 1] == 0) {
-                                player2[x1][y1 + 1] = 4;
+                                player2[x1][y1 + 1] = ship;
                                 y1 = y1 + 1;
                                 move = 2;
                                 power_ship -= 1;
@@ -158,14 +153,31 @@ public class Logic {
                 index_ship.add(x1);
                 index_ship.add(y1);
             }
-            System.out.print("pow" + power_ship + " ");
-            System.out.println("move" + move + "  " + x1 + " " + y1);
+            //System.out.print("pow" + power_ship + " ");
+            //System.out.println("move" + move + "  " + x1 + " " + y1);
         }
         while(index_ship.peek()!=null){
             //System.out.println(index_ship.pop());
             generate_stuff(index_ship.pop(), index_ship.pop());
         }
         PrintArray(player2);
+        System.out.println("_____________________________________________________________");
+    }
+    protected static void generate_ships() {
+        int[] nymbers_ships = {4, 3, 2, 1};
+        for(int type_ship = 3; type_ship >= 0; type_ship--){
+            while (nymbers_ships[type_ship] != 0){
+                try {
+                    set_ship(type_ship + 1);
+                }
+                catch (Exception e){
+                    System.out.println("Error");
+                }
+                finally {
+                    nymbers_ships[type_ship] -= 1;
+                }
+            }
+        }
     }
     protected static void generate_stuff(int i , int j){ //0, 0
         int xi = i - 1;

@@ -36,6 +36,6 @@ public class HelloApplication extends Application {
     public static void main(String[] args) {
         //launch();
         Logic logic = new Logic();
-        logic.generate_ships();
+        //logic.generate_ships();
     }
 }
