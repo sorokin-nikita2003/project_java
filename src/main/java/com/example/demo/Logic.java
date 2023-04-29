@@ -34,172 +34,68 @@ public class Logic {
         int power_ship = ship - 1;
         int x1;
         int y1;
+        int move;
         while (true) {
             x1 = random.nextInt(10);
             y1 = random.nextInt(10);
-            if (player2[x1][y1] == 0) {
+            if (player2[x1][y1] == 0 && check_root(x1, y1, ship)) {
                 break;
             }
-            //System.out.println(x1);
-            //System.out.println(y1);
         }
         //System.out.println(x1);
+        //System.out.println(y1);
         player2[x1][y1] = ship;
-        int move = random.nextInt(4);
         index_ship.add(x1);
         index_ship.add(y1);
+        while (true) {
+            move = random.nextInt(4);
+            //System.out.println(move);
+            if (check_for_move(x1 ,y1, ship, move)){
+                break;
+            }
+        }
+        //System.out.println("x " + x1);
+        //System.out.println("y " + y1);
+        //System.out.println("move " + move);
+        int new_power_ship = power_ship;
         while (power_ship > 0) {
-            try {
-                try {
-                    switch (move) {
+            //System.out.println(ship);
+            switch (move) {
                         case (0) -> {
                             if (player2[x1 + 1][y1] == 0) {
                                 player2[x1 + 1][y1] = ship;
                                 generate_stuff(x1, y1);
                                 x1 = x1 + 1;
-                                power_ship -= 1;
-                            } else {
-                                if (player2[x1 + 1][y1] == ship) {
-                                    x1 = x1 + 1;
-                                }
+                                new_power_ship -= 1;
                             }
                         }
                         case (1) -> {
                             if (player2[x1 - 1][y1] == 0) {
                                 player2[x1 - 1][y1] = ship;
                                 x1 = x1 - 1;
-                                power_ship -= 1;
-                            } else {
-                                if (player2[x1 - 1][y1] == ship) {
-                                    x1 = x1 - 1;
-                                }
+                                new_power_ship -= 1;
                             }
                         }
                         case (2) -> {
                             if (player2[x1][y1 + 1] == 0) {
                                 player2[x1][y1 + 1] = ship;
                                 y1 = y1 + 1;
-                                power_ship -= 1;
-                            } else {
-                                if (player2[x1][y1 + 1] == ship) {
-                                    y1 = y1 + 1;
-                                }
+                                new_power_ship -= 1;
                             }
                         }
                         case (3) -> {
                             if (player2[x1][y1 - 1] == 0) {
                                 player2[x1][y1 - 1] = ship;
                                 y1 = y1 - 1;
-                                power_ship -= 1;
-                            } else {
-                                if (player2[x1][y1 - 1] == ship) {
-                                    y1 = y1 - 1;
-                                }
+                                new_power_ship -= 1;
                             }
                         }
                     }
-                } catch (Exception e) {
-                    switch (move) {
-                        case (0) -> {
-                            if (player2[x1 - 1][y1] == 0) {
-                                player2[x1 - 1][y1] = ship;
-                                x1 = x1 - 1;
-                                move = 1;
-                                power_ship -= 1;
-                            }
-                            else {
-                                if (player2[x1 - 1][y1] == ship) {
-                                    x1 = x1 - 1;
-                                    move = 1;
-                                }
-                                else {
-                                    if (player2[x1][y1 - 1] == 0) {
-                                        y1 = y1 - 1;
-                                        move = 3;
-                                    }
-                                    else {
-                                        if (player2[x1][y1 + 1] == 0) {
-                                            y1 = y1 + 1;
-                                            move = 2;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        case (1) -> {
-                            if (player2[x1 + 1][y1] == 0) {
-                                player2[x1 + 1][y1] = ship;
-                                x1 = x1 + 1;
-                                move = 0;
-                                power_ship -= 1;
-                            }
-                            else {
-                                if (player2[x1 + 1][y1] == ship) {
-                                    x1 = x1 + 1;
-                                    move = 0;
-                                }
-                                else {
-                                    if (player2[x1][y1 - 1] == 0) {
-                                        y1 = y1 - 1;
-                                        move = 3;
-                                    }
-                                    else {
-                                        if (player2[x1][y1 + 1] == 0) {
-                                            y1 = y1 + 1;
-                                            move = 2;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        case (2) -> {
-                            if (player2[x1][y1 - 1] == 0) {
-                                player2[x1][y1 - 1] = ship;
-                                y1 = y1 - 1;
-                                move = 3;
-                                power_ship -= 1;
-                            }
-                            else {
-                                if (player2[x1][y1 - 1] == ship) {
-                                    y1 = y1 - 1;
-                                    move = 3;
-                                }
-                                else {
-                                    if (player2[x1][y1 - 1] == 0) {
-                                        y1 = y1 - 1;
-                                        move = 3;
-                                    }
-                                    else {
-                                        if (player2[x1][y1 + 1] == 0) {
-                                            y1 = y1 + 1;
-                                            move = 2;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                        case (3) -> {
-                            if (player2[x1][y1 + 1] == 0) {
-                                player2[x1][y1 + 1] = ship;
-                                y1 = y1 + 1;
-                                move = 2;
-                                power_ship -= 1;
-                            }
-                            if (player2[x1][y1 + 1] == ship) {
-                                y1 = y1 + 1;
-                                move = 2;
-                            }
-                        }
-                    }
+            if (new_power_ship != power_ship){
+                    index_ship.add(x1);
+                    index_ship.add(y1);
                 }
-            } catch (Exception e) {
-                System.out.print(e);
-            } finally {
-                index_ship.add(x1);
-                index_ship.add(y1);
-            }
-            //System.out.print("pow" + power_ship + " ");
-            //System.out.println("move" + move + "  " + x1 + " " + y1);
+            power_ship = new_power_ship;
         }
         while (index_ship.peek() != null) {
             //System.out.println(index_ship.pop());
@@ -223,6 +119,127 @@ public class Logic {
                 }
             }
         }
+    }
+    private static boolean check_root(int x , int y, int power){
+        boolean result = true;
+        int len = 0;
+        try{
+            for (int i = 1; i <= power; i++){
+                if(player2[x + i][y] != 0){
+                    break;
+                }
+                else{
+                    len += 1;
+                }
+            }
+            if(check_len(len, power)){
+                return result;
+            }
+            len = 0;
+            for (int i = 1; i <= power; i++){
+                if(player2[x - i][y] != 0){
+                    break;
+                }
+                else{
+                    len += 1;
+                }
+            }
+            if(check_len(len, power)){
+                return result;
+            }
+            len = 0;
+            for (int i = 1; i <= power; i++){
+                if(player2[x][y + i] != 0){
+                    break;
+                }
+                else{
+                    len += 1;
+                }
+            }
+            if(check_len(len, power)){
+                return result;
+            }
+            len = 0;
+            for (int i = 1; i <= power; i++){
+                if(player2[x][y - i] != 0){
+                    break;
+                }
+                else{
+                    len += 1;
+                }
+            }
+            if(check_len(len, power)){
+                return result;
+            }
+            result = false;
+        }
+        catch (Exception e){
+            return false;
+        }
+        finally {
+            return result;
+        }
+    }
+    private static boolean check_for_move(int x , int y, int power, int move_ship){
+        boolean result = false;
+        int len = 0;
+        try{
+            switch (move_ship) {
+                case(0)-> {
+                    for (int i = 1; i <= power; i++) {
+                        if (player2[x + i][y] != 0) {
+                            break;
+                        } else {
+                            len += 1;
+                        }
+                    }
+                }
+                case(1)-> {
+                    for (int i = 1; i <= power; i++) {
+                        if (player2[x - i][y] != 0) {
+                            break;
+                        } else {
+                            len += 1;
+                        }
+                    }
+                }
+                case(2)-> {
+                    for (int i = 1; i <= power; i++) {
+                        if (player2[x][y + i] != 0) {
+                            break;
+                        } else {
+                            len += 1;
+                        }
+                    }
+                }
+                case(3)-> {
+                    for (int i = 1; i <= power; i++) {
+                        if (player2[x][y - i] != 0) {
+                            break;
+                        } else {
+                            len += 1;
+                        }
+                    }
+                }
+            }
+            //System.out.println("len " + len);
+            //System.out.println("power " + power);
+            if (check_len(len, power)) {
+                result = true;
+            }
+        }
+        catch (Exception e){
+            return false;
+        }
+        finally {
+            return result;
+        }
+    }
+    private static boolean check_len(int len , int power){
+        if(len == power){
+            return true;
+        }
+        return false;
     }
     protected static void generate_stuff(int i , int j){ //0, 0
         int xi = i - 1;
