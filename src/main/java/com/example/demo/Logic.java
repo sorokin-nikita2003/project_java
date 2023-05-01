@@ -18,7 +18,7 @@ import java.util.Random;
 //
 
 public class Logic {
-    private static void PrintArray(int[][] Array){
+    protected static void PrintArray(int[][] Array){
         for (int i = 0; i < 10; i++) {  //идём по строкам
             for (int j = 0; j < 10; j++) { //идём по столбцам
                 System.out.print(" " + Array[i][j] + " "); //вывод элемента
@@ -27,9 +27,7 @@ public class Logic {
         }
     }
     static Random random = new Random();
-    static int[][] player1 = new int[10][10];
-    static int[][] player2 = new int[10][10];
-    protected static void set_ship(int ship) {
+    private static void set_ship(int ship, int[][] matrix) {
         ArrayDeque<Integer> index_ship = new ArrayDeque<Integer>();
         int power_ship = ship - 1;
         int x1;
@@ -38,19 +36,19 @@ public class Logic {
         while (true) {
             x1 = random.nextInt(10);
             y1 = random.nextInt(10);
-            if (player2[x1][y1] == 0 && check_root(x1, y1, ship)) {
+            if (matrix[x1][y1] == 0 && check_root(x1, y1, ship, matrix)) {
                 break;
             }
         }
         //System.out.println(x1);
         //System.out.println(y1);
-        player2[x1][y1] = ship;
+        matrix[x1][y1] = ship;
         index_ship.add(x1);
         index_ship.add(y1);
         while (true) {
             move = random.nextInt(4);
             //System.out.println(move);
-            if (check_for_move(x1 ,y1, ship, move)){
+            if (check_for_move(x1 ,y1, ship, move, matrix)){
                 break;
             }
         }
@@ -62,30 +60,29 @@ public class Logic {
             //System.out.println(ship);
             switch (move) {
                         case (0) -> {
-                            if (player2[x1 + 1][y1] == 0) {
-                                player2[x1 + 1][y1] = ship;
-                                generate_stuff(x1, y1);
+                            if (matrix[x1 + 1][y1] == 0) {
+                                matrix[x1 + 1][y1] = ship;
                                 x1 = x1 + 1;
                                 new_power_ship -= 1;
                             }
                         }
                         case (1) -> {
-                            if (player2[x1 - 1][y1] == 0) {
-                                player2[x1 - 1][y1] = ship;
+                            if (matrix[x1 - 1][y1] == 0) {
+                                matrix[x1 - 1][y1] = ship;
                                 x1 = x1 - 1;
                                 new_power_ship -= 1;
                             }
                         }
                         case (2) -> {
-                            if (player2[x1][y1 + 1] == 0) {
-                                player2[x1][y1 + 1] = ship;
+                            if (matrix[x1][y1 + 1] == 0) {
+                                matrix[x1][y1 + 1] = ship;
                                 y1 = y1 + 1;
                                 new_power_ship -= 1;
                             }
                         }
                         case (3) -> {
-                            if (player2[x1][y1 - 1] == 0) {
-                                player2[x1][y1 - 1] = ship;
+                            if (matrix[x1][y1 - 1] == 0) {
+                                matrix[x1][y1 - 1] = ship;
                                 y1 = y1 - 1;
                                 new_power_ship -= 1;
                             }
@@ -99,20 +96,17 @@ public class Logic {
         }
         while (index_ship.peek() != null) {
             //System.out.println(index_ship.pop());
-            generate_stuff(index_ship.pop(), index_ship.pop());
+            generate_stuff(index_ship.pop(), index_ship.pop(), matrix);
         }
-        PrintArray(player2);
-        System.out.println("_____________________________________________________________");
+        //PrintArray(matrix);
+        //System.out.println("_____________________________________________________________");
     }
-    protected static void generate_ships() {
+    protected static void generate_ships(int[][] player) {
         int[] nymbers_ships = {4, 3, 2, 1};
         for(int type_ship = 3; type_ship >= 0; type_ship--){
             while (nymbers_ships[type_ship] != 0){
                 try {
-                    set_ship(type_ship + 1);
-                }
-                catch (Exception e){
-                    System.out.println("Error");
+                    set_ship(type_ship + 1, player);
                 }
                 finally {
                     nymbers_ships[type_ship] -= 1;
@@ -120,12 +114,12 @@ public class Logic {
             }
         }
     }
-    private static boolean check_root(int x , int y, int power){
+    private static boolean check_root(int x , int y, int power, int[][] matrix){
         boolean result = true;
         int len = 0;
         try{
             for (int i = 1; i <= power; i++){
-                if(player2[x + i][y] != 0){
+                if(matrix[x + i][y] != 0){
                     break;
                 }
                 else{
@@ -137,7 +131,7 @@ public class Logic {
             }
             len = 0;
             for (int i = 1; i <= power; i++){
-                if(player2[x - i][y] != 0){
+                if(matrix[x - i][y] != 0){
                     break;
                 }
                 else{
@@ -149,7 +143,7 @@ public class Logic {
             }
             len = 0;
             for (int i = 1; i <= power; i++){
-                if(player2[x][y + i] != 0){
+                if(matrix[x][y + i] != 0){
                     break;
                 }
                 else{
@@ -161,7 +155,7 @@ public class Logic {
             }
             len = 0;
             for (int i = 1; i <= power; i++){
-                if(player2[x][y - i] != 0){
+                if(matrix[x][y - i] != 0){
                     break;
                 }
                 else{
@@ -180,14 +174,14 @@ public class Logic {
             return result;
         }
     }
-    private static boolean check_for_move(int x , int y, int power, int move_ship){
+    private static boolean check_for_move(int x , int y, int power, int move_ship, int[][] matrix){
         boolean result = false;
         int len = 0;
         try{
             switch (move_ship) {
                 case(0)-> {
                     for (int i = 1; i <= power; i++) {
-                        if (player2[x + i][y] != 0) {
+                        if (matrix[x + i][y] != 0) {
                             break;
                         } else {
                             len += 1;
@@ -196,7 +190,7 @@ public class Logic {
                 }
                 case(1)-> {
                     for (int i = 1; i <= power; i++) {
-                        if (player2[x - i][y] != 0) {
+                        if (matrix[x - i][y] != 0) {
                             break;
                         } else {
                             len += 1;
@@ -205,7 +199,7 @@ public class Logic {
                 }
                 case(2)-> {
                     for (int i = 1; i <= power; i++) {
-                        if (player2[x][y + i] != 0) {
+                        if (matrix[x][y + i] != 0) {
                             break;
                         } else {
                             len += 1;
@@ -214,7 +208,7 @@ public class Logic {
                 }
                 case(3)-> {
                     for (int i = 1; i <= power; i++) {
-                        if (player2[x][y - i] != 0) {
+                        if (matrix[x][y - i] != 0) {
                             break;
                         } else {
                             len += 1;
@@ -241,18 +235,70 @@ public class Logic {
         }
         return false;
     }
-    protected static void generate_stuff(int i , int j){ //0, 0
+    private static void generate_stuff(int i , int j, int[][] matrix){ //0, 0
         int xi = i - 1;
         for (int cx = 1; cx <= 3; cx++){
             int yj = j - 1;
             for (int cy = 1; cy <= 3; cy++){
-                if ((xi >= 0 && xi < 10) && (yj >= 0 && yj < 10) && (player2[xi][yj] == 0)){
-                    player2[xi][yj] = 8;
+                if ((xi >= 0 && xi < 10) && (yj >= 0 && yj < 10) && (matrix[xi][yj] == 0)){
+                    matrix[xi][yj] = 8;
                 }
                 yj += 1;
             }
             xi += 1;
         }
         //PrintArray(player2);
+    }
+    private static void set_miss(int i , int j, int[][] matrix){
+        int xi = i - 1;
+        for (int cx = 1; cx <= 3; cx++){
+            int yj = j - 1;
+            for (int cy = 1; cy <= 3; cy++){
+                if ((xi >= 0 && xi < 10) && (yj >= 0 && yj < 10) && (matrix[xi][yj] == 8)){
+                    matrix[xi][yj] = 9;
+                }
+                yj += 1;
+            }
+            xi += 1;
+        }
+    }
+    private static String shot_target(int x, int y, int[][] matrix){
+        int result = matrix[x][y];
+        if(result == 0 || result == 8){
+            return "Empty";
+        }
+        else {
+            if(result == 1 || result == 2 || result == 3 || result == 4){
+                return "Hit";
+            }
+        }
+        return "not";
+    }
+    protected static boolean shot_result(int x, int y, int[][] matrix){
+        boolean result_shot = true;
+        switch (shot_target(x, y, matrix)){
+            case("Empty") ->{
+                matrix[x][y] = 9;
+                result_shot = false;
+            }
+            case("Hit") ->{
+                matrix[x][y] = -1;
+            }
+            case("Kill") ->{
+                matrix[x][y] = -2;
+            }
+            default -> {
+                result_shot = true;
+            }
+        }
+        return result_shot;
+    }
+    protected static String shot(int x, int y, int[][] matrix){
+        ArrayDeque<Integer> index_ship = new ArrayDeque<Integer>();
+        /**while (){
+            index_ship.add(x);
+            index_ship.add(y);
+        }**/
+        return "not ready";
     }
 }

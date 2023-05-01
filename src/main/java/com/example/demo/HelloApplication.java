@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Random;
+import java.util.Scanner;
 
 public class HelloApplication extends Application {
     @Override
@@ -32,10 +33,16 @@ public class HelloApplication extends Application {
         stage.setScene(scene);
         stage.show();
     }
-
+    static int[][] player1 = new int[10][10];
+    static int[][] player2 = new int[10][10];
     public static void main(String[] args) {
         //launch();
+        Scanner in = new Scanner(System.in);
         Logic logic = new Logic();
-        logic.generate_ships();
+        logic.generate_ships(player2);
+        logic.PrintArray(player2);
+        int X = in.nextInt();
+        int Y = in.nextInt();
+       //logic.shot(X, Y, player2);
     }
 }
