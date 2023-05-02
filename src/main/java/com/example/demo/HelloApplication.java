@@ -43,6 +43,7 @@ public class HelloApplication extends Application {
         logic.PrintArray(player2);
         int X = in.nextInt();
         int Y = in.nextInt();
-       //logic.shot(X, Y, player2);
+        System.out.println(logic.shot(X, Y, player2));
+        logic.PrintArray(player2);
     }
 }

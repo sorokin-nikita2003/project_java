@@ -96,7 +96,7 @@ public class Logic {
         }
         while (index_ship.peek() != null) {
             //System.out.println(index_ship.pop());
-            generate_stuff(index_ship.pop(), index_ship.pop(), matrix);
+            around(index_ship.pop(), index_ship.pop(), matrix, 0,8);
         }
         //PrintArray(matrix);
         //System.out.println("_____________________________________________________________");
@@ -235,32 +235,19 @@ public class Logic {
         }
         return false;
     }
-    private static void generate_stuff(int i , int j, int[][] matrix){ //0, 0
+    private static void around(int i , int j, int[][] matrix, int target, int value){ //0, 0
         int xi = i - 1;
         for (int cx = 1; cx <= 3; cx++){
             int yj = j - 1;
             for (int cy = 1; cy <= 3; cy++){
-                if ((xi >= 0 && xi < 10) && (yj >= 0 && yj < 10) && (matrix[xi][yj] == 0)){
-                    matrix[xi][yj] = 8;
+                if ((xi >= 0 && xi < 10) && (yj >= 0 && yj < 10) && (matrix[xi][yj] == target)){
+                    matrix[xi][yj] = value;
                 }
                 yj += 1;
             }
             xi += 1;
         }
         //PrintArray(player2);
-    }
-    private static void set_miss(int i , int j, int[][] matrix){
-        int xi = i - 1;
-        for (int cx = 1; cx <= 3; cx++){
-            int yj = j - 1;
-            for (int cy = 1; cy <= 3; cy++){
-                if ((xi >= 0 && xi < 10) && (yj >= 0 && yj < 10) && (matrix[xi][yj] == 8)){
-                    matrix[xi][yj] = 9;
-                }
-                yj += 1;
-            }
-            xi += 1;
-        }
     }
     private static String shot_target(int x, int y, int[][] matrix){
         int result = matrix[x][y];
@@ -274,7 +261,7 @@ public class Logic {
         }
         return "not";
     }
-    protected static boolean shot_result(int x, int y, int[][] matrix){
+    private static boolean shot_result(int x, int y, int[][] matrix){
         boolean result_shot = true;
         switch (shot_target(x, y, matrix)){
             case("Empty") ->{
@@ -284,21 +271,27 @@ public class Logic {
             case("Hit") ->{
                 matrix[x][y] = -1;
             }
-            case("Kill") ->{
-                matrix[x][y] = -2;
-            }
-            default -> {
-                result_shot = true;
-            }
         }
         return result_shot;
     }
-    protected static String shot(int x, int y, int[][] matrix){
+    protected static String shot(int x, int y, int[][] matrix) {
         ArrayDeque<Integer> index_ship = new ArrayDeque<Integer>();
-        /**while (){
+        String res = "miss";
+        int i = 0;
+        int value_shot = matrix[x][y];
+        while (shot_result(x, y, matrix)) {
+            System.out.println("hit");
+            i += 1;
             index_ship.add(x);
             index_ship.add(y);
-        }**/
-        return "not ready";
+            if (i == value_shot) {
+                while (index_ship.peek() != null) {
+                    around(index_ship.pop(), index_ship.pop(), matrix, 8, 9);
+                }
+                res = "Kill";
+                i = 0;
+            }
+        }
+        return res;
     }
 }
