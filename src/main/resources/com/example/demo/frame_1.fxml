@@ -117,6 +117,11 @@
                      </Group>
                   </children>
                </Group>
+               <Button id="btn4" layoutX="21.0" layoutY="26.0" mnemonicParsing="false" onAction="#handleButtonClickSettings" prefHeight="76.0" prefWidth="211.0" text="Настройки" styleClass="btn4" stylesheets="@itcss.css"  textFill="WHITE">
+                  <font>
+                     <Font name="Calibri Bold" size="32.0" />
+                  </font>
+               </Button>
             </children>
          </Group>
       </AnchorPane>
