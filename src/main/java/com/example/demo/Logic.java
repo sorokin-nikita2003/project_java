@@ -273,14 +273,16 @@ public class Logic {
         System.out.println(matrix[x][y]);
         if (matrix[x][y] == 1) {
             matrix[x][y] = -2;
+            around(x, y, matrix, 8, 9);
             index_ship.add(x);
             index_ship.add(y);
             System.out.println(search_score_ship(x, y, matrix, 1));
-            while (index_ship.peek() != null) {
+            pop_ship_kill(x, y, matrix, -2);
+            /**while (index_ship.peek() != null) {
                 int x_i = index_ship.pop();
                 int y_j = index_ship.pop();
                 around(x_i, y_j, matrix, 8, 9);
-            }
+            }**/
             return "Kill";
         } else {
             int score_ship = matrix[x][y];
@@ -385,5 +387,24 @@ public class Logic {
             res += search_score_ship(x, y - 1, matrix, res);
         }
         return res;
+    }
+    private static void pop_ship_kill(int x, int y, int[][] matrix, int ship_power) {
+        if (chek_ship(x + 1, y ,matrix, ship_power)) {
+            around(x + 1, y, matrix, 8, 9);
+            pop_ship_kill(x + 1, y ,matrix, ship_power);
+        }
+        if (chek_ship(x - 1, y ,matrix, ship_power)) {
+            around(x - 1, y, matrix, 8, 9);
+            pop_ship_kill(x - 1, y ,matrix, ship_power);
+        }
+        if (chek_ship(x , y + 1,matrix, ship_power)) {
+            around(x , y + 1, matrix, 8, 9);
+            pop_ship_kill(x, y + 1 ,matrix, ship_power);
+        }
+        if (chek_ship(x, y - 1 ,matrix, ship_power)) {
+            around(x, y - 1, matrix, 8, 9);
+            pop_ship_kill(x, y - 1 ,matrix, ship_power);
+        }
+        //return "end";
     }
 }
