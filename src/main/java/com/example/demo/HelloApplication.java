@@ -8,6 +8,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Scanner;
 
+import static com.example.demo.Logic.score_player2;
+
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
@@ -31,15 +33,16 @@ public class HelloApplication extends Application {
     static int[][] player1 = new int[10][10];
     static int[][] player2 = new int[10][10];
     public static void main(String[] args) {
-        launch();
+        //launch();
 
-        Scanner in = new Scanner(System.in);
         Logic logic = new Logic();
         logic.generate_ships(player2);
         logic.PrintArray(player2);
-        int X = in.nextInt();
-        int Y = in.nextInt();
-        System.out.println(logic.shot(X, Y, player2));
+        logic.shot(player2);
+        System.out.println(score_player2);
+        logic.PrintArray(player2);
+        System.out.println("второй шанс");
+        logic.shot(player2);
         logic.PrintArray(player2);
     }
 }
