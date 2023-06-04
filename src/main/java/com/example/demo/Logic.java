@@ -269,50 +269,44 @@ public class Logic {
     }
 
     private static String shot_result(int x, int y, int[][] matrix) {
-        ArrayDeque<Integer> parts_of_ship = new ArrayDeque<Integer>();
+       //ArrayDeque<Integer> parts_of_ship = new ArrayDeque<Integer>();
         System.out.println(matrix[x][y]);
         if (matrix[x][y] == 1) {
             matrix[x][y] = -2;
             around(x, y, matrix, 8, 9);
-            index_ship.add(x);
-            index_ship.add(y);
+            //index_ship.add(x);
+            //index_ship.add(y);
             System.out.println(search_score_ship(x, y, matrix, 1));
-            pop_ship_kill(x, y, matrix, -2);
-            /**while (index_ship.peek() != null) {
-                int x_i = index_ship.pop();
-                int y_j = index_ship.pop();
-                around(x_i, y_j, matrix, 8, 9);
-            }**/
             return "Kill";
         } else {
             int score_ship = matrix[x][y];
             matrix[x][y] = -1;
-            index_ship.add(x);
-            index_ship.add(y);
-            search_ship(x, y, matrix, score_ship);
-            search_ship(first_x, first_y, matrix, score_ship);
+            //index_ship.add(x);
+            //index_ship.add(y);
+            //search_ship(x, y, matrix, score_ship);
+            //search_ship(first_x, first_y, matrix, score_ship);
+            //System.out.println(-1);
+            search_ship_new(x, y, matrix, score_ship);
+            /**while (parts_of_ship.peek() != null) {
+                matrix[parts_of_ship.pop()][parts_of_ship.pop()] = score_ship - 1;
+            }**/
             return "Hit";
         }
     }
 
     protected static void shot(int[][] matrix) {
-        //ArrayDeque<Integer> index_ship = new ArrayDeque<Integer>();
-        String res = "miss";
+        String res;
         int i = 0;
         int x = in.nextInt();
         int y = in.nextInt();
         int value_shot;
-            while ((ships_around(x, y, matrix) || matrix[x][y] == 1) && shot_target(x, y, matrix) != "Empty")  {
+            while ((ships_around(x, y, matrix) || matrix[x][y] == 1 || shot_target(x, y, matrix) != "not") && shot_target(x, y, matrix) != "Empty")  {
                 if (shot_target(x, y, matrix) == "Hit"){
-                    i += 1;
-                    if(i == 1){
-                        first_x = x; first_y = y;
-                    }
                     res = shot_result(x, y, matrix);
                     System.out.println(res);
-                    if (res == "Kill"){
-                        i = 0;
-                    }
+                }
+                else{
+                    System.out.println("not");
                 }
                 PrintArray(matrix);
                 x = in.nextInt();
@@ -372,39 +366,82 @@ public class Logic {
     private static int search_score_ship(int x, int y, int[][] matrix, int res) {
         if (chek_ship(x + 1, y, matrix, -1)) {
             matrix[x + 1][y] = -2;
+            around(x + 1, y, matrix, 8, 9);
             res += search_score_ship(x + 1, y, matrix, res );
         }
         if (chek_ship(x - 1, y, matrix, -1)) {
             matrix[x - 1][y] = -2;
+            around(x - 1, y, matrix, 8, 9);
             res += search_score_ship(x - 1, y, matrix, res);
         }
         if (chek_ship(x, y + 1, matrix, -1)) {
             matrix[x][y + 1] = -2;
+            around(x, y + 1, matrix, 8, 9);
             res += search_score_ship(x, y + 1, matrix, res );
         }
         if (chek_ship(x, y - 1, matrix, -1)) {
             matrix[x][y - 1] = -2;
+            around(x, y - 1, matrix, 8, 9);
             res += search_score_ship(x, y - 1, matrix, res);
         }
         return res;
     }
-    private static void pop_ship_kill(int x, int y, int[][] matrix, int ship_power) {
-        if (chek_ship(x + 1, y ,matrix, ship_power)) {
-            around(x + 1, y, matrix, 8, 9);
-            pop_ship_kill(x + 1, y ,matrix, ship_power);
+    private static void search_ship_new(int x, int y, int[][] matrix, int ship_power) {
+        ArrayDeque<Integer> parts_of_ship = new ArrayDeque<Integer>();
+        int res = 1;
+        int i = 0;
+        while (res != ship_power) {
+            parts_of_ship.add(x + y);
+            System.out.print(res);
+            i += 1;
+            System.out.print(x);
+            System.out.println(y);
+            if (chek_ship_for_refresh(x + 1, y, matrix, ship_power) || chek_ship_for_refresh(x - 1, y, matrix, ship_power)) {
+                if (chek_ship_for_refresh(x + 1, y, matrix, ship_power) && !(parts_of_ship.contains(x+1 + y))) {
+                    if (matrix[x + 1][y] == ship_power ) {
+                        matrix[x + 1][y] = ship_power - 1;
+                        res += 1;
+                    }
+                    x = x + 1;
+                }
+                else {
+
+                        if (matrix[x - 1][y] == ship_power && !(parts_of_ship.contains(x - 1 + y))) {
+                            matrix[x - 1][y] = ship_power - 1;
+                            res += 1;
+                        }
+
+                    x = x - 1;
+                }
+            } else {
+                if (chek_ship_for_refresh(x, y + 1, matrix, ship_power) && !(parts_of_ship.contains(x + y+1))) {
+                    if (matrix[x][y + 1] == ship_power ) {
+                        matrix[x][y + 1] = ship_power - 1;
+                        res += 1;
+                    }
+                    y = y + 1;
+
+                }
+                else {
+                        if (matrix[x][y - 1] == ship_power && !(parts_of_ship.contains(x + y - 1))) {
+                            matrix[x][y - 1] = ship_power - 1;
+                            res += 1;
+                        }
+                        y = y - 1;
+                }
+            }
+            if (i == 10){break;}
         }
-        if (chek_ship(x - 1, y ,matrix, ship_power)) {
-            around(x - 1, y, matrix, 8, 9);
-            pop_ship_kill(x - 1, y ,matrix, ship_power);
+
+            //return res;
+    }
+    private static boolean chek_ship_for_refresh(int x, int y, int[][] matrix, int ship_power) {
+        boolean res = false;
+        if ((x >= 0 && x < 10) && (y >= 0 && y < 10) ) {
+            if (ship_power == matrix[x][y] || matrix[x][y] == -1 || matrix[x][y] == ship_power - 1){
+                res = true;
+            }
         }
-        if (chek_ship(x , y + 1,matrix, ship_power)) {
-            around(x , y + 1, matrix, 8, 9);
-            pop_ship_kill(x, y + 1 ,matrix, ship_power);
-        }
-        if (chek_ship(x, y - 1 ,matrix, ship_power)) {
-            around(x, y - 1, matrix, 8, 9);
-            pop_ship_kill(x, y - 1 ,matrix, ship_power);
-        }
-        //return "end";
+        return res;
     }
 }
