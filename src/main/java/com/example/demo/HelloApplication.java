@@ -33,7 +33,7 @@ public class HelloApplication extends Application {
     static int[][] player1 = new int[10][10];
     static int[][] player2 = new int[10][10];
     public static void main(String[] args) {
-        //launch();
+        launch();
 
         Logic logic = new Logic();
         logic.generate_ships(player2);

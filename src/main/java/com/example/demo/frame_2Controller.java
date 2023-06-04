@@ -15,13 +15,14 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.io.Console;
 import java.io.IOException;
 import java.util.Objects;
 
 public class frame_2Controller {
+    int[] mas_x = {152, 201, 249, 297, 345, 392, 441, 488, 537, 584};
+    int[] mas_y = {258, 306, 354, 402, 450, 498, 546, 594, 642, 690};
     double x, y;
-    @FXML
-    private ImageView ship_4;
     @FXML
     private Button btn1;
 
@@ -51,7 +52,41 @@ public class frame_2Controller {
     }
 
     public void onImageReleased(MouseEvent mouseEvent) {
-//        if()
+        int last_x = 0;
+        int last_y = 0;
+        Object obj = mouseEvent.getSource();
+        ImageView img = (ImageView)obj;
+        //System.out.println(ship_1.getLayoutX());
+        //System.out.println();
+        int x = (int)img.getLayoutX();
+        int y = (int)img.getLayoutY();
+        for (int i = 0; i < 9; i++){
+            if(Math.abs(x - mas_x[i]) <= Math.abs(x - mas_x[i+1]) ){
+                last_x = mas_x[i];
+            }
+            else {
+                last_x = mas_x[i+1];
+            }
+            if (last_x == mas_x[i]){
+                break;
+            }
+        }
+        for (int j = 0; j < 9; j++){
+            if(Math.abs(y - mas_y[j]) <= Math.abs(y - mas_y[j+1]) ){
+                last_y = mas_y[j];
+            }
+            else {
+                last_y = mas_y[j+1];
+            }
+            if (last_y == mas_y[j]){
+                break;
+            }
+        }
+        img.setLayoutX(last_x);
+        img.setLayoutY(last_y);
+
+        //System.out.println(img.getId());
+
     }
 
     @FXML
