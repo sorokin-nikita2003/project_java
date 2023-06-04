@@ -7,6 +7,8 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
+import static com.example.demo.HelloApplication.player1;
+
 
 // 0, 8 - путо
 // 9 - промах
@@ -19,6 +21,7 @@ import java.util.Scanner;
 //
 
 public class Logic {
+
     static int score = 0;
     static int first_x = 0;
     static int first_y = 0;
@@ -35,9 +38,75 @@ public class Logic {
         }
     }
 
+    protected static int index(int[] Array, int search_el){
+        int in = 0;
+        for(int el: Array){
+            if(el == search_el){return in;}
+            in += 1;
+        }
+        return 100;
+    }
     static Random random = new Random();
+    public static boolean set_ship(int y, int x, int power_ship){
+        boolean res;
+        try {
+            for(int i = 0; i < power_ship; i++){
+                player1[y][x + i] = power_ship;
+                around(y, x + i, player1, 0, 8);
+            }
+            res = true;
+        }catch (Exception e){
+            res = false;
+        }
+        return res;
+    }
+    public static boolean turn_ship(int y, int x, int power_ship){
+        boolean res;
+        try {
+            for(int i = 0; i < power_ship; i++){
+                player1[y + i][x] = power_ship;
+                around(y + i, x, player1, 0, 8);
+            }
+            res = true;
+        }catch (Exception e){
+            res = false;
+        }
+        return res;
+    }
+    public static void clear_ship(int y, int x){
+        int power_ship = player1[y][x];
+        try {
+            for(int i = 0; i < power_ship; i++){
+                player1[y][x + i] = 0;
+                around(y, x + i, player1, 8, 0);
+            }
+        }catch (Exception e){
 
-    private static void set_ship(int ship, int[][] matrix) {
+        }
+    }
+    public static boolean chek_ship_and_around(int y, int x, int power_ship){
+        boolean res = true;
+        for(int i = 0; i < power_ship; i++){
+            switch (player1[y][x + i]){
+                case (1), (4), (3), (2), (8)->{
+                    res = false;
+                }
+            }
+        }
+        return res;
+    }
+    public static boolean chek_ship_and_around_for_turn(int y, int x, int power_ship){
+        boolean res = true;
+        for(int i = 0; i < power_ship; i++){
+            switch (player1[y + i][x]){
+                case (1), (4), (3), (2), (8)->{
+                    res = false;
+                }
+            }
+        }
+        return res;
+    }
+    private static void random_set_ship(int ship, int[][] matrix) {
         //ArrayDeque<Integer> index_ship = new ArrayDeque<Integer>();
         int power_ship = ship - 1;
         int x1;
@@ -112,12 +181,73 @@ public class Logic {
         //System.out.println("_____________________________________________________________");
     }
 
+    public static int default_ship_x(String id_ship) {
+        switch (id_ship){
+            case("Ship1_1"), ("Ship2_1"), ("Ship3_1"), ("Ship4_1") ->{
+                return 769;
+            }
+            case("Ship1_2")->{
+                return 879;
+            }
+            case("Ship1_3")->{
+                return 994;
+            }
+            case("Ship1_4")->{
+                return 1104;
+            }
+            case("Ship2_2")->{
+                return 925;
+            }
+            case("Ship2_3")->{
+                return 1095;
+            }
+            case("Ship3_2")->{
+                return 980;
+            }
+        }
+        return 0;
+    }
+    public static int default_ship_y(String id_ship) {
+        switch (id_ship){
+            case("Ship1_1"), ("Ship1_2"), ("Ship1_3"), ("Ship1_4") ->{
+                return  546;
+            }
+            case("Ship2_1"), ("Ship2_2"), ("Ship2_3") ->{
+                return 449;
+            }
+            case("Ship3_1"), ("Ship3_2") ->{
+                return  353;
+            }
+            case("Ship4_1")->{
+                return  257;
+            }
+        }
+        return 0;
+    }
+    public static int id_ship(String id_ship) {
+        int res = 0;
+        switch (id_ship){
+            case ("Ship1") -> {
+                res = 1;
+            }
+            case ("Ship2") -> {
+                res = 2;
+            }
+            case ("Ship3") -> {
+                res = 3;
+            }
+            case ("Ship4") -> {
+                res = 4;
+            }
+        }
+        return res;
+    }
     protected static void generate_ships(int[][] player) {
         int[] nymbers_ships = {4, 3, 2, 1};
         for (int type_ship = 3; type_ship >= 0; type_ship--) {
             while (nymbers_ships[type_ship] != 0) {
                 try {
-                    set_ship(type_ship + 1, player);
+                    random_set_ship(type_ship + 1, player);
                 } finally {
                     nymbers_ships[type_ship] -= 1;
                 }

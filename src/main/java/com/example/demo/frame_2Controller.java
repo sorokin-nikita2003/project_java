@@ -14,14 +14,19 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-
+import java.util.Arrays;
 import java.io.Console;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Objects;
 
+import static com.example.demo.HelloApplication.player1;
+import static com.example.demo.HelloApplication.player2;
+
 public class frame_2Controller {
-    int[] mas_x = {152, 201, 249, 297, 345, 392, 441, 488, 537, 584};
-    int[] mas_y = {258, 306, 354, 402, 450, 498, 546, 594, 642, 690};
+    private Logic logic = new Logic();
+    private int[] mas_x = {152, 201, 249, 297, 345, 392, 441, 488, 537, 584};
+    private int[] mas_y = {258, 306, 354, 402, 450, 498, 546, 594, 642, 690};
     double x, y;
     @FXML
     private Button btn1;
@@ -42,6 +47,54 @@ public class frame_2Controller {
 //        System.out.println(x);
         y = event.getY() - clickedImageView.getLayoutBounds().getHeight();
         clickedImageView.setCursor(Cursor.MOVE);
+
+        try{
+            Object obj = event.getSource();
+            ImageView img = (ImageView)obj;
+            int x = (int)img.getLayoutX();
+            int y = (int)img.getLayoutY();
+            logic.clear_ship(logic.index(mas_y,y), logic.index(mas_x,x));
+            //player1[logic.index(mas_y,y)][ logic.index(mas_x,x)] = 0;
+        }
+        catch (Exception e){
+
+        }
+
+    }
+    @FXML
+    public void onImageClicked(MouseEvent event) {
+        /**int id = 0;
+        Object obj = event.getSource();
+        ImageView img = (ImageView)obj;
+        int x = (int)img.getLayoutX();
+        int y = (int)img.getLayoutY();
+        switch (img.getId().substring(0, 5)){
+            case ("Ship1") -> {
+                id = 1;
+            }
+            case ("Ship2") -> {
+                id = 2;
+            }
+            case ("Ship3") -> {
+                id = 3;
+            }
+            case ("Ship4") -> {
+                id = 4;
+            }
+        }
+        try{
+            logic.clear_ship(logic.index(mas_y,y), logic.index(mas_x,x));
+            if(logic.chek_ship_and_around_for_turn(y, x, id)){
+                logic.turn_ship(y, x, id);
+            }
+            else {
+                logic.set_ship(logic.index(mas_y,y), logic.index(mas_x,x), id);
+            }
+        }
+        catch (Exception e){
+            System.out.println(logic.index(mas_x,x));
+            System.out.println(logic.index(mas_y,y));
+        }**/
     }
 
     @FXML
@@ -82,11 +135,73 @@ public class frame_2Controller {
                 break;
             }
         }
-        img.setLayoutX(last_x);
-        img.setLayoutY(last_y);
+        int id = logic.id_ship(img.getId().substring(0, 5));
 
-        //System.out.println(img.getId());
+        //int index = Arrays.indexOf(mas_x, 42); // 4
+        System.out.println(logic.index(mas_x,last_x));
+        System.out.println(logic.index(mas_y,last_y));
+        try {
+            if (logic.chek_ship_and_around(logic.index(mas_y,last_y), logic.index(mas_x,last_x), id) && logic.set_ship(logic.index(mas_y,last_y), logic.index(mas_x,last_x), id)){
+                img.setLayoutX(last_x);
+                img.setLayoutY(last_y);
+            }
+            else {
+                int default_x = logic.default_ship_x(img.getId());
+                int default_y = logic.default_ship_y(img.getId());
+                /**switch (img.getId()){
+                 case("Ship1_1")->{
+                 default_x = 769;
+                 default_y = 546;
+                 }
+                 case("Ship1_2")->{
+                 default_x = 879;
+                 default_y = 546;
+                 }
+                 case("Ship1_3")->{
+                 default_x = 994;
+                 default_y = 546;
+                 }
+                 case("Ship1_4")->{
+                 default_x = 1104;
+                 default_y = 546;
+                 }
+                 case("Ship2_1")->{
+                 default_x = 769;
+                 default_y = 449;
+                 }
+                 case("Ship2_2")->{
+                 default_x = 925;
+                 default_y = 449;
+                 }
+                 case("Ship2_3")->{
+                 default_x = 1095;
+                 default_y = 449;
+                 }
+                 case("Ship3_1")->{
+                 default_x = 769;
+                 default_y = 353;
+                 }
+                 case("Ship3_2")->{
+                 default_x = 980;
+                 default_y = 353;
+                 }
+                 case("Ship4_1")->{
+                 default_x = 769;
+                 default_y = 257;
+                 }
+                 }**/
+                img.setLayoutX(default_x);
+                img.setLayoutY(default_y);
+            }
+        }catch (Exception e){
+            int default_x = logic.default_ship_x(img.getId());
+            int default_y = logic.default_ship_y(img.getId());
+            img.setLayoutX(default_x);
+            img.setLayoutY(default_y);
+        }
 
+        System.out.println(player1[logic.index(mas_y,last_y)][logic.index(mas_x,last_x)]);
+        logic.PrintArray(player1);
     }
 
     @FXML
