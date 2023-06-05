@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import javafx.scene.image.ImageView;
+
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.ArrayDeque;
@@ -41,18 +43,30 @@ public class Logic {
     protected static int index(int[] Array, int search_el){
         int in = 0;
         for(int el: Array){
-            if(el == search_el){return in;}
+            if(el == search_el){
+                break;
+            }
             in += 1;
         }
-        return 100;
+        return in;
     }
     static Random random = new Random();
-    public static boolean set_ship(int y, int x, int power_ship){
+    public static boolean set_ship_on_matrix(int y, int x, int power_ship, int rotate){
         boolean res;
         try {
-            for(int i = 0; i < power_ship; i++){
-                player1[y][x + i] = power_ship;
-                around(y, x + i, player1, 0, 8);
+            switch (rotate){
+                case (0) ->{
+                    for(int i = 0; i < power_ship; i++){
+                        player1[y][x + i] = power_ship;
+                        around(y, x + i, player1, 0, 8);
+                    }
+                }
+                case (90) ->{
+                    for(int i = 0; i < power_ship; i++){
+                        player1[y + i][x] = power_ship;
+                        around(y + i, x, player1, 0, 8);
+                    }
+                }
             }
             res = true;
         }catch (Exception e){
@@ -60,36 +74,46 @@ public class Logic {
         }
         return res;
     }
-    public static boolean turn_ship(int y, int x, int power_ship){
-        boolean res;
-        try {
-            for(int i = 0; i < power_ship; i++){
-                player1[y + i][x] = power_ship;
-                around(y + i, x, player1, 0, 8);
-            }
-            res = true;
-        }catch (Exception e){
-            res = false;
-        }
-        return res;
-    }
-    public static void clear_ship(int y, int x){
+    public static void clear_ship(int y, int x, int rotate){
         int power_ship = player1[y][x];
         try {
-            for(int i = 0; i < power_ship; i++){
-                player1[y][x + i] = 0;
-                around(y, x + i, player1, 8, 0);
+            switch (rotate){
+                case (0) ->{
+                    for(int i = 0; i < power_ship; i++){
+                        player1[y][x + i] = 0;
+                        around(y, x + i, player1, 8, 0);
+                    }
+                }
+                case (90) ->{
+                    for(int i = 0; i < power_ship; i++){
+                        player1[y + i][x] = 0;
+                        around(y + i, x, player1, 8, 0);
+                    }
+                }
             }
         }catch (Exception e){
 
         }
     }
-    public static boolean chek_ship_and_around(int y, int x, int power_ship){
+    public static boolean chek_ship_and_around(int y, int x, int power_ship, int rotate){
         boolean res = true;
-        for(int i = 0; i < power_ship; i++){
-            switch (player1[y][x + i]){
-                case (1), (4), (3), (2), (8)->{
-                    res = false;
+        switch (rotate) {
+            case (0) ->{
+                for (int i = 0; i < power_ship; i++) {
+                    switch (player1[y][x + i]) {
+                        case (1), (4), (3), (2), (8) -> {
+                            res = false;
+                        }
+                    }
+                }
+            }
+            case (90) ->{
+                for (int i = 0; i < power_ship; i++) {
+                    switch (player1[y + i][x]) {
+                        case (1), (4), (3), (2), (8) -> {
+                            res = false;
+                        }
+                    }
                 }
             }
         }
@@ -254,7 +278,98 @@ public class Logic {
             }
         }
     }
-
+    protected static boolean turn_ship(int[] mas_x, int[] mas_y, ImageView img, int count_click){
+        boolean res = false;
+        double rotate = img.getRotate();
+        int x = (int)img.getLayoutX();
+        int y = (int)img.getLayoutY();
+        //System.out.println(player1[index(mas_y, y)][index(mas_x, x)]);
+        //&& player1[index(mas_y, y)][index(mas_x, x)] != 0
+        if ((x >= mas_x[0] && x <= mas_x[9]) && (y >= mas_y[0] && y <= mas_y[9]) && count_click == 2) {
+            if (rotate == 0) {
+                img.setRotate(90);
+            } else {
+                img.setRotate(0);
+            }
+            res = true;
+        }
+        return res;
+    }
+    protected static void set_ship(int[] mas_x, int[] mas_y, ImageView img){
+        int last_x = 0;
+        int last_y = 0;
+        int x = (int)img.getLayoutX();
+        int y = (int)img.getLayoutY();
+        int rotate = (int)img.getRotate();
+        //clear_ship(index(mas_y,y), index(mas_x,x), rotate);
+        for (int i = 0; i < 9; i++){
+            if(Math.abs(x - mas_x[i]) <= Math.abs(x - mas_x[i+1]) ){
+                last_x = mas_x[i];
+            }
+            else {
+                last_x = mas_x[i+1];
+            }
+            if (last_x == mas_x[i]){
+                break;
+            }
+        }
+        for (int j = 0; j < 9; j++){
+            if(Math.abs(y - mas_y[j]) <= Math.abs(y - mas_y[j+1]) ){
+                last_y = mas_y[j];
+            }
+            else {
+                last_y = mas_y[j+1];
+            }
+            if (last_y == mas_y[j]){
+                break;
+            }
+        }
+        int id = id_ship(img.getId().substring(0, 5));
+        int index_y = index(mas_y,last_y);
+        int index_x = index(mas_x,last_x);
+        /**if (rotate == 90){
+            index_y -= 1;
+            index_x += 1;
+        }**/
+        if (rotate == 90){
+            last_x += 23;
+            last_y += 23;
+            index_x += 2;
+            index_y -= 1;
+            System.out.println(last_x);
+            System.out.println(last_y);
+        }
+        System.out.println(index_y);
+        System.out.println(index_x);
+        try {
+            System.out.println(chek_ship_and_around(index_y, index_x, id, rotate));
+            PrintArray(player1);
+            if (chek_ship_and_around(index_y, index_x, id, rotate) && set_ship_on_matrix(index_y, index_x, id, rotate)){
+                img.setLayoutX(last_x);
+                img.setLayoutY(last_y);
+            }
+            else {
+                int default_x = default_ship_x(img.getId());
+                int default_y = default_ship_y(img.getId());
+                img.setLayoutX(default_x);
+                img.setLayoutY(default_y);
+                img.setRotate(0);
+            }
+        }catch (Exception e){
+            System.out.print("y/");
+            System.out.println(index_y);
+            System.out.print("x/");
+            System.out.println(index_x);
+            int default_x = default_ship_x(img.getId());
+            int default_y = default_ship_y(img.getId());
+            img.setLayoutX(default_x);
+            img.setLayoutY(default_y);
+            img.setRotate(0);
+        }
+        System.out.println("___________________________________________");
+        //System.out.println(player1[index(mas_y,last_y)][index(mas_x,last_x)]);
+        PrintArray(player1);
+    }
     private static boolean check_root(int x, int y, int power, int[][] matrix) {
         boolean result = true;
         int len = 0;

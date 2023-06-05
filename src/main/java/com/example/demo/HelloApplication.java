@@ -35,7 +35,7 @@ public class HelloApplication extends Application {
     public static void main(String[] args) {
         launch();
 
-        Logic logic = new Logic();
+        /**Logic logic = new Logic();
         logic.generate_ships(player2);
         logic.PrintArray(player2);
         logic.shot(player2);
@@ -43,6 +43,6 @@ public class HelloApplication extends Application {
         logic.PrintArray(player2);
         System.out.println("второй шанс");
         logic.shot(player2);
-        logic.PrintArray(player2);
+        logic.PrintArray(player2);**/
     }
 }

@@ -12,6 +12,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.transform.Rotate;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import java.util.Arrays;
@@ -28,6 +29,8 @@ public class frame_2Controller {
     private int[] mas_x = {152, 201, 249, 297, 345, 392, 441, 488, 537, 584};
     private int[] mas_y = {258, 306, 354, 402, 450, 498, 546, 594, 642, 690};
     double x, y;
+    int count_click = 0;
+    int rotate_ship = 0;
     @FXML
     private Button btn1;
 
@@ -48,12 +51,25 @@ public class frame_2Controller {
         y = event.getY() - clickedImageView.getLayoutBounds().getHeight();
         clickedImageView.setCursor(Cursor.MOVE);
 
+        Object obj = event.getSource();
+        ImageView img = (ImageView)obj;
+        int x = (int)img.getLayoutX();
+        int y = (int)img.getLayoutY();
+        int rotate = (int)img.getRotate();
+        System.out.print("y: ");
+        System.out.println(logic.index(mas_y,y)+"  "+ y);
+        System.out.print("x: ");
+        System.out.println(logic.index(mas_x,x)+"  "+ x);
+        int index_y = logic.index(mas_y,y);
+        int index_x = logic.index(mas_x,x);
         try{
-            Object obj = event.getSource();
-            ImageView img = (ImageView)obj;
-            int x = (int)img.getLayoutX();
-            int y = (int)img.getLayoutY();
-            logic.clear_ship(logic.index(mas_y,y), logic.index(mas_x,x));
+            if(rotate == 90){
+                index_x += 2;
+                index_y -= 1;
+                //y -= 73;
+                //x += 73;
+            }
+            logic.clear_ship(index_y, index_x,rotate);
             //player1[logic.index(mas_y,y)][ logic.index(mas_x,x)] = 0;
         }
         catch (Exception e){
@@ -63,6 +79,7 @@ public class frame_2Controller {
     }
     @FXML
     public void onImageClicked(MouseEvent event) {
+        count_click  += 1;
         /**int id = 0;
         Object obj = event.getSource();
         ImageView img = (ImageView)obj;
@@ -95,117 +112,66 @@ public class frame_2Controller {
             System.out.println(logic.index(mas_x,x));
             System.out.println(logic.index(mas_y,y));
         }**/
+        Object obj = event.getSource();
+        ImageView img = (ImageView)obj;
+        /**if (logic.turn_ship(mas_x,mas_y,img, count_click)){
+            count_click = 0;
+        }**/
+        int rotate = (int)img.getRotate();
+        int x = (int)img.getLayoutX();
+        int y = (int)img.getLayoutY();
+        int index_y = logic.index(mas_y,y);
+        int index_x = logic.index(mas_x,x);
+
+        if(count_click == 2){
+            try{
+                if(rotate == 90){
+                    index_x += 2;
+                    index_y -= 1;
+
+                }
+                logic.clear_ship(index_y, index_x,rotate);
+                //player1[logic.index(mas_y,y)][ logic.index(mas_x,x)] = 0;
+            }
+            catch (Exception e){
+
+            }
+            System.out.println("Rotate");
+            if (img.getRotate() == 0){
+                img.setRotate(90);
+                //img.setLayoutX(img.getLayoutX()-73);
+                //img.setLayoutY(img.getLayoutY()+73);
+            }
+            else  {
+                //img.setLayoutX(img.getLayoutX()+73);
+                //img.setLayoutY(img.getLayoutY()-73);
+                img.setRotate(0);
+                //img.setLayoutX(img.getLayoutX()+73);
+                //img.setLayoutY(img.getLayoutY()-73);
+            }
+            logic.set_ship(mas_x,mas_y, img);
+        }
+        System.out.println("--------------------------------------------");
+        logic.PrintArray(player1);
     }
 
     @FXML
     public void onImageDragged(MouseEvent event) {
+        count_click = 0;
         ImageView clickedImageView = (ImageView) event.getSource();
         clickedImageView.setLayoutX(event.getSceneX() + x);
         clickedImageView.setLayoutY(event.getSceneY() + y);
     }
 
     public void onImageReleased(MouseEvent mouseEvent) {
-        int last_x = 0;
-        int last_y = 0;
         Object obj = mouseEvent.getSource();
         ImageView img = (ImageView)obj;
-        //System.out.println(ship_1.getLayoutX());
-        //System.out.println();
-        int x = (int)img.getLayoutX();
-        int y = (int)img.getLayoutY();
-        for (int i = 0; i < 9; i++){
-            if(Math.abs(x - mas_x[i]) <= Math.abs(x - mas_x[i+1]) ){
-                last_x = mas_x[i];
-            }
-            else {
-                last_x = mas_x[i+1];
-            }
-            if (last_x == mas_x[i]){
-                break;
-            }
-        }
-        for (int j = 0; j < 9; j++){
-            if(Math.abs(y - mas_y[j]) <= Math.abs(y - mas_y[j+1]) ){
-                last_y = mas_y[j];
-            }
-            else {
-                last_y = mas_y[j+1];
-            }
-            if (last_y == mas_y[j]){
-                break;
-            }
-        }
-        int id = logic.id_ship(img.getId().substring(0, 5));
-
-        //int index = Arrays.indexOf(mas_x, 42); // 4
-        System.out.println(logic.index(mas_x,last_x));
-        System.out.println(logic.index(mas_y,last_y));
-        try {
-            if (logic.chek_ship_and_around(logic.index(mas_y,last_y), logic.index(mas_x,last_x), id) && logic.set_ship(logic.index(mas_y,last_y), logic.index(mas_x,last_x), id)){
-                img.setLayoutX(last_x);
-                img.setLayoutY(last_y);
-            }
-            else {
-                int default_x = logic.default_ship_x(img.getId());
-                int default_y = logic.default_ship_y(img.getId());
-                /**switch (img.getId()){
-                 case("Ship1_1")->{
-                 default_x = 769;
-                 default_y = 546;
-                 }
-                 case("Ship1_2")->{
-                 default_x = 879;
-                 default_y = 546;
-                 }
-                 case("Ship1_3")->{
-                 default_x = 994;
-                 default_y = 546;
-                 }
-                 case("Ship1_4")->{
-                 default_x = 1104;
-                 default_y = 546;
-                 }
-                 case("Ship2_1")->{
-                 default_x = 769;
-                 default_y = 449;
-                 }
-                 case("Ship2_2")->{
-                 default_x = 925;
-                 default_y = 449;
-                 }
-                 case("Ship2_3")->{
-                 default_x = 1095;
-                 default_y = 449;
-                 }
-                 case("Ship3_1")->{
-                 default_x = 769;
-                 default_y = 353;
-                 }
-                 case("Ship3_2")->{
-                 default_x = 980;
-                 default_y = 353;
-                 }
-                 case("Ship4_1")->{
-                 default_x = 769;
-                 default_y = 257;
-                 }
-                 }**/
-                img.setLayoutX(default_x);
-                img.setLayoutY(default_y);
-            }
-        }catch (Exception e){
-            int default_x = logic.default_ship_x(img.getId());
-            int default_y = logic.default_ship_y(img.getId());
-            img.setLayoutX(default_x);
-            img.setLayoutY(default_y);
-        }
-
-        System.out.println(player1[logic.index(mas_y,last_y)][logic.index(mas_x,last_x)]);
-        logic.PrintArray(player1);
+        logic.set_ship(mas_x, mas_y, img);
     }
 
     @FXML
     private void handleButtonClickBack(ActionEvent event) throws IOException {
+        count_click = 0;
         Stage window = new Stage();
 
 //        Pane pane = new Pane();
@@ -269,6 +235,7 @@ public class frame_2Controller {
 
     @FXML
     private void handleButtonClickForward(ActionEvent event) throws IOException {
+        count_click = 0;
         if (Objects.equals(lastButtonPressed, "bot") || Objects.equals(lastButtonPressed, "together_2")){
             FXMLLoader loader = new FXMLLoader(getClass().getResource("frame_3.fxml"));
             Parent pane = loader.load();
