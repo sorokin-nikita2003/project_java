@@ -62,6 +62,13 @@ public class frame_3Controller {
         btn_yes.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                mediaPlayer.dispose();
+                mediaPlayer = new MediaPlayer(new Media(new File(songs[0]).toURI().toString()));
+                mediaPlayer.setVolume(sliderValue / 100);
+                time_sleep = 210000;
+                flag = true;
+
+
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("frame_1.fxml"));
                 Parent pane = null;
                 try {
@@ -100,15 +107,10 @@ public class frame_3Controller {
     }
    // @Override
     public void initialize() {
-        //MediaPlayer mediaPlayer = HelloApplication.getMediaPlayer();
         mediaPlayer.dispose();
-//        mediaPlayer3.seek(Duration.ZERO);
         mediaPlayer = new MediaPlayer(new Media(new File(songs[1]).toURI().toString()));
+        mediaPlayer.setVolume(sliderValue / 100);
         time_sleep = 480000;
-        //mediaPlayer.play();
-        //t.notify();
-        //t.interrupt();
-        //notify_thread();
-        //MyRunnable.
+        flag = true;
     }
 }

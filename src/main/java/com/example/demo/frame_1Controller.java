@@ -158,12 +158,6 @@ public class frame_1Controller implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        if (mediaPlayer != null){
-            mediaPlayer.dispose();
-        }
-        mediaPlayer = new MediaPlayer(new Media(new File(songs[0]).toURI().toString()));
-        time_sleep = 210000;
-
         double screenWidth = Screen.getPrimary().getBounds().getWidth();
 //        double parentWidth1 = group1.getParent().getLayoutBounds().getWidth();
 //        double parentHeight = group1.getParent().getLayoutBounds().getHeight();

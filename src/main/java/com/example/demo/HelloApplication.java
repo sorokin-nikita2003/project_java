@@ -17,7 +17,7 @@ import static com.example.demo.Logic.score_player2;
 
 public class HelloApplication extends Application {
     protected static int time_sleep = 210000;
-
+    protected static boolean flag = false;
     //210000
     protected static MediaPlayer mediaPlayer;
     protected static double sliderValue = 100;
@@ -35,7 +35,6 @@ public class HelloApplication extends Application {
             int i =0;
             int last_time_sleep;
               while (true) {
-                  last_time_sleep = time_sleep;
                   mediaPlayer.play();
 //                  while (i < time_sleep){
 //                      if (time_sleep != last_time_sleep){
@@ -47,7 +46,8 @@ public class HelloApplication extends Application {
                   try {
                       while (true){
                           Thread.sleep(2000);
-                          if(last_time_sleep != time_sleep){
+                          if(flag){
+                              flag = false;
                               break;
                           }
                           if(i >= time_sleep){
