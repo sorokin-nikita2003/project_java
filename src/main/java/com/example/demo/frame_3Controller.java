@@ -104,10 +104,10 @@ public class frame_3Controller {
         mediaPlayer.dispose();
 //        mediaPlayer3.seek(Duration.ZERO);
         mediaPlayer = new MediaPlayer(new Media(new File(songs[1]).toURI().toString()));
-        //time_sleep = 480000;
-        mediaPlayer.play();
-
+        time_sleep = 480000;
+        //mediaPlayer.play();
         //t.notify();
+        //t.interrupt();
         //notify_thread();
         //MyRunnable.
     }

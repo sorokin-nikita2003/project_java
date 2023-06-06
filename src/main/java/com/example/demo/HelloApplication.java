@@ -16,7 +16,7 @@ import java.util.Scanner;
 import static com.example.demo.Logic.score_player2;
 
 public class HelloApplication extends Application {
-    protected static int time_sleep = 10000;
+    protected static int time_sleep = 210000;
 
     //210000
     protected static MediaPlayer mediaPlayer;
@@ -33,12 +33,27 @@ public class HelloApplication extends Application {
         @Override
         public void run() {
             int i =0;
+            int last_time_sleep;
               while (true) {
-                  i += 1;
-                  System.out.println(1);
+                  last_time_sleep = time_sleep;
+                  mediaPlayer.play();
+//                  while (i < time_sleep){
+//                      if (time_sleep != last_time_sleep){
+//                          break;
+//                      }
+//                      i += 1;
+//                      System.out.println(i);
+//                  }
                   try {
-                      mediaPlayer.play();
-                      Thread.sleep(time_sleep);
+                      while (true){
+                          Thread.sleep(2000);
+                          if(last_time_sleep != time_sleep){
+                              break;
+                          }
+                          if(i >= time_sleep){
+                              break;
+                          }
+                      }
                   } catch (InterruptedException e) {
                       throw new RuntimeException(e);
                   }
@@ -76,20 +91,6 @@ public class HelloApplication extends Application {
 
 
         mediaPlayer = new MediaPlayer(new Media(new File(songs[0]).toURI().toString()));
-//        Thread bgThread = new Thread(() -> {
-//            while (true) {
-//                System.out.println(1);
-//                try {
-//                    mediaPlayer.play();
-//                    Thread.sleep(time_sleep);
-//                } catch (InterruptedException e) {
-//                    throw new RuntimeException(e);
-//                }
-//                mediaPlayer.seek(Duration.ZERO);
-//            }
-//
-//        });
-
         t.start();
         //bgThread.start();
 
