@@ -295,6 +295,28 @@ public class Logic {
         }
         return res;
     }
+    /**protected static String rotate_ship(y, x){
+        int power_ship = player1[y][x];
+        try {
+            switch (rotate){
+                case (0) ->{
+                    for(int i = 0; i < power_ship; i++){
+                        player1[y][x + i] = 0;
+                        around(y, x + i, player1, 8, 0);
+                    }
+                }
+                case (90) ->{
+                    for(int i = 0; i < power_ship; i++){
+                        player1[y + i][x] = 0;
+                        around(y + i, x, player1, 8, 0);
+                    }
+                }
+            }
+        }catch (Exception e){
+
+        }
+    }**/
+
     protected static void set_ship(int[] mas_x, int[] mas_y, ImageView img){
         int last_x = 0;
         int last_y = 0;

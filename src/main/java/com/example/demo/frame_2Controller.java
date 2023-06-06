@@ -27,6 +27,12 @@ import static com.example.demo.HelloApplication.player2;
 public class frame_2Controller {
     private Logic logic = new Logic();
     private int[] mas_x = {152, 201, 249, 297, 345, 392, 441, 488, 537, 584};
+    // 4    3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3    2
+    //{79, 104, 127, 152, 175, 200, 223, 248, 272, 296, 318, 344, 368, 392, 415, 440, 463, 488, 510, 536, 561};
+    private int[] mas_x_turn = {79, 104, 127, 152, 175, 200, 223, 248, 272, 296, 318, 344, 368, 392, 415, 440, 463, 488, 510, 536, 561};
+    private int[] mas_y_turn4 = {330, 379, 427, 475, 522, 571, 616};
+    private int[] mas_y_turn3 = {307, 355, 403, 451, 499, 546, 595, 643};
+    private int[] mas_y_turn2 = {282, 330, 376, 426, 474, 522, 568, 618, 665};
     private int[] mas_y = {258, 306, 354, 402, 450, 498, 546, 594, 642, 690};
     double x, y;
     int count_click = 0;
@@ -56,10 +62,10 @@ public class frame_2Controller {
         int x = (int)img.getLayoutX();
         int y = (int)img.getLayoutY();
         int rotate = (int)img.getRotate();
-        System.out.print("y: ");
-        System.out.println(logic.index(mas_y,y)+"  "+ y);
-        System.out.print("x: ");
-        System.out.println(logic.index(mas_x,x)+"  "+ x);
+        //System.out.print("y: ");
+        //System.out.println(logic.index(mas_y,y)+"  "+ y);
+        //System.out.print("x: ");
+        //System.out.println(logic.index(mas_x,x)+"  "+ x);
         int index_y = logic.index(mas_y,y);
         int index_x = logic.index(mas_x,x);
         try{
@@ -123,7 +129,11 @@ public class frame_2Controller {
         int index_y = logic.index(mas_y,y);
         int index_x = logic.index(mas_x,x);
 
-        if(count_click == 2){
+         if(count_click == 2){
+             img.setRotate(90);
+         }
+
+        /**if(count_click == 2){
             try{
                 if(rotate == 90){
                     index_x += 2;
@@ -152,7 +162,7 @@ public class frame_2Controller {
             logic.set_ship(mas_x,mas_y, img);
         }
         System.out.println("--------------------------------------------");
-        logic.PrintArray(player1);
+        logic.PrintArray(player1);**/
     }
 
     @FXML
@@ -166,7 +176,11 @@ public class frame_2Controller {
     public void onImageReleased(MouseEvent mouseEvent) {
         Object obj = mouseEvent.getSource();
         ImageView img = (ImageView)obj;
-        logic.set_ship(mas_x, mas_y, img);
+        System.out.print("x: ");
+        System.out.println(img.getLayoutX());
+        System.out.print("y: ");
+        System.out.println(img.getLayoutY());
+        //logic.set_ship(mas_x, mas_y, img);
     }
 
     @FXML
