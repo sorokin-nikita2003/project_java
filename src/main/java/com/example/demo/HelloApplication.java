@@ -32,33 +32,22 @@ public class HelloApplication extends Application {
     public static class MyRunnable implements Runnable {
         @Override
         public void run() {
-            int i =0;
-            int last_time_sleep;
-              while (true) {
+            try{
+              while (!t.isInterrupted()) {
                   mediaPlayer.play();
-//                  while (i < time_sleep){
-//                      if (time_sleep != last_time_sleep){
-//                          break;
-//                      }
-//                      i += 1;
-//                      System.out.println(i);
-//                  }
-                  try {
-                      while (true){
-                          Thread.sleep(2000);
+                      while (!(mediaPlayer.getCurrentTime().equals(mediaPlayer.getTotalDuration()))){
+                          Thread.sleep(1500);
                           if(flag){
                               flag = false;
                               break;
                           }
-                          if(i >= time_sleep){
-                              break;
-                          }
                       }
-                  } catch (InterruptedException e) {
-                      throw new RuntimeException(e);
-                  }
                   mediaPlayer.seek(Duration.ZERO);
               }
+            }
+            catch (InterruptedException e){
+
+            }
         }
 //        public void run() {  public static MediaPlayer getMediaPlayer2() {
 //           // Код, который будет выполняться в потоке      return mediaPlayer2;
@@ -105,7 +94,7 @@ public class HelloApplication extends Application {
     static int[][] player2 = new int[10][10];
     public static void main(String[] args) {
         launch();
-
+        t.interrupt();
         /**Logic logic = new Logic();
         logic.generate_ships(player2);
         logic.PrintArray(player2);
