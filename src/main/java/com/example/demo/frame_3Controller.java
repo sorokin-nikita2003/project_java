@@ -1,7 +1,6 @@
 package com.example.demo;
 
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,17 +11,30 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
+import java.io.File;
 import java.io.IOException;
-import java.util.Objects;
+
+import static com.example.demo.HelloApplication.*;
 
 public class frame_3Controller {
     @FXML
     Button btn1;
+
+    @FXML
+    private void onPress(MouseEvent event) {
+        //MediaPlayer mediaPlayer2 = HelloApplication.getMediaPlayer2();
+        //mediaPlayer2.setVolume((double) volume);
+        //MediaPlayer mediaPlayer2 = HelloApplication.mediaPlayer2();
+        mediaPlayer2.play();
+        mediaPlayer2.seek(Duration.ZERO);
+    }
 
     @FXML
     private void handleButtonClickExit(ActionEvent event) throws IOException {
@@ -85,5 +97,18 @@ public class frame_3Controller {
         window.initModality(Modality.WINDOW_MODAL);
 //        window.initOwner(parentStage);
         window.showAndWait();
+    }
+   // @Override
+    public void initialize() {
+        //MediaPlayer mediaPlayer = HelloApplication.getMediaPlayer();
+        mediaPlayer.dispose();
+//        mediaPlayer3.seek(Duration.ZERO);
+        mediaPlayer = new MediaPlayer(new Media(new File(songs[1]).toURI().toString()));
+        //time_sleep = 480000;
+        mediaPlayer.play();
+
+        //t.notify();
+        //notify_thread();
+        //MyRunnable.
     }
 }

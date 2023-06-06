@@ -332,67 +332,67 @@
                   <Font size="40.0" />
                </font>
             </Text>
-            <ImageView fx:id="Ship4_1"  onMouseDragged="#onImageDragged"  onMousePressed="#onImagePressed" onMouseReleased="#onImageReleased" onMouseClicked="#onImageClicked" fitHeight="49.0" fitWidth="254.0" layoutX="769.0" layoutY="257.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="Ship4_1" fitHeight="49.0" fitWidth="254.0" layoutX="769.0" layoutY="257.0" onMouseClicked="#onImageClicked" onMouseDragged="#onImageDragged" onMousePressed="#onImagePressed" onMouseReleased="#onImageReleased" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@img/ship_4_cells.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="Ship3_1"  onMouseDragged="#onImageDragged" onMousePressed="#onImagePressed" onMouseReleased="#onImageReleased" onMouseClicked="#onImageClicked" fitHeight="49.0" fitWidth="184.0" layoutX="769.0" layoutY="353.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="Ship3_1" fitHeight="49.0" fitWidth="184.0" layoutX="769.0" layoutY="353.0" onMouseClicked="#onImageClicked" onMouseDragged="#onImageDragged" onMousePressed="#onImagePressed" onMouseReleased="#onImageReleased" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@img/ship_3_cells.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="Ship2_1"  onMouseDragged="#onImageDragged" onMousePressed="#onImagePressed" onMouseReleased="#onImageReleased" onMouseClicked="#onImageClicked" fitHeight="49.0" fitWidth="200.0" layoutX="769.0" layoutY="449.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="Ship2_1" fitHeight="49.0" fitWidth="200.0" layoutX="769.0" layoutY="449.0" onMouseClicked="#onImageClicked" onMouseDragged="#onImageDragged" onMousePressed="#onImagePressed" onMouseReleased="#onImageReleased" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@img/ship_2_cells.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="Ship1_1"  onMouseDragged="#onImageDragged" onMousePressed="#onImagePressed" onMouseReleased="#onImageReleased" fitHeight="49.0" fitWidth="49.0" layoutX="769.0" layoutY="546.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="Ship1_1" fitHeight="49.0" fitWidth="49.0" layoutX="769.0" layoutY="546.0" onMouseDragged="#onImageDragged" onMousePressed="#onImagePressed" onMouseReleased="#onImageReleased" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@img/ship_1_cell.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="Ship3_2"  onMouseDragged="#onImageDragged" onMousePressed="#onImagePressed" onMouseReleased="#onImageReleased" fitHeight="49.0" fitWidth="184.0" layoutX="980.0" layoutY="353.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="Ship3_2" fitHeight="49.0" fitWidth="184.0" layoutX="980.0" layoutY="353.0" onMouseDragged="#onImageDragged" onMousePressed="#onImagePressed" onMouseReleased="#onImageReleased" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@img/ship_3_cells.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="Ship2_2"  onMouseDragged="#onImageDragged" onMousePressed="#onImagePressed" onMouseReleased="#onImageReleased" fitHeight="49.0" fitWidth="200.0" layoutX="925.0" layoutY="449.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="Ship2_2" fitHeight="49.0" fitWidth="200.0" layoutX="925.0" layoutY="449.0" onMouseDragged="#onImageDragged" onMousePressed="#onImagePressed" onMouseReleased="#onImageReleased" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@img/ship_2_cells.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="Ship2_3"  onMouseDragged="#onImageDragged" onMousePressed="#onImagePressed" onMouseReleased="#onImageReleased" fitHeight="49.0" fitWidth="200.0" layoutX="1095.0" layoutY="449.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="Ship2_3" fitHeight="49.0" fitWidth="200.0" layoutX="1095.0" layoutY="449.0" onMouseDragged="#onImageDragged" onMousePressed="#onImagePressed" onMouseReleased="#onImageReleased" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@img/ship_2_cells.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="Ship1_2" onMouseDragged="#onImageDragged" onMousePressed="#onImagePressed" onMouseReleased="#onImageReleased" fitHeight="49.0" fitWidth="49.0" layoutX="879.0" layoutY="546.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="Ship1_2" fitHeight="49.0" fitWidth="49.0" layoutX="879.0" layoutY="546.0" onMouseDragged="#onImageDragged" onMousePressed="#onImagePressed" onMouseReleased="#onImageReleased" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@img/ship_1_cell.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="Ship1_3" onMouseDragged="#onImageDragged" onMousePressed="#onImagePressed" onMouseReleased="#onImageReleased" fitHeight="49.0" fitWidth="49.0" layoutX="994.0" layoutY="546.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="Ship1_3" fitHeight="49.0" fitWidth="49.0" layoutX="994.0" layoutY="546.0" onMouseDragged="#onImageDragged" onMousePressed="#onImagePressed" onMouseReleased="#onImageReleased" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@img/ship_1_cell.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="Ship1_4" onMouseDragged="#onImageDragged" onMousePressed="#onImagePressed" onMouseReleased="#onImageReleased" fitHeight="49.0" fitWidth="49.0" layoutX="1104.0" layoutY="546.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="Ship1_4" fitHeight="49.0" fitWidth="49.0" layoutX="1104.0" layoutY="546.0" onMouseDragged="#onImageDragged" onMousePressed="#onImagePressed" onMouseReleased="#onImageReleased" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@img/ship_1_cell.png" />
                </image>
             </ImageView>
-            <Button fx:id="btn1" layoutX="762.0" layoutY="646.0" mnemonicParsing="false" onAction="#handleButtonClickBack" prefHeight="90.68" prefWidth="297.0" stylesheets="@itcss.css" text="Назад" textFill="WHITE">
+            <Button fx:id="btn1" layoutX="762.0" layoutY="646.0" mnemonicParsing="false" onMousePressed="#onPress" onAction="#handleButtonClickBack" prefHeight="90.68" prefWidth="297.0" stylesheets="@itcss.css" text="Назад" textFill="WHITE">
                <font>
                   <Font name="Calibri Bold" size="32.0" />
                </font>
             </Button>
-            <Button fx:id="btn2" layoutX="1114.0" layoutY="645.0" mnemonicParsing="false" onAction="#handleButtonClickForward" prefHeight="90.68" prefWidth="297.0" stylesheets="@itcss.css" text="Далее" textFill="WHITE">
+            <Button fx:id="btn2" layoutX="1114.0" layoutY="645.0" mnemonicParsing="false" onMousePressed="#onPress" onAction="#handleButtonClickForward" prefHeight="90.68" prefWidth="297.0" stylesheets="@itcss.css" text="Далее" textFill="WHITE">
                <font>
                   <Font name="Calibri Bold" size="32.0" />
                </font>
             </Button>
-            <Label alignment="CENTER" layoutX="478.0" layoutY="13.0" prefHeight="48.0" prefWidth="546.0" text="Расставьте корабли" textFill="#b80037">
+            <Label alignment="CENTER" layoutX="192.0" layoutY="31.0" prefHeight="74.0" prefWidth="1074.0" text="Расставьте корабли" textFill="#b80037">
                <font>
                   <Font name="Calibri Bold" size="64.0" />
                </font>

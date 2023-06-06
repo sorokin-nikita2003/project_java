@@ -13,17 +13,23 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Modality;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static com.example.demo.HelloApplication.mediaPlayer2;
 
 public class frame_1Controller implements Initializable {
     @FXML
@@ -52,11 +58,22 @@ public class frame_1Controller implements Initializable {
 
     private String lastButtonPressed;
 
+
+    @FXML
+    private void onPress(MouseEvent event) {
+        //MediaPlayer mediaPlayer2 = HelloApplication.getMediaPlayer2();
+        //mediaPlayer2.setVolume((double) volume);
+        //MediaPlayer mediaPlayer2 = HelloApplication.mediaPlayer2();
+        mediaPlayer2.play();
+        mediaPlayer2.seek(Duration.ZERO);
+    }
     @FXML
     private void handleButtonClickBot(ActionEvent event) throws IOException {
 //        frame_2Controller controller = new frame_2Controller();
 //        controller.setLastButtonPressed("bot");
 //        controller.check();
+        //int volume = 1;
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("frame_2.fxml"));
         Parent pane = loader.load();
         frame_2Controller controller = loader.getController();

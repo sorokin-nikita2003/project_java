@@ -331,7 +331,7 @@
                         <Font size="40.0" />
                     </font>
                 </Text>
-                <Button fx:id="btn1" layoutX="611.0" layoutY="673.0" mnemonicParsing="false" onAction="#handleButtonClickExit" prefHeight="90.68" prefWidth="297.0" stylesheets="@itcss.css" text="Выйти" textFill="WHITE">
+                <Button fx:id="btn1" layoutX="611.0" layoutY="673.0" mnemonicParsing="false" onMousePressed="#onPress" onAction="#handleButtonClickExit" prefHeight="90.68" prefWidth="297.0" stylesheets="@itcss.css" text="Выйти" textFill="WHITE">
                     <font>
                         <Font name="Calibri Bold" size="32.0" />
                     </font>
