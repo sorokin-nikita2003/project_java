@@ -9,6 +9,8 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
+import static com.example.demo.HelloApplication.*;
+
 
 // 0, 8 - путо
 // 9 - промах
@@ -21,11 +23,13 @@ import java.util.Scanner;
 //
 
 public class Logic {
-
     static int score = 0;
     static int first_x = 0;
     static int first_y = 0;
-    static ArrayDeque<Integer> index_ship = new ArrayDeque<Integer>();
+
+//    static int[] ship_images = new int[20];
+    static ArrayDeque<Integer> ship_images = new ArrayDeque<Integer>();
+    static Random random = new Random();
     static Scanner in = new Scanner(System.in);
 
     protected static void PrintArray(int[][] Array) {
@@ -72,7 +76,31 @@ public class Logic {
         return in ;
     }
 
-    static Random random = new Random();
+    protected static int index_turn_x_random(int search_index, int id){
+        if (id == 2){
+            search_index += 1;
+        }
+
+        search_index = search_index * 2;
+
+        if (id == 3){
+            search_index += 1;
+        }
+
+        return search_index ;
+    }
+    protected static int index_turn_y_random(int search_index, int id){
+        if (id == 4){
+            search_index += 1;
+        }
+        search_index = search_index * 2;
+
+        if (id == 3){
+            search_index += 1;
+        }
+        return search_index ;
+    }
+
     public static boolean set_ship_on_matrix(int y, int x, int power_ship, int rotate, int[][] matrix){
         boolean res;
         try {
@@ -118,7 +146,6 @@ public class Logic {
         }
     }
     public static void clear(int[] mas_x, int[] mas_y, int rotate, ImageView img, int[][] matrix){
-
         int x = (int)img.getLayoutX();
         int y = (int)img.getLayoutY();
         int id = id_ship(img.getId().substring(0, 5));
@@ -172,6 +199,58 @@ public class Logic {
         }
         return res;
     }
+    private static int rotation_for_random(int y, int x, int[][] matrix){
+        int res;
+        try {
+            if(matrix[y + 1][x] == matrix[y][x]){
+                res = 90;
+            }
+            else {
+                res = 0;
+            }
+        }
+        catch (Exception e){
+            res = 0;
+        }
+        return res;
+    }
+    protected static void random_set_ship_image(ImageView img, int[][] matrix){
+        int y = ship_images.pop();
+        int x = ship_images.pop();
+        switch (rotation_for_random(y, x, matrix)){
+            case(0) ->{
+//                System.out.print("rotation: ");
+//                System.out.println(rotation_for_random(y, x, matrix));
+//                System.out.print("x: ");
+//                System.out.println(x);
+//                System.out.print("y: ");
+//                System.out.println(y);
+
+                img.setRotate(0);
+                img.setLayoutX(mas_x[x]);
+                img.setLayoutY(mas_y[y]);
+            }
+            case(90) ->{
+//                System.out.print("id: ");
+//                System.out.println(img.getId());
+//                System.out.print("rotation: ");
+//                System.out.println(rotation_for_random(y, x, matrix));
+//                System.out.print("x: ");
+//                System.out.println(index_turn_x_random(x,id_ship(img.getId().substring(0, 5))));
+//                System.out.print("y: ");
+//                System.out.println(index_turn_y_random(y,id_ship(img.getId().substring(0, 5))));
+//                System.out.print("x_new: ");
+//                System.out.println(mas_x_turn[index_turn_x_random(x,id_ship(img.getId().substring(0, 5)))]);
+//                System.out.print("y_new: ");
+//                System.out.println(mas_y_turn[index_turn_y_random(y,id_ship(img.getId().substring(0, 5)))]);
+                img.setRotate(90);
+                img.setLayoutX(mas_x_turn[index_turn_x_random(x,id_ship(img.getId().substring(0, 5)))]);
+                img.setLayoutY(mas_y_turn[index_turn_y_random(y,id_ship(img.getId().substring(0, 5)))]);
+            }
+        }
+
+    }
+
     public static boolean chek_ship_and_around_for_turn(int y, int x, int power_ship, int[][] matrix){
         boolean res = true;
         for(int i = 0; i < power_ship; i++){
@@ -183,8 +262,13 @@ public class Logic {
         }
         return res;
     }
-    private static void random_set_ship(int ship, int[][] matrix) {
-        //ArrayDeque<Integer> index_ship = new ArrayDeque<Integer>();
+    private static void random_set_ship(int ship, int[][] matrix) throws Exception {
+        ArrayDeque<Integer> index_ship = new ArrayDeque<Integer>();
+        int index_x;
+        int index_y;
+        int min_index = 20;
+        int min_x = 0;
+        int min_y = 0;
         int power_ship = ship - 1;
         int x1;
         int y1;
@@ -201,12 +285,18 @@ public class Logic {
         matrix[x1][y1] = ship;
         index_ship.add(x1);
         index_ship.add(y1);
+        int i = 0;
         while (true) {
             move = random.nextInt(4);
             //System.out.println(move);
             if (check_for_move(x1, y1, ship, move, matrix)) {
                 break;
             }
+            if(i == 1000){
+                System.out.println("Error");
+                throw new Exception("Error");
+            }
+            i += 1;
         }
         //System.out.println("x " + x1);
         //System.out.println("y " + y1);
@@ -252,10 +342,24 @@ public class Logic {
         }
         while (index_ship.peek() != null) {
             //System.out.println(index_ship.pop());
-            around(index_ship.pop(), index_ship.pop(), matrix, 0, 8);
+            index_x = index_ship.pop();
+            index_y = index_ship.pop();
+            if ((index_x + index_y) < min_index){
+                min_index = (index_x + index_y);
+                 min_x = index_x;
+                 min_y = index_y;
+//                ship_images[index_ship_images] = index_x;
+//                ship_images[index_ship_images + 1] = index_y;
+//                ship_images.a
+            }
+            around(index_x, index_y, matrix, 0, 8);
         }
         //PrintArray(matrix);
         //System.out.println("_____________________________________________________________");
+        ship_images.add(min_x);
+        ship_images.add(min_y);
+        score += 1;
+        System.out.println(score);
     }
 
     public static int default_ship_x(String id_ship) {
@@ -319,12 +423,24 @@ public class Logic {
         }
         return res;
     }
-    protected static void generate_ships(int[][] player) {
+
+    protected static void clear_matrix(int[][] matrix) {
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                matrix[i][j] = 0;
+            }
+        }
+    }
+
+    protected static void generate_ships(int[][] matrix) {
+        score = 0;
         int[] nymbers_ships = {4, 3, 2, 1};
         for (int type_ship = 3; type_ship >= 0; type_ship--) {
             while (nymbers_ships[type_ship] != 0) {
                 try {
-                    random_set_ship(type_ship + 1, player);
+                    random_set_ship(type_ship + 1, matrix);
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
                 } finally {
                     nymbers_ships[type_ship] -= 1;
                 }
@@ -404,7 +520,6 @@ public class Logic {
             img.setLayoutY(default_y);
             img.setRotate(0);
         }
-        System.out.println("___________________________________________");
         //PrintArray(matrix);
     }
 
@@ -457,7 +572,6 @@ public class Logic {
             img.setLayoutY(default_y);
             img.setRotate(0);
         }
-        System.out.println("___________________________________________");
         //PrintArray(matrix);
     }
     private static boolean check_root(int x, int y, int power, int[][] matrix) {

@@ -399,7 +399,7 @@
                   <Font name="Calibri Bold" size="64.0" />
                </font>
             </Label>
-            <Button fx:id="btn7" layoutX="751.0" layoutY="649.0" mnemonicParsing="false" onMousePressed="#onPress" prefHeight="90.68" prefWidth="297.0" stylesheets="@itcss.css" text="АВТО" textFill="WHITE">
+            <Button fx:id="btn7" layoutX="751.0" layoutY="649.0" mnemonicParsing="false" onMousePressed="#onPress" onMouseClicked="#onButtonClick" prefHeight="90.68" prefWidth="297.0" stylesheets="@itcss.css" text="АВТО" textFill="WHITE">
                <font>
                   <Font name="Calibri Bold" size="32.0" />
                </font>

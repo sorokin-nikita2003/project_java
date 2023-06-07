@@ -30,21 +30,25 @@ import static com.example.demo.HelloApplication.*;
 import static com.example.demo.Logic.*;
 //import static com.example.demo.HelloApplication.mediaPlayer2;
 
-public class frame_2Controller {
+public class frame_2Controller {  //539539
+//        btn7.setLayoutX(632);
+//        btn7.setLayoutY(737);
     // 4    3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3    2
-    //{79, 104, 127, 152, 175, 200, 223, 248, 272, 296, 318, 344, 368, 392, 415, 440, 463, 488, 510, 536, 561};
+    //{79, 104, 127, 152, 175, 200, 223, 248, 272, 296, 318, 344, 368, 392, 415, 440, 465, 488, 510, 536, 561};
     // 2     3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3    2
     //{282, 307, 330, 355, 376, 403, 426, 451, 474, 499, 522, 546, 568, 595, 618, 643, 665}
     static int[][] matrix ;
-    private Logic logic = new Logic();
     double x, y;
     int count_click = 0;
     int rotate_ship = 0;
     @FXML
+    private ImageView Ship4_1, Ship3_1, Ship3_2, Ship2_1, Ship2_2, Ship2_3, Ship1_1, Ship1_2, Ship1_3, Ship1_4;
+    @FXML
     private Button btn1;
-
     @FXML
     private Button btn2;
+    @FXML
+    private Button btn7;
 
     private String lastButtonPressed;
     public void setLastButtonPressed(String lastButtonPressed) {
@@ -73,12 +77,14 @@ public class frame_2Controller {
         Object obj = event.getSource();
         ImageView img = (ImageView)obj;
         int rotate = (int)img.getRotate();
-        switch (rotate) {
-            case (0) -> {
-                clear(mas_x, mas_y, rotate, img, matrix);
-            }
-            case (90) -> {
-                clear(mas_x_turn, mas_y_turn, rotate, img, matrix);
+        if((img.getLayoutX() <= 632 && img.getLayoutX() >= 105) && (img.getLayoutY() <= 737 && img.getLayoutY() >= 210)) {
+            switch (rotate) {
+                case (0) -> {
+                    clear(mas_x, mas_y, rotate, img, matrix);
+                }
+                case (90) -> {
+                    clear(mas_x_turn, mas_y_turn, rotate, img, matrix);
+                }
             }
         }
     }
@@ -89,22 +95,24 @@ public class frame_2Controller {
         ImageView img = (ImageView)obj;
         int rotate = (int)img.getRotate();
          if(count_click == 2) {
-             switch (rotate) {
-                 case (0) -> {
-                     try {
-                         clear(mas_x, mas_y, rotate, img, matrix);
-                         img.setRotate(90);
-                         set_turn_ship(mas_x_turn, mas_y_turn, img, matrix);
+             if((img.getLayoutX() <= 632 && img.getLayoutX() >= 105) && (img.getLayoutY() <= 737 && img.getLayoutY() >= 210)){
+                 switch (rotate) {
+                     case (0) -> {
+                         try {
+                             clear(mas_x, mas_y, rotate, img, matrix);
+                             img.setRotate(90);
+                             set_turn_ship(mas_x_turn, mas_y_turn, img, matrix);
+                         }
+                         catch (Exception e){}
                      }
-                     catch (Exception e){}
-                 }
-                 case (90) -> {
-                     try {
-                         clear(mas_x_turn, mas_y_turn, rotate, img, matrix);
-                         img.setRotate(0);
-                         set_ship(mas_x, mas_y, img,matrix);
+                     case (90) -> {
+                         try {
+                             clear(mas_x_turn, mas_y_turn, rotate, img, matrix);
+                             img.setRotate(0);
+                             set_ship(mas_x, mas_y, img,matrix);
+                         }
+                         catch (Exception e){}
                      }
-                     catch (Exception e){}
                  }
              }
              count_click = 0;
@@ -122,12 +130,21 @@ public class frame_2Controller {
     public void onImageReleased(MouseEvent mouseEvent) {
         Object obj = mouseEvent.getSource();
         ImageView img = (ImageView)obj;
-        switch ((int)img.getRotate()){
-            case (0) ->{
-                set_ship(mas_x, mas_y, img, matrix);
-            }
-            case (90) ->{
-                set_turn_ship(mas_x_turn, mas_y_turn, img, matrix);
+        if ((img.getLayoutX() > 632 || img.getLayoutX() < 105) || (img.getLayoutY() > 737 || img.getLayoutY() < 210)){
+            int default_x = default_ship_x(img.getId());
+            int default_y = default_ship_y(img.getId());
+            img.setLayoutX(default_x);
+            img.setLayoutY(default_y);
+            img.setRotate(0);
+        }
+        else {
+            switch ((int)img.getRotate()){
+                case (0) ->{
+                    set_ship(mas_x, mas_y, img, matrix);
+                }
+                case (90) ->{
+                    set_turn_ship(mas_x_turn, mas_y_turn, img, matrix);
+                }
             }
         }
     }
@@ -145,6 +162,48 @@ public class frame_2Controller {
         window.setMaximized(true);
         window.setScene(scene);
         window.show();
+    }
+
+    @FXML
+    private void onButtonClick(MouseEvent event) throws IOException {
+        clear_matrix(matrix);
+        try {
+            generate_ships(matrix);
+        }
+        catch (Exception e){
+            try {
+                while (ship_images.peek() != null) {
+                    ship_images.pop();
+                    ship_images.pop();
+                }
+                clear_matrix(matrix);
+                generate_ships(matrix);
+            }
+            catch (Exception m){
+                while (ship_images.peek() != null) {
+                    ship_images.pop();
+                    ship_images.pop();
+                }
+                clear_matrix(matrix);
+                generate_ships(matrix);
+            }
+        }
+        System.out.println("__________________________________");
+        PrintArray(matrix);
+
+//        System.out.println(Ship4_1.getId());
+
+        random_set_ship_image(Ship4_1, matrix); //0
+        random_set_ship_image(Ship3_1, matrix);//1
+        random_set_ship_image(Ship3_2, matrix);//2
+        random_set_ship_image(Ship2_1, matrix);//3
+        random_set_ship_image(Ship2_2, matrix);//4
+        random_set_ship_image(Ship2_3, matrix);//5
+        random_set_ship_image(Ship1_1, matrix);//6
+        random_set_ship_image(Ship1_2, matrix);//7
+        random_set_ship_image(Ship1_3, matrix);//8
+        random_set_ship_image(Ship1_4, matrix);//9
+
     }
 
     @FXML
