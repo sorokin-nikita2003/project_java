@@ -9,8 +9,6 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
-import static com.example.demo.HelloApplication.player1;
-
 
 // 0, 8 - путо
 // 9 - промах
@@ -28,7 +26,6 @@ public class Logic {
     static int first_x = 0;
     static int first_y = 0;
     static ArrayDeque<Integer> index_ship = new ArrayDeque<Integer>();
-    public static int score_player2 = 0;
     static Scanner in = new Scanner(System.in);
 
     protected static void PrintArray(int[][] Array) {
@@ -76,20 +73,20 @@ public class Logic {
     }
 
     static Random random = new Random();
-    public static boolean set_ship_on_matrix(int y, int x, int power_ship, int rotate){
+    public static boolean set_ship_on_matrix(int y, int x, int power_ship, int rotate, int[][] matrix){
         boolean res;
         try {
             switch (rotate){
                 case (0) ->{
                     for(int i = 0; i < power_ship; i++){
-                        player1[y][x + i] = power_ship;
-                        around(y, x + i, player1, 0, 8);
+                        matrix[y][x + i] = power_ship;
+                        around(y, x + i, matrix, 0, 8);
                     }
                 }
                 case (90) ->{
                     for(int i = 0; i < power_ship; i++){
-                        player1[y + i][x] = power_ship;
-                        around(y + i, x, player1, 0, 8);
+                        matrix[y + i][x] = power_ship;
+                        around(y + i, x, matrix, 0, 8);
                     }
                 }
             }
@@ -99,20 +96,20 @@ public class Logic {
         }
         return res;
     }
-    public static void clear_ship(int y, int x, int rotate){
-        int power_ship = player1[y][x];
+    public static void clear_ship(int y, int x, int rotate, int[][] matrix){
+        int power_ship = matrix[y][x];
         try {
             switch (rotate){
                 case (0) ->{
                     for(int i = 0; i < power_ship; i++){
-                        player1[y][x + i] = 0;
-                        around(y, x + i, player1, 8, 0);
+                        matrix[y][x + i] = 0;
+                        around(y, x + i, matrix, 8, 0);
                     }
                 }
                 case (90) ->{
                     for(int i = 0; i < power_ship; i++){
-                        player1[y + i][x] = 0;
-                        around(y + i, x, player1, 8, 0);
+                        matrix[y + i][x] = 0;
+                        around(y + i, x, matrix, 8, 0);
                     }
                 }
             }
@@ -120,12 +117,43 @@ public class Logic {
 
         }
     }
-    public static boolean chek_ship_and_around(int y, int x, int power_ship, int rotate){
+    public static void clear(int[] mas_x, int[] mas_y, int rotate, ImageView img, int[][] matrix){
+
+        int x = (int)img.getLayoutX();
+        int y = (int)img.getLayoutY();
+        int id = id_ship(img.getId().substring(0, 5));
+        try{
+            switch (rotate) {
+                case (0) -> {
+                    clear_ship(index(mas_y, y), index(mas_x, x), rotate,matrix);
+                }
+                case (90) -> {
+                    clear_ship(index_turn_y(mas_y, y, id), index_turn_x(mas_x, x, id), rotate, matrix);
+                }
+            }
+            update_matrix(matrix);
+        }
+        catch (Exception e){
+            System.out.println("ERROR");
+        }
+    }
+    protected static void update_matrix(int[][] matrix) {
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                switch (matrix[i][j]){
+                    case(1), (2), (3), (4) -> {
+                        around(i, j, matrix, 0, 8);
+                    }
+                }
+            }
+        }
+    }
+    public static boolean chek_ship_and_around(int y, int x, int power_ship, int rotate, int[][] matrix){
         boolean res = true;
         switch (rotate) {
             case (0) ->{
                 for (int i = 0; i < power_ship; i++) {
-                    switch (player1[y][x + i]) {
+                    switch (matrix[y][x + i]) {
                         case (1), (4), (3), (2), (8) -> {
                             res = false;
                         }
@@ -134,26 +162,20 @@ public class Logic {
             }
             case (90) ->{
                 for (int i = 0; i < power_ship; i++) {
-                    switch (player1[y + i][x]) {
+                    switch (matrix[y + i][x]) {
                         case (1), (4), (3), (2), (8) -> {
                             res = false;
                         }
                     }
-                    System.out.print("y:");
-                    System.out.println(y + i);
-                    System.out.print("x:");
-                    System.out.println(x);
-                    System.out.print(i +":");
-                    System.out.println(player1[y + i][x]);
                 }
             }
         }
         return res;
     }
-    public static boolean chek_ship_and_around_for_turn(int y, int x, int power_ship){
+    public static boolean chek_ship_and_around_for_turn(int y, int x, int power_ship, int[][] matrix){
         boolean res = true;
         for(int i = 0; i < power_ship; i++){
-            switch (player1[y + i][x]){
+            switch (matrix[y + i][x]){
                 case (1), (4), (3), (2), (8)->{
                     res = false;
                 }
@@ -310,7 +332,7 @@ public class Logic {
         }
     }
 
-    protected static void set_turn_ship(int[] mas_x, int[] mas_y, ImageView img){
+    protected static void set_turn_ship(int[] mas_x, int[] mas_y, ImageView img, int[][] matrix){
         int last_x = 0;
         int last_y = 0;
         int x = (int)img.getLayoutX();
@@ -364,8 +386,7 @@ public class Logic {
         index_y = index_turn_y(mas_y,last_y, id);
         index_x = index_turn_x(mas_x,last_x, id);
         try {
-//            System.out.println(chek_ship_and_around(index_y, index_x, id, 90));
-            if (chek_ship_and_around(index_y, index_x, id, 90) && chek_ship_and_around(index_y, index_x, id, 0) && set_ship_on_matrix(index_y, index_x, id, 90)){
+            if (chek_ship_and_around(index_y, index_x, id, 90, matrix)  && set_ship_on_matrix(index_y, index_x, id, 90, matrix)){
                 img.setLayoutX(last_x);
                 img.setLayoutY(last_y);
             }
@@ -384,15 +405,14 @@ public class Logic {
             img.setRotate(0);
         }
         System.out.println("___________________________________________");
-        PrintArray(player1);
+        //PrintArray(matrix);
     }
 
-    protected static void set_ship(int[] mas_x, int[] mas_y, ImageView img){
+    protected static void set_ship(int[] mas_x, int[] mas_y, ImageView img,int[][] matrix){
         int last_x = 0;
         int last_y = 0;
         int x = (int)img.getLayoutX();
         int y = (int)img.getLayoutY();
-        //clear_ship(index(mas_y,y), index(mas_x,x), rotate);
         for (int i = 0; i < 9; i++){
             if(Math.abs(x - mas_x[i]) <= Math.abs(x - mas_x[i+1]) ){
                 last_x = mas_x[i];
@@ -418,12 +438,8 @@ public class Logic {
         int id = id_ship(img.getId().substring(0, 5));
         int index_y = index(mas_y,last_y);
         int index_x = index(mas_x,last_x);
-        System.out.println(index_y);
-        System.out.println(index_x);
         try {
-            System.out.println(chek_ship_and_around(index_y, index_x, id, 0));
-            PrintArray(player1);
-            if (chek_ship_and_around(index_y, index_x, id, 0) && set_ship_on_matrix(index_y, index_x, id, 0)){
+            if (chek_ship_and_around(index_y, index_x, id, 0, matrix) && set_ship_on_matrix(index_y, index_x, id, 0, matrix)){
                 img.setLayoutX(last_x);
                 img.setLayoutY(last_y);
             }
@@ -435,10 +451,6 @@ public class Logic {
                 img.setRotate(0);
             }
         }catch (Exception e){
-            System.out.print("y/");
-            System.out.println(index_y);
-            System.out.print("x/");
-            System.out.println(index_x);
             int default_x = default_ship_x(img.getId());
             int default_y = default_ship_y(img.getId());
             img.setLayoutX(default_x);
@@ -446,8 +458,7 @@ public class Logic {
             img.setRotate(0);
         }
         System.out.println("___________________________________________");
-        //System.out.println(player1[index(mas_y,last_y)][index(mas_x,last_x)]);
-        PrintArray(player1);
+        //PrintArray(matrix);
     }
     private static boolean check_root(int x, int y, int power, int[][] matrix) {
         boolean result = true;
@@ -641,7 +652,7 @@ public class Logic {
             System.out.println("miss");
             matrix[x][y] = 9;
         }
-        score_player2 = i;
+        //score_player2 = i;
     }
 
     private static boolean ships_around(int i, int j, int[][] matrix) {

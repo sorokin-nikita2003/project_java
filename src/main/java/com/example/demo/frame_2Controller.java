@@ -27,21 +27,16 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 
 import static com.example.demo.HelloApplication.*;
-import static com.example.demo.HelloApplication.mediaPlayer2;
+import static com.example.demo.Logic.*;
+//import static com.example.demo.HelloApplication.mediaPlayer2;
 
 public class frame_2Controller {
-    private Logic logic = new Logic();
-    private int[] mas_x = {152, 201, 249, 297, 345, 392, 441, 488, 537, 584};
     // 4    3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3    2
     //{79, 104, 127, 152, 175, 200, 223, 248, 272, 296, 318, 344, 368, 392, 415, 440, 463, 488, 510, 536, 561};
     // 2     3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3    2
     //{282, 307, 330, 355, 376, 403, 426, 451, 474, 499, 522, 546, 568, 595, 618, 643, 665}
-    private int[] mas_x_turn = {79, 104, 127, 152, 175, 200, 223, 248, 272, 296, 318, 344, 368, 392, 415, 440, 463, 488, 510, 536, 561};
-    private int[] mas_y_turn = {282, 307, 330, 355, 376, 403, 426, 451, 474, 499, 522, 546, 568, 595, 618, 643, 665};
-    private int[] mas_y_turn4 = {330, 379, 427, 475, 522, 571, 616};
-    private int[] mas_y_turn3 = {307, 355, 403, 451, 499, 546, 595, 643};
-    private int[] mas_y_turn2 = {282, 330, 376, 426, 474, 522, 568, 618, 665};
-    private int[] mas_y = {258, 306, 354, 402, 450, 498, 546, 594, 642, 690};
+    static int[][] matrix ;
+    private Logic logic = new Logic();
     double x, y;
     int count_click = 0;
     int rotate_ship = 0;
@@ -74,84 +69,43 @@ public class frame_2Controller {
         y = event.getY() - clickedImageView.getLayoutBounds().getHeight();
         clickedImageView.setCursor(Cursor.MOVE);
 
+
         Object obj = event.getSource();
         ImageView img = (ImageView)obj;
-        int x = (int)img.getLayoutX();
-        int y = (int)img.getLayoutY();
         int rotate = (int)img.getRotate();
-        int id = logic.id_ship(img.getId().substring(0, 5));
-        try{
-            switch (rotate) {
-                case (0) -> {
-                    logic.clear_ship(logic.index(mas_y, y), logic.index(mas_x, x), rotate);
-                }
-                case (90) -> {
-                    logic.clear_ship(logic.index_turn_y(mas_y_turn, y, id), logic.index_turn_x(mas_x_turn, x, id), rotate);
-                }
+        switch (rotate) {
+            case (0) -> {
+                clear(mas_x, mas_y, rotate, img, matrix);
             }
-//            System.out.print("y: ");
-//            System.out.println(logic.index_turn_y(mas_y_turn, y, id));
-//            System.out.print("x: ");
-//            System.out.println(logic.index_turn_x(mas_x_turn, x, id));
+            case (90) -> {
+                clear(mas_x_turn, mas_y_turn, rotate, img, matrix);
+            }
         }
-        catch (Exception e){
-            System.out.println("ERROR");
-        }
-
     }
     @FXML
     public void onImageClicked(MouseEvent event) {
         count_click  += 1;
-        /**int id = 0;
-        Object obj = event.getSource();
-        ImageView img = (ImageView)obj;
-        int x = (int)img.getLayoutX();
-        int y = (int)img.getLayoutY();
-        switch (img.getId().substring(0, 5)){
-            case ("Ship1") -> {
-                id = 1;
-            }
-            case ("Ship2") -> {
-                id = 2;
-            }
-            case ("Ship3") -> {
-                id = 3;
-            }
-            case ("Ship4") -> {
-                id = 4;
-            }
-        }
-        try{
-            logic.clear_ship(logic.index(mas_y,y), logic.index(mas_x,x));
-            if(logic.chek_ship_and_around_for_turn(y, x, id)){
-                logic.turn_ship(y, x, id);
-            }
-            else {
-                logic.set_ship(logic.index(mas_y,y), logic.index(mas_x,x), id);
-            }
-        }
-        catch (Exception e){
-            System.out.println(logic.index(mas_x,x));
-            System.out.println(logic.index(mas_y,y));
-        }**/
         Object obj = event.getSource();
         ImageView img = (ImageView)obj;
         int rotate = (int)img.getRotate();
-        int x = (int)img.getLayoutX();
-        int y = (int)img.getLayoutY();
-        int id = logic.id_ship(img.getId().substring(0, 5));
          if(count_click == 2) {
-             //int index_y = logic.index(mas_y,y);
-             //int index_x = logic.index(mas_x,x);
-             if (rotate == 0) {
-                 logic.clear_ship(logic.index(mas_y, y), logic.index(mas_x, x), rotate);
-                 img.setRotate(90);
-                 logic.set_turn_ship(mas_x_turn, mas_y_turn, img);
-             }
-             if (rotate == 90) {
-                 logic.clear_ship(logic.index_turn_y(mas_y_turn, y, id), logic.index_turn_x(mas_x_turn, x, id), rotate);
-                 img.setRotate(0);
-                 logic.set_ship(mas_x, mas_y, img);
+             switch (rotate) {
+                 case (0) -> {
+                     try {
+                         clear(mas_x, mas_y, rotate, img, matrix);
+                         img.setRotate(90);
+                         set_turn_ship(mas_x_turn, mas_y_turn, img, matrix);
+                     }
+                     catch (Exception e){}
+                 }
+                 case (90) -> {
+                     try {
+                         clear(mas_x_turn, mas_y_turn, rotate, img, matrix);
+                         img.setRotate(0);
+                         set_ship(mas_x, mas_y, img,matrix);
+                     }
+                     catch (Exception e){}
+                 }
              }
              count_click = 0;
          }
@@ -168,22 +122,19 @@ public class frame_2Controller {
     public void onImageReleased(MouseEvent mouseEvent) {
         Object obj = mouseEvent.getSource();
         ImageView img = (ImageView)obj;
-//        System.out.print("x: ");
-//        System.out.println(img.getLayoutX());
-//        System.out.print("y: ");
-//        System.out.println(img.getLayoutY());
         switch ((int)img.getRotate()){
             case (0) ->{
-                logic.set_ship(mas_x, mas_y, img);
+                set_ship(mas_x, mas_y, img, matrix);
             }
             case (90) ->{
-                logic.set_turn_ship(mas_x_turn, mas_y_turn, img);
+                set_turn_ship(mas_x_turn, mas_y_turn, img, matrix);
             }
         }
     }
 
     @FXML
     private void handleButtonClickBack(ActionEvent event) throws IOException {
+        player = 1;
         FXMLLoader loader = new FXMLLoader(getClass().getResource("frame_1.fxml"));
         Parent pane = loader.load();
 //            frame_2Controller controller = loader.getController();
@@ -200,6 +151,15 @@ public class frame_2Controller {
     private void handleButtonClickForward(ActionEvent event) throws IOException {
         count_click = 0;
         if (Objects.equals(lastButtonPressed, "bot") || Objects.equals(lastButtonPressed, "together_2")){
+            player = 0;
+
+
+            System.out.println("player 1");
+            PrintArray(player1);
+            System.out.println("player 2");
+            PrintArray(player2);
+
+
             FXMLLoader loader = new FXMLLoader(getClass().getResource("frame_3.fxml"));
             Parent pane = loader.load();
 //            frame_2Controller controller = loader.getController();
@@ -212,6 +172,7 @@ public class frame_2Controller {
             window.show();
         }
         else if (Objects.equals(lastButtonPressed, "together_1")){
+            player += 1;
             FXMLLoader loader = new FXMLLoader(getClass().getResource("frame_2.fxml"));
             Parent pane = loader.load();
             frame_2Controller controller = loader.getController();
@@ -222,6 +183,14 @@ public class frame_2Controller {
             window.setMaximized(true);
             window.setScene(scene);
             window.show();
+        }
+    }
+    public void initialize() {
+        if (player == 1){
+            matrix = player1;
+        }
+        if (player == 2){
+            matrix = player2;
         }
     }
 }

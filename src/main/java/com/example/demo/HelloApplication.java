@@ -13,12 +13,18 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 
-import static com.example.demo.Logic.score_player2;
-
 public class HelloApplication extends Application {
+    protected static int score_player1 = 0;
+    protected static int score_player2 = 0;
+    protected static final int[] mas_x = {152, 201, 249, 297, 345, 392, 441, 488, 537, 584};
+    protected static final int[] mas_y = {258, 306, 354, 402, 450, 498, 546, 594, 642, 690};
+    protected static final int[] mas_x_turn = {79, 104, 127, 152, 175, 200, 223, 248, 272, 296, 318, 344, 368, 392, 415, 440, 463, 488, 510, 536, 561};
+    protected static final int[] mas_y_turn = {282, 307, 330, 355, 376, 403, 426, 451, 474, 499, 522, 546, 568, 595, 618, 643, 665};
+    static int[][] player1 = new int[10][10];
+    static int[][] player2 = new int[10][10];
+    protected static int player = 1;
     protected static int time_sleep = 210000;
     protected static boolean flag = false;
-    //210000
     protected static MediaPlayer mediaPlayer;
     protected static double sliderValue = 100;
     static String[] songs = {"music/main_sound.mp3", "music/battle_theme.mp3"};
@@ -90,8 +96,6 @@ public class HelloApplication extends Application {
 
 
     }
-    static int[][] player1 = new int[10][10];
-    static int[][] player2 = new int[10][10];
     public static void main(String[] args) {
         launch();
         t.interrupt();
