@@ -342,42 +342,42 @@
                   <Image url="@img/ship_3_cells.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="Ship2_1" fitHeight="49.0" fitWidth="200.0" layoutX="769.0" layoutY="449.0" onMouseClicked="#onImageClicked" onMouseDragged="#onImageDragged" onMousePressed="#onImagePressed" onMouseReleased="#onImageReleased" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="Ship2_1" fitHeight="49.0" fitWidth="200.0" layoutX="769.0" layoutY="449.0"  onMouseClicked="#onImageClicked" onMouseDragged="#onImageDragged" onMousePressed="#onImagePressed" onMouseReleased="#onImageReleased" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@img/ship_2_cells.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="Ship1_1" fitHeight="49.0" fitWidth="49.0" layoutX="769.0" layoutY="546.0" onMouseDragged="#onImageDragged" onMousePressed="#onImagePressed" onMouseReleased="#onImageReleased" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="Ship1_1" fitHeight="49.0" fitWidth="49.0" layoutX="769.0" layoutY="546.0" onMouseClicked="#onImageClicked" onMouseDragged="#onImageDragged" onMousePressed="#onImagePressed" onMouseReleased="#onImageReleased" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@img/ship_1_cell.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="Ship3_2" fitHeight="49.0" fitWidth="184.0" layoutX="980.0" layoutY="353.0" onMouseDragged="#onImageDragged" onMousePressed="#onImagePressed" onMouseReleased="#onImageReleased" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="Ship3_2" fitHeight="49.0" fitWidth="184.0" layoutX="980.0" layoutY="353.0" onMouseClicked="#onImageClicked" onMouseDragged="#onImageDragged" onMousePressed="#onImagePressed" onMouseReleased="#onImageReleased" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@img/ship_3_cells.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="Ship2_2" fitHeight="49.0" fitWidth="200.0" layoutX="925.0" layoutY="449.0" onMouseDragged="#onImageDragged" onMousePressed="#onImagePressed" onMouseReleased="#onImageReleased" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="Ship2_2" fitHeight="49.0" fitWidth="200.0" layoutX="925.0" layoutY="449.0" onMouseClicked="#onImageClicked" onMouseDragged="#onImageDragged" onMousePressed="#onImagePressed" onMouseReleased="#onImageReleased" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@img/ship_2_cells.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="Ship2_3" fitHeight="49.0" fitWidth="200.0" layoutX="1095.0" layoutY="449.0" onMouseDragged="#onImageDragged" onMousePressed="#onImagePressed" onMouseReleased="#onImageReleased" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="Ship2_3" fitHeight="49.0" fitWidth="200.0" layoutX="1095.0" layoutY="449.0" onMouseClicked="#onImageClicked" onMouseDragged="#onImageDragged" onMousePressed="#onImagePressed" onMouseReleased="#onImageReleased" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@img/ship_2_cells.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="Ship1_2" fitHeight="49.0" fitWidth="49.0" layoutX="879.0" layoutY="546.0" onMouseDragged="#onImageDragged" onMousePressed="#onImagePressed" onMouseReleased="#onImageReleased" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="Ship1_2" fitHeight="49.0" fitWidth="49.0" layoutX="879.0" layoutY="546.0" onMouseClicked="#onImageClicked" onMouseDragged="#onImageDragged" onMousePressed="#onImagePressed" onMouseReleased="#onImageReleased" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@img/ship_1_cell.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="Ship1_3" fitHeight="49.0" fitWidth="49.0" layoutX="994.0" layoutY="546.0" onMouseDragged="#onImageDragged" onMousePressed="#onImagePressed" onMouseReleased="#onImageReleased" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="Ship1_3" fitHeight="49.0" fitWidth="49.0" layoutX="994.0" layoutY="546.0" onMouseClicked="#onImageClicked" onMouseDragged="#onImageDragged" onMousePressed="#onImagePressed" onMouseReleased="#onImageReleased" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@img/ship_1_cell.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="Ship1_4" fitHeight="49.0" fitWidth="49.0" layoutX="1104.0" layoutY="546.0" onMouseDragged="#onImageDragged" onMousePressed="#onImagePressed" onMouseReleased="#onImageReleased" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="Ship1_4" fitHeight="49.0" fitWidth="49.0" layoutX="1104.0" layoutY="546.0" onMouseClicked="#onImageClicked" onMouseDragged="#onImageDragged" onMousePressed="#onImagePressed" onMouseReleased="#onImageReleased" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@img/ship_1_cell.png" />
                </image>

@@ -50,6 +50,31 @@ public class Logic {
         }
         return in;
     }
+    protected static int index_turn_x(int[] Array, int search_el, int id){
+        int in = 0;
+        for(int el: Array){
+            if(el == search_el){
+                break;
+            }
+            in += 1;
+        }
+        in = in / 2;
+        if (id == 2){in -= 1;}
+        return in ;
+    }
+    protected static int index_turn_y(int[] Array, int search_el, int id){
+        int in = 0;
+        for(int el: Array){
+            if(el == search_el){
+                break;
+            }
+            in += 1;
+        }
+        in = in / 2;
+        if (id == 4){in -= 1;}
+        return in ;
+    }
+
     static Random random = new Random();
     public static boolean set_ship_on_matrix(int y, int x, int power_ship, int rotate){
         boolean res;
@@ -114,6 +139,12 @@ public class Logic {
                             res = false;
                         }
                     }
+                    System.out.print("y:");
+                    System.out.println(y + i);
+                    System.out.print("x:");
+                    System.out.println(x);
+                    System.out.print(i +":");
+                    System.out.println(player1[y + i][x]);
                 }
             }
         }
@@ -278,51 +309,89 @@ public class Logic {
             }
         }
     }
-    protected static boolean turn_ship(int[] mas_x, int[] mas_y, ImageView img, int count_click){
-        boolean res = false;
-        double rotate = img.getRotate();
+
+    protected static void set_turn_ship(int[] mas_x, int[] mas_y, ImageView img){
+        int last_x = 0;
+        int last_y = 0;
         int x = (int)img.getLayoutX();
         int y = (int)img.getLayoutY();
-        //System.out.println(player1[index(mas_y, y)][index(mas_x, x)]);
-        //&& player1[index(mas_y, y)][index(mas_x, x)] != 0
-        if ((x >= mas_x[0] && x <= mas_x[9]) && (y >= mas_y[0] && y <= mas_y[9]) && count_click == 2) {
-            if (rotate == 0) {
-                img.setRotate(90);
-            } else {
+        int id = id_ship(img.getId().substring(0, 5));
+        int t = 2;
+        int index_x = 100;
+        int index_y = 100;
+        int lenght_mas_y = 100;
+        switch (id){
+            case(2) ->{
+                index_x = 2;
+                index_y = 0;
+                lenght_mas_y = 8;
+            }
+            case(3) ->{
+                index_x = 1;
+                index_y = 1;
+                lenght_mas_y = 7;
+            }
+            case(4) ->{
+                index_x = 0;
+                index_y = 2;
+                lenght_mas_y = 6;
+            }
+        }
+        for (int i = 0; i < 9; i++){
+            if(Math.abs(x - mas_x[index_x]) <= Math.abs(x - mas_x[index_x+t]) ){
+                last_x = mas_x[index_x];
+            }
+            else {
+                last_x = mas_x[index_x+t];
+            }
+            if (last_x == mas_x[index_x]){
+                break;
+            }
+            index_x += t;
+        }
+        for (int j = 0; j < lenght_mas_y; j++){
+            if(Math.abs(y - mas_y[index_y]) <= Math.abs(y - mas_y[index_y+t]) ){
+                last_y = mas_y[index_y];
+            }
+            else {
+                last_y = mas_y[index_y+t];
+            }
+            if (last_y == mas_y[index_y]){
+                break;
+            }
+            index_y += t;
+        }
+        index_y = index_turn_y(mas_y,last_y, id);
+        index_x = index_turn_x(mas_x,last_x, id);
+        try {
+//            System.out.println(chek_ship_and_around(index_y, index_x, id, 90));
+            if (chek_ship_and_around(index_y, index_x, id, 90) && chek_ship_and_around(index_y, index_x, id, 0) && set_ship_on_matrix(index_y, index_x, id, 90)){
+                img.setLayoutX(last_x);
+                img.setLayoutY(last_y);
+            }
+            else {
+                int default_x = default_ship_x(img.getId());
+                int default_y = default_ship_y(img.getId());
+                img.setLayoutX(default_x);
+                img.setLayoutY(default_y);
                 img.setRotate(0);
             }
-            res = true;
-        }
-        return res;
-    }
-    /**protected static String rotate_ship(y, x){
-        int power_ship = player1[y][x];
-        try {
-            switch (rotate){
-                case (0) ->{
-                    for(int i = 0; i < power_ship; i++){
-                        player1[y][x + i] = 0;
-                        around(y, x + i, player1, 8, 0);
-                    }
-                }
-                case (90) ->{
-                    for(int i = 0; i < power_ship; i++){
-                        player1[y + i][x] = 0;
-                        around(y + i, x, player1, 8, 0);
-                    }
-                }
-            }
         }catch (Exception e){
-
+            int default_x = default_ship_x(img.getId());
+            int default_y = default_ship_y(img.getId());
+            img.setLayoutX(default_x);
+            img.setLayoutY(default_y);
+            img.setRotate(0);
         }
-    }**/
+        System.out.println("___________________________________________");
+        PrintArray(player1);
+    }
 
     protected static void set_ship(int[] mas_x, int[] mas_y, ImageView img){
         int last_x = 0;
         int last_y = 0;
         int x = (int)img.getLayoutX();
         int y = (int)img.getLayoutY();
-        int rotate = (int)img.getRotate();
         //clear_ship(index(mas_y,y), index(mas_x,x), rotate);
         for (int i = 0; i < 9; i++){
             if(Math.abs(x - mas_x[i]) <= Math.abs(x - mas_x[i+1]) ){
@@ -349,24 +418,12 @@ public class Logic {
         int id = id_ship(img.getId().substring(0, 5));
         int index_y = index(mas_y,last_y);
         int index_x = index(mas_x,last_x);
-        /**if (rotate == 90){
-            index_y -= 1;
-            index_x += 1;
-        }**/
-        if (rotate == 90){
-            last_x += 23;
-            last_y += 23;
-            index_x += 2;
-            index_y -= 1;
-            System.out.println(last_x);
-            System.out.println(last_y);
-        }
         System.out.println(index_y);
         System.out.println(index_x);
         try {
-            System.out.println(chek_ship_and_around(index_y, index_x, id, rotate));
+            System.out.println(chek_ship_and_around(index_y, index_x, id, 0));
             PrintArray(player1);
-            if (chek_ship_and_around(index_y, index_x, id, rotate) && set_ship_on_matrix(index_y, index_x, id, rotate)){
+            if (chek_ship_and_around(index_y, index_x, id, 0) && set_ship_on_matrix(index_y, index_x, id, 0)){
                 img.setLayoutX(last_x);
                 img.setLayoutY(last_y);
             }

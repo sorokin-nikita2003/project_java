@@ -34,7 +34,10 @@ public class frame_2Controller {
     private int[] mas_x = {152, 201, 249, 297, 345, 392, 441, 488, 537, 584};
     // 4    3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3    2
     //{79, 104, 127, 152, 175, 200, 223, 248, 272, 296, 318, 344, 368, 392, 415, 440, 463, 488, 510, 536, 561};
+    // 2     3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3    2
+    //{282, 307, 330, 355, 376, 403, 426, 451, 474, 499, 522, 546, 568, 595, 618, 643, 665}
     private int[] mas_x_turn = {79, 104, 127, 152, 175, 200, 223, 248, 272, 296, 318, 344, 368, 392, 415, 440, 463, 488, 510, 536, 561};
+    private int[] mas_y_turn = {282, 307, 330, 355, 376, 403, 426, 451, 474, 499, 522, 546, 568, 595, 618, 643, 665};
     private int[] mas_y_turn4 = {330, 379, 427, 475, 522, 571, 616};
     private int[] mas_y_turn3 = {307, 355, 403, 451, 499, 546, 595, 643};
     private int[] mas_y_turn2 = {282, 330, 376, 426, 474, 522, 568, 618, 665};
@@ -76,24 +79,23 @@ public class frame_2Controller {
         int x = (int)img.getLayoutX();
         int y = (int)img.getLayoutY();
         int rotate = (int)img.getRotate();
-        //System.out.print("y: ");
-        //System.out.println(logic.index(mas_y,y)+"  "+ y);
-        //System.out.print("x: ");
-        //System.out.println(logic.index(mas_x,x)+"  "+ x);
-        int index_y = logic.index(mas_y,y);
-        int index_x = logic.index(mas_x,x);
+        int id = logic.id_ship(img.getId().substring(0, 5));
         try{
-            if(rotate == 90){
-                index_x += 2;
-                index_y -= 1;
-                //y -= 73;
-                //x += 73;
+            switch (rotate) {
+                case (0) -> {
+                    logic.clear_ship(logic.index(mas_y, y), logic.index(mas_x, x), rotate);
+                }
+                case (90) -> {
+                    logic.clear_ship(logic.index_turn_y(mas_y_turn, y, id), logic.index_turn_x(mas_x_turn, x, id), rotate);
+                }
             }
-            logic.clear_ship(index_y, index_x,rotate);
-            //player1[logic.index(mas_y,y)][ logic.index(mas_x,x)] = 0;
+//            System.out.print("y: ");
+//            System.out.println(logic.index_turn_y(mas_y_turn, y, id));
+//            System.out.print("x: ");
+//            System.out.println(logic.index_turn_x(mas_x_turn, x, id));
         }
         catch (Exception e){
-
+            System.out.println("ERROR");
         }
 
     }
@@ -134,49 +136,25 @@ public class frame_2Controller {
         }**/
         Object obj = event.getSource();
         ImageView img = (ImageView)obj;
-        /**if (logic.turn_ship(mas_x,mas_y,img, count_click)){
-            count_click = 0;
-        }**/
         int rotate = (int)img.getRotate();
         int x = (int)img.getLayoutX();
         int y = (int)img.getLayoutY();
-        int index_y = logic.index(mas_y,y);
-        int index_x = logic.index(mas_x,x);
-
-         if(count_click == 2){
-             img.setRotate(90);
+        int id = logic.id_ship(img.getId().substring(0, 5));
+         if(count_click == 2) {
+             //int index_y = logic.index(mas_y,y);
+             //int index_x = logic.index(mas_x,x);
+             if (rotate == 0) {
+                 logic.clear_ship(logic.index(mas_y, y), logic.index(mas_x, x), rotate);
+                 img.setRotate(90);
+                 logic.set_turn_ship(mas_x_turn, mas_y_turn, img);
+             }
+             if (rotate == 90) {
+                 logic.clear_ship(logic.index_turn_y(mas_y_turn, y, id), logic.index_turn_x(mas_x_turn, x, id), rotate);
+                 img.setRotate(0);
+                 logic.set_ship(mas_x, mas_y, img);
+             }
+             count_click = 0;
          }
-
-        /**if(count_click == 2){
-            try{
-                if(rotate == 90){
-                    index_x += 2;
-                    index_y -= 1;
-
-                }
-                logic.clear_ship(index_y, index_x,rotate);
-                //player1[logic.index(mas_y,y)][ logic.index(mas_x,x)] = 0;
-            }
-            catch (Exception e){
-
-            }
-            System.out.println("Rotate");
-            if (img.getRotate() == 0){
-                img.setRotate(90);
-                //img.setLayoutX(img.getLayoutX()-73);
-                //img.setLayoutY(img.getLayoutY()+73);
-            }
-            else  {
-                //img.setLayoutX(img.getLayoutX()+73);
-                //img.setLayoutY(img.getLayoutY()-73);
-                img.setRotate(0);
-                //img.setLayoutX(img.getLayoutX()+73);
-                //img.setLayoutY(img.getLayoutY()-73);
-            }
-            logic.set_ship(mas_x,mas_y, img);
-        }
-        System.out.println("--------------------------------------------");
-        logic.PrintArray(player1);**/
     }
 
     @FXML
@@ -190,11 +168,18 @@ public class frame_2Controller {
     public void onImageReleased(MouseEvent mouseEvent) {
         Object obj = mouseEvent.getSource();
         ImageView img = (ImageView)obj;
-        System.out.print("x: ");
-        System.out.println(img.getLayoutX());
-        System.out.print("y: ");
-        System.out.println(img.getLayoutY());
-        //logic.set_ship(mas_x, mas_y, img);
+//        System.out.print("x: ");
+//        System.out.println(img.getLayoutX());
+//        System.out.print("y: ");
+//        System.out.println(img.getLayoutY());
+        switch ((int)img.getRotate()){
+            case (0) ->{
+                logic.set_ship(mas_x, mas_y, img);
+            }
+            case (90) ->{
+                logic.set_turn_ship(mas_x_turn, mas_y_turn, img);
+            }
+        }
     }
 
     @FXML
