@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.transform.Rotate;
 import javafx.stage.Modality;
@@ -221,6 +222,9 @@ public class frame_2Controller {  //539539
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("frame_3.fxml"));
             Parent pane = loader.load();
+            AnchorPane anchorpane = (AnchorPane) pane.getChildrenUnmodifiable().get(0);
+            frame_3Controller controller = loader.getController();
+            controller.getAnchorPane(anchorpane);
 //            frame_2Controller controller = loader.getController();
 //            controller.setLastButtonPressed("bot");
 //        scene.setCursor(Cursor.HAND);
