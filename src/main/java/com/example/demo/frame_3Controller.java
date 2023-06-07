@@ -11,9 +11,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -26,6 +29,23 @@ import static com.example.demo.HelloApplication.*;
 public class frame_3Controller {
     @FXML
     Button btn1;
+    @FXML
+    Rectangle shot00;
+
+    @FXML
+    private void shot(MouseEvent event) {
+        Rectangle clickedImageView = (Rectangle) event.getSource();
+        int i = Integer.parseInt(String.valueOf(clickedImageView.getId().charAt(4)));
+        System.out.println(i);
+        int j = Integer.parseInt(String.valueOf(clickedImageView.getId().charAt(5)));
+        System.out.println(j);
+        if (player1[i][j] == 0 || player1[i][j] == 8) {
+            clickedImageView.setFill(Color.BLACK);
+        }
+        else {
+            clickedImageView.setFill(Color.BLUE);
+        }
+    }
 
     @FXML
     private void onPress(MouseEvent event) {
