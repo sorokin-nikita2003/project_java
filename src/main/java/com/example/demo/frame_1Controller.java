@@ -153,6 +153,7 @@ public class frame_1Controller implements Initializable {
         Scene scene = new Scene(pane);
         window.centerOnScreen();
         window.setMaximized(true);
+        //window.setFullScreen(true);
         window.setScene(scene);
         window.show();
     }

@@ -14,12 +14,15 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class HelloApplication extends Application {
+    public static Stage Screan;
     // 4    3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3    2
     //{79, 104, 128, 152, 176, 200, 223, 248, 272, 296, 319, 344, 369, 392, 415, 440, 464, 488, 511, 536, 561}
     // 2     3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3    2
     //{282, 307, 330, 355, 377, 403, 426, 451, 474, 499, 522, 546, 569, 595, 618, 643, 665}
     protected static int score_player1 = 0;
     protected static int score_player2 = 0;
+    protected static String theme_color = "light";
+    protected static String screan = "window";
     protected static final int[] mas_x = {152, 201, 249, 297, 345, 392, 441, 488, 537, 584};
     protected static final int[] mas_y = {258, 306, 354, 402, 450, 498, 546, 594, 642, 690};
     protected static final int[] mas_x_turn = {79, 104, 128, 152, 176, 200, 223, 248, 272, 296, 319, 344, 369, 392, 415, 440, 464, 488, 511, 536, 561};
@@ -79,10 +82,12 @@ public class HelloApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("frame_1.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
 //        stage.centerOnScreen();
-        stage.setMaximized(true);
         stage.setTitle("Морской бой");
+//        stage.setMaximized(true);
+        stage.setFullScreen(true);
         stage.setScene(scene);
         stage.show();
+        Screan = stage;
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("frame_4.fxml"));
         Parent root = loader.load();

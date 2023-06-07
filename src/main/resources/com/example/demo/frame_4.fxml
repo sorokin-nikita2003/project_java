@@ -5,7 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.Slider?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.frame_4Controller">
@@ -29,12 +29,12 @@
                         <Font name="Calibri" size="50.0" />
                      </font>
                   </Label>
-                  <RadioButton layoutX="389.0" layoutY="20.0" mnemonicParsing="false" text="Светлая">
+                  <RadioButton fx:id="btn_light" onAction="#RadioButtonClick" layoutX="389.0" layoutY="20.0" mnemonicParsing="false" text="Светлая">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </RadioButton>
-                  <RadioButton layoutX="579.0" layoutY="20.0" mnemonicParsing="false" text="Темная">
+                  <RadioButton fx:id="btn_dark" onAction="#RadioButtonClick" layoutX="579.0" layoutY="20.0" mnemonicParsing="false" text="Темная">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -48,12 +48,12 @@
                         <Font name="Calibri" size="50.0" />
                      </font>
                   </Label>
-                  <RadioButton layoutX="389.0" layoutY="20.0" mnemonicParsing="false" text="Полноэкранный">
+                  <RadioButton fx:id="btn_full" onAction="#RadioButtonClick" layoutX="389.0" layoutY="20.0" mnemonicParsing="false"  text="Полноэкранный">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </RadioButton>
-                  <RadioButton layoutX="627.0" layoutY="20.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="158.0" text="Оконный">
+                  <RadioButton fx:id="btn_window" onAction="#RadioButtonClick" layoutX="627.0" layoutY="20.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="158.0" text="Оконный">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -61,7 +61,7 @@
                </children>
             </Group>
             <Group layoutX="566.0" layoutY="611.0" />
-            <Button id="btn6" layoutX="727.0" layoutY="598.0" onMousePressed="#onPress" onAction="#handleButtonClickOk" mnemonicParsing="false" stylesheets="@itcss.css" text="ОК" textFill="WHITE">
+            <Button fx:id="btn6" layoutX="727.0" layoutY="598.0" onMousePressed="#onPress" onAction="#handleButtonClickOk" mnemonicParsing="false" stylesheets="@itcss.css" text="ОК" textFill="WHITE">
                <font>
                   <Font name="Calibri Bold" size="32.0" />
                </font>
