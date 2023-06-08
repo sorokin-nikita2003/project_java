@@ -22,9 +22,7 @@ import static com.example.demo.HelloApplication.*;
 import static com.example.demo.Logic.*;
 //import static com.example.demo.HelloApplication.mediaPlayer2;
 
-public class frame_2Controller {  //539539
-//        btn7.setLayoutX(632);
-//        btn7.setLayoutY(737);
+public class frame_2Controller {
     // 4    3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3    2
     //{79, 104, 127, 152, 175, 200, 223, 248, 272, 296, 318, 344, 368, 392, 415, 440, 465, 488, 510, 536, 561};
     // 2     3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3    2
@@ -110,6 +108,7 @@ public class frame_2Controller {  //539539
                              clear(mas_x_turn, mas_y_turn, rotate, img, matrix);
                              img.setRotate(0);
                              set_ship(mas_x, mas_y, img,matrix);
+
                          }
                          catch (Exception e){}
                      }
@@ -151,6 +150,7 @@ public class frame_2Controller {  //539539
 
     @FXML
     private void handleButtonClickBack(ActionEvent event) throws IOException {
+        count_click = 0;
         player = 1;
         FXMLLoader loader = new FXMLLoader(getClass().getResource("frame_1.fxml"));
         Parent pane = loader.load();
@@ -203,21 +203,17 @@ public class frame_2Controller {  //539539
         random_set_ship_image(Ship1_2, matrix);//7
         random_set_ship_image(Ship1_3, matrix);//8
         random_set_ship_image(Ship1_4, matrix);//9
-
     }
 
     @FXML
     private void handleButtonClickForward(ActionEvent event) throws IOException {
         count_click = 0;
-        if (Objects.equals(lastButtonPressed, "bot") || Objects.equals(lastButtonPressed, "together_2")){
+        System.out.println(name_player1);
+        PrintArray(player1);
+        System.out.println(name_player2);
+        PrintArray(player2);
+        if ((Objects.equals(lastButtonPressed, "bot") || Objects.equals(lastButtonPressed, "together_2")) && count_ships(matrix) == 20){
             player = 0;
-
-
-            System.out.println(name_player1);
-            PrintArray(player1);
-            System.out.println(name_player2);
-            PrintArray(player2);
-
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("frame_3.fxml"));
             Parent pane = loader.load();
@@ -251,6 +247,7 @@ public class frame_2Controller {  //539539
         if (player == 1){
             text.setPromptText(name_player1);
             matrix = player1;
+            clear_matrix(matrix);
             text.textProperty().addListener((Observable, oldValue, newValue) -> {
                 name_player1 = newValue;
             });
@@ -258,6 +255,7 @@ public class frame_2Controller {  //539539
         if (player == 2){
             text.setPromptText(name_player2);
             matrix = player2;
+            clear_matrix(matrix);
             text.textProperty().addListener((Observable, oldValue, newValue) -> {
                 name_player2 = newValue;
             });
