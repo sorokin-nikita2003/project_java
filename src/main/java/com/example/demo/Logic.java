@@ -32,6 +32,19 @@ public class Logic {
     static Random random = new Random();
     static Scanner in = new Scanner(System.in);
 
+    protected static int count_ships(int[][] matrix) {
+        int res = 0;
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                switch (matrix[i][j]){
+                    case(1), (2), (3), (4) ->{
+                        res += 1;
+                    }
+                }
+            }
+        }
+        return res;
+    }
     protected static void PrintArray(int[][] Array) {
         for (int i = 0; i < 10; i++) {  //идём по строкам
             for (int j = 0; j < 10; j++) { //идём по столбцам
