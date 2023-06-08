@@ -40,6 +40,8 @@ public class frame_3Controller {
     Button btn1;
 
     @FXML
+    Label text1, text2;
+    @FXML
     Polygon polyg;
     @FXML
     Rectangle shot00;
@@ -825,5 +827,9 @@ public class frame_3Controller {
         mediaPlayer.setVolume(sliderValue / 100);
         time_sleep = 480000;
         flag = true;
+//        System.out.println(name_player1);
+        text1.setText(name_player1);
+        text2.setText(name_player2);
+//        System.out.println(text1.getText());
     }
 }

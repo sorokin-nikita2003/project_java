@@ -1,29 +1,20 @@
 package com.example.demo;
 
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Pos;
 import javafx.scene.*;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.image.Image;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.transform.Rotate;
-import javafx.stage.Modality;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-import java.net.URL;
-import java.util.Arrays;
-import java.io.Console;
 import java.io.IOException;
-import java.util.Arrays;
+import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -50,6 +41,8 @@ public class frame_2Controller {  //539539
     private Button btn2;
     @FXML
     private Button btn7;
+    @FXML
+    private TextField text;
 
     private String lastButtonPressed;
     public void setLastButtonPressed(String lastButtonPressed) {
@@ -64,7 +57,13 @@ public class frame_2Controller {  //539539
         mediaPlayer2.play();
         mediaPlayer2.seek(Duration.ZERO);
     }
-
+    @FXML
+    private void TextChanged(InputMethodEvent event) {
+        Object obj = event.getSource();
+        TextField text = (TextField)obj;
+        text.getText();
+        System.out.println(text.getText());
+    }
     @FXML
     public void onImagePressed(MouseEvent event) {
 //        String imageViewId = ((ImageView) event.getSource()).getId();
@@ -214,9 +213,9 @@ public class frame_2Controller {  //539539
             player = 0;
 
 
-            System.out.println("player 1");
+            System.out.println(name_player1);
             PrintArray(player1);
-            System.out.println("player 2");
+            System.out.println(name_player2);
             PrintArray(player2);
 
 
@@ -250,10 +249,18 @@ public class frame_2Controller {  //539539
     }
     public void initialize() {
         if (player == 1){
+            text.setPromptText(name_player1);
             matrix = player1;
+            text.textProperty().addListener((Observable, oldValue, newValue) -> {
+                name_player1 = newValue;
+            });
         }
         if (player == 2){
+            text.setPromptText(name_player2);
             matrix = player2;
+            text.textProperty().addListener((Observable, oldValue, newValue) -> {
+                name_player2 = newValue;
+            });
         }
     }
 }

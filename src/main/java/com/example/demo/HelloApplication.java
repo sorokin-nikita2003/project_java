@@ -21,6 +21,8 @@ public class HelloApplication extends Application {
     //{282, 307, 330, 355, 377, 403, 426, 451, 474, 499, 522, 546, 569, 595, 618, 643, 665}
     protected static int score_player1 = 0;
     protected static int score_player2 = 0;
+    protected static String name_player1 = "Игрок 1";
+    protected static String name_player2 = "Игрок 2";
     protected static String theme_color = "light";
     protected static String screan = "window";
     protected static final int[] mas_x = {152, 201, 249, 297, 345, 392, 441, 488, 537, 584};
