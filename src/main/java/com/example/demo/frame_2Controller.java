@@ -27,6 +27,9 @@ public class frame_2Controller {
     //{79, 104, 127, 152, 175, 200, 223, 248, 272, 296, 318, 344, 368, 392, 415, 440, 465, 488, 510, 536, 561};
     // 2     3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3    2
     //{282, 307, 330, 355, 376, 403, 426, 451, 474, 499, 522, 546, 568, 595, 618, 643, 665}
+
+    static String[] bot_names = {"Вера", "Александр", "Алиса","Александра","Агата", "Ева", "Сергей","Антон","Артём", "Дарина", "Василиса","Максим","Дарья", "София", "Константин","Виктория","Владимир", "Тимофей", "Григорий","Леонид"} ;
+
     static int[][] matrix ;
     double x, y;
     int count_click = 0;
@@ -247,6 +250,9 @@ public class frame_2Controller {
                 random_set_ship_image(Ship1_2, matrix);//7
                 random_set_ship_image(Ship1_3, matrix);//8
                 random_set_ship_image(Ship1_4, matrix);//9
+
+                name_player2 = bot_names[random.nextInt(20)];
+
             }
 
             System.out.println(name_player1);
