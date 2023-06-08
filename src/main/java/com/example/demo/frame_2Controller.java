@@ -260,6 +260,9 @@ public class frame_2Controller {
             System.out.println(name_player2);
             PrintArray(player2);
 
+            score_player1 = 0;
+            score_player2 = 0;
+
             FXMLLoader loader = new FXMLLoader(getClass().getResource("frame_3.fxml"));
             Parent pane = loader.load();
             AnchorPane anchorpane = (AnchorPane) pane.getChildrenUnmodifiable().get(0);

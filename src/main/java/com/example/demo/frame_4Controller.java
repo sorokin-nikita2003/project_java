@@ -42,6 +42,8 @@ public class frame_4Controller {
     ToggleGroup group_btn_theme = new ToggleGroup();
     @FXML
     private Slider slider;
+    @FXML
+    private AnchorPane anchorPane;
 
 //    private MediaPlayer mediaPlayer;
 //    public void settVolume(MediaPlayer mediaPlayer) {
@@ -103,17 +105,10 @@ public class frame_4Controller {
     }
     public void initialize() {
 
-////        System.out.println(Screen.getPrimary());
-////        Stage window = (Stage)(.getSource()).getScene().getWindow();
-//        Stage currentStage = (Stage)  anchorPane.getScene().getWindow();
-////        stage.setWidth(800);
-////        stage.setHeight(600);
-//        System.out.println(currentStage);
-
-//        AnchorPane pane = new AnchorPane();
-//        pane.setPrefWidth(1920);
-//        Stage window = (Stage)pane.getScene().getWindow();
-//        System.out.println(window.getWidth());
+//        Stage stage = (Stage) anchorPane.getScene().getWindow();
+//        anchorPane.setMaxWidth(1920);
+//        anchorPane.setVisible(false);
+        System.out.println(anchorPane.getScene());
 
         slider.setValue(sliderValue);
         btn_full.setToggleGroup(group_btn_screan);
