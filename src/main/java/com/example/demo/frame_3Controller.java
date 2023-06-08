@@ -28,8 +28,7 @@ import java.io.File;
 import java.io.IOException;
 
 import static com.example.demo.HelloApplication.*;
-import static com.example.demo.Logic.PrintArray;
-import static com.example.demo.Logic.in;
+import static com.example.demo.Logic.*;
 
 public class frame_3Controller {
     private AnchorPane anchorPane;
@@ -44,404 +43,46 @@ public class frame_3Controller {
     @FXML
     Polygon polyg;
     @FXML
-    Rectangle shot00;
+    Rectangle shot00, shot01, shot02, shot03, shot04, shot05, shot06, shot07, shot08, shot09;
     @FXML
-    Rectangle shot01;
-@FXML
-    Rectangle shot02;
-@FXML
-    Rectangle shot03;
-@FXML
-    Rectangle shot04;
-@FXML
-    Rectangle shot05;
-@FXML
-    Rectangle shot06;
-@FXML
-    Rectangle shot07;
-@FXML
-    Rectangle shot08;
-@FXML
-    Rectangle shot09;
-@FXML
-    Rectangle shot10;
-@FXML
-    Rectangle shot11;
-@FXML
-    Rectangle shot12;
-@FXML
-    Rectangle shot13;
-@FXML
-    Rectangle shot14;
-@FXML
-    Rectangle shot15;
-@FXML
-    Rectangle shot16;
-@FXML
-    Rectangle shot17;
-@FXML
-    Rectangle shot18;
-@FXML
-    Rectangle shot19;
-@FXML
-    Rectangle shot20;
-@FXML
-    Rectangle shot21;
-@FXML
-    Rectangle shot22;
-@FXML
-    Rectangle shot23;
-@FXML
-    Rectangle shot24;
-@FXML
-    Rectangle shot25;
-@FXML
-    Rectangle shot26;
-@FXML
-    Rectangle shot27;
-@FXML
-    Rectangle shot28;
-@FXML
-    Rectangle shot29;
-@FXML
-    Rectangle shot30;
-@FXML
-    Rectangle shot31;
-@FXML
-    Rectangle shot32;
-@FXML
-    Rectangle shot33;
-@FXML
-    Rectangle shot34;
-@FXML
-    Rectangle shot35;
-@FXML
-    Rectangle shot36;
-@FXML
-    Rectangle shot37;
-@FXML
-    Rectangle shot38;
-@FXML
-    Rectangle shot39;
-@FXML
-    Rectangle shot40;
-@FXML
-    Rectangle shot41;
-@FXML
-    Rectangle shot42;
-@FXML
-    Rectangle shot43;
-@FXML
-    Rectangle shot44;
-@FXML
-    Rectangle shot45;
-@FXML
-    Rectangle shot46;
-@FXML
-    Rectangle shot47;
-@FXML
-    Rectangle shot48;
-@FXML
-    Rectangle shot49;
-@FXML
-    Rectangle shot50;
-@FXML
-    Rectangle shot51;
-@FXML
-    Rectangle shot52;
-@FXML
-    Rectangle shot53;
-@FXML
-    Rectangle shot54;
-@FXML
-    Rectangle shot55;
-@FXML
-    Rectangle shot56;
-@FXML
-    Rectangle shot57;
-@FXML
-    Rectangle shot58;
-@FXML
-    Rectangle shot59;
-@FXML
-    Rectangle shot60;
-@FXML
-    Rectangle shot61;
-@FXML
-    Rectangle shot62;
-@FXML
-    Rectangle shot63;
-@FXML
-    Rectangle shot64;
-@FXML
-    Rectangle shot65;
-@FXML
-    Rectangle shot66;
-@FXML
-    Rectangle shot67;
-@FXML
-    Rectangle shot68;
-@FXML
-    Rectangle shot69;
-@FXML
-    Rectangle shot70;
-@FXML
-    Rectangle shot71;
-@FXML
-    Rectangle shot72;
-@FXML
-    Rectangle shot73;
-@FXML
-    Rectangle shot74;
-@FXML
-    Rectangle shot75;
-@FXML
-    Rectangle shot76;
-@FXML
-    Rectangle shot77;
-@FXML
-    Rectangle shot78;
-@FXML
-    Rectangle shot79;
-@FXML
-    Rectangle shot80;
-@FXML
-    Rectangle shot81;
-@FXML
-    Rectangle shot82;
-@FXML
-    Rectangle shot83;
-@FXML
-    Rectangle shot84;
-@FXML
-    Rectangle shot85;
-@FXML
-    Rectangle shot86;
-@FXML
-    Rectangle shot87;
-@FXML
-    Rectangle shot88;
-@FXML
-    Rectangle shot89;
-@FXML
-    Rectangle shot90;
-@FXML
-    Rectangle shot91;
-@FXML
-    Rectangle shot92;
-@FXML
-    Rectangle shot93;
-@FXML
-    Rectangle shot94;
-@FXML
-    Rectangle shot95;
-@FXML
-    Rectangle shot96;
-@FXML
-    Rectangle shot97;
-@FXML
-    Rectangle shot98;
-@FXML
-    Rectangle shot99;
+    Rectangle shot10, shot11, shot12, shot13, shot14, shot15, shot16, shot17, shot18, shot19;
+    @FXML
+    Rectangle shot20, shot21, shot22, shot23, shot24, shot25, shot26, shot27, shot28, shot29;
+    @FXML
+    Rectangle shot30, shot31, shot32, shot33, shot34, shot35, shot36, shot37, shot38, shot39;
+    @FXML
+    Rectangle shot40, shot41, shot42, shot43, shot44, shot45, shot46, shot47, shot48, shot49;
+    @FXML
+    Rectangle shot50, shot51, shot52, shot53, shot54, shot55, shot56, shot57, shot58, shot59;
+    @FXML
+    Rectangle shot60, shot61, shot62, shot63, shot64, shot65, shot66, shot67, shot68, shot69;
+    @FXML
+    Rectangle shot70, shot71, shot72, shot73, shot74, shot75, shot76, shot77, shot78, shot79;
+    @FXML
+    Rectangle shot80, shot81, shot82, shot83, shot84, shot85, shot86, shot87, shot88, shot89;
+    @FXML
+    Rectangle shot90, shot91, shot92, shot93, shot94, shot95, shot96, shot97, shot98, shot99;
 
-@FXML Rectangle shot2_00;
-@FXML Rectangle shot2_01;
-@FXML
-    Rectangle shot2_02;
-@FXML
-    Rectangle shot2_03;
-@FXML
-    Rectangle shot2_04;
-@FXML
-    Rectangle shot2_05;
-@FXML
-    Rectangle shot2_06;
-@FXML
-    Rectangle shot2_07;
-@FXML
-    Rectangle shot2_08;
-@FXML
-    Rectangle shot2_09;
-@FXML
-    Rectangle shot2_10;
-@FXML
-    Rectangle shot2_11;
-@FXML
-    Rectangle shot2_12;
-@FXML
-    Rectangle shot2_13;
-@FXML
-    Rectangle shot2_14;
-@FXML
-    Rectangle shot2_15;
-@FXML
-    Rectangle shot2_16;
-@FXML
-    Rectangle shot2_17;
-@FXML
-    Rectangle shot2_18;
-@FXML
-    Rectangle shot2_19;
-@FXML
-    Rectangle shot2_20;
-@FXML
-    Rectangle shot2_21;
-@FXML
-    Rectangle shot2_22;
-@FXML
-    Rectangle shot2_23;
-@FXML
-    Rectangle shot2_24;
-@FXML
-    Rectangle shot2_25;
-@FXML
-    Rectangle shot2_26;
-@FXML
-    Rectangle shot2_27;
-@FXML
-    Rectangle shot2_28;
-@FXML
-    Rectangle shot2_29;
-@FXML
-    Rectangle shot2_30;
-@FXML
-    Rectangle shot2_31;
-@FXML
-    Rectangle shot2_32;
-@FXML
-    Rectangle shot2_33;
-@FXML
-    Rectangle shot2_34;
-@FXML
-    Rectangle shot2_35;
-@FXML
-    Rectangle shot2_36;
-@FXML
-    Rectangle shot2_37;
-@FXML
-    Rectangle shot2_38;
-@FXML
-    Rectangle shot2_39;
-@FXML
-    Rectangle shot2_40;
-@FXML
-    Rectangle shot2_41;
-@FXML
-    Rectangle shot2_42;
-@FXML
-    Rectangle shot2_43;
-@FXML
-    Rectangle shot2_44;
-@FXML
-    Rectangle shot2_45;
-@FXML
-    Rectangle shot2_46;
-@FXML
-    Rectangle shot2_47;
-@FXML
-    Rectangle shot2_48;
-@FXML
-    Rectangle shot2_49;
-@FXML
-    Rectangle shot2_50;
-@FXML
-    Rectangle shot2_51;
-@FXML
-    Rectangle shot2_52;
-@FXML
-    Rectangle shot2_53;
-@FXML
-    Rectangle shot2_54;
-@FXML
-    Rectangle shot2_55;
-@FXML
-    Rectangle shot2_56;
-@FXML
-    Rectangle shot2_57;
-@FXML
-    Rectangle shot2_58;
-@FXML
-    Rectangle shot2_59;
-@FXML
-    Rectangle shot2_60;
-@FXML
-    Rectangle shot2_61;
-@FXML
-    Rectangle shot2_62;
-@FXML
-    Rectangle shot2_63;
-@FXML
-    Rectangle shot2_64;
-@FXML
-    Rectangle shot2_65;
-@FXML
-    Rectangle shot2_66;
-@FXML
-    Rectangle shot2_67;
-@FXML
-    Rectangle shot2_68;
-@FXML
-    Rectangle shot2_69;
-@FXML
-    Rectangle shot2_70;
-@FXML
-    Rectangle shot2_71;
-@FXML
-    Rectangle shot2_72;
-@FXML
-    Rectangle shot2_73;
-@FXML
-    Rectangle shot2_74;
-@FXML
-    Rectangle shot2_75;
-@FXML
-    Rectangle shot2_76;
-@FXML
-    Rectangle shot2_77;
-@FXML
-    Rectangle shot2_78;
-@FXML
-    Rectangle shot2_79;
-@FXML
-    Rectangle shot2_80;
-@FXML
-    Rectangle shot2_81;
-@FXML
-    Rectangle shot2_82;
-@FXML
-    Rectangle shot2_83;
-@FXML
-    Rectangle shot2_84;
-@FXML
-    Rectangle shot2_85;
-@FXML
-    Rectangle shot2_86;
-@FXML
-    Rectangle shot2_87;
-@FXML
-    Rectangle shot2_88;
-@FXML
-    Rectangle shot2_89;
-@FXML
-    Rectangle shot2_90;
-@FXML
-    Rectangle shot2_91;
-@FXML
-    Rectangle shot2_92;
-@FXML
-    Rectangle shot2_93;
-@FXML
-    Rectangle shot2_94;
-@FXML
-    Rectangle shot2_95;
-@FXML
-    Rectangle shot2_96;
-@FXML
-    Rectangle shot2_97;
-@FXML
-    Rectangle shot2_98;
-@FXML
-    Rectangle shot2_99;
+    @FXML
+    Rectangle shot2_00, shot2_01, shot2_02, shot2_03, shot2_04, shot2_05, shot2_06, shot2_07, shot2_08, shot2_09;
+    @FXML
+    Rectangle shot2_10, shot2_11, shot2_12, shot2_13, shot2_14, shot2_15, shot2_16, shot2_17, shot2_18, shot2_19;
+    @FXML
+    Rectangle shot2_20, shot2_21, shot2_22, shot2_23, shot2_24, shot2_25, shot2_26, shot2_27, shot2_28, shot2_29;
+    @FXML
+    Rectangle shot2_30, shot2_31, shot2_32, shot2_33, shot2_34, shot2_35, shot2_36, shot2_37, shot2_38, shot2_39;
+    @FXML
+    Rectangle shot2_40, shot2_41, shot2_42, shot2_43, shot2_44, shot2_45, shot2_46, shot2_47, shot2_48, shot2_49;
+    @FXML
+    Rectangle shot2_50, shot2_51, shot2_52, shot2_53, shot2_54, shot2_55, shot2_56, shot2_57, shot2_58, shot2_59;
+    @FXML
+    Rectangle shot2_60, shot2_61, shot2_62, shot2_63, shot2_64, shot2_65, shot2_66, shot2_67, shot2_68, shot2_69;
+    @FXML
+    Rectangle shot2_70, shot2_71, shot2_72, shot2_73, shot2_74, shot2_75, shot2_76, shot2_77, shot2_78, shot2_79;
+    @FXML
+    Rectangle shot2_80, shot2_81, shot2_82, shot2_83, shot2_84, shot2_85, shot2_86, shot2_87, shot2_88, shot2_89;
+    @FXML
+    Rectangle shot2_90, shot2_91, shot2_92, shot2_93, shot2_94, shot2_95, shot2_96, shot2_97, shot2_98, shot2_99;
 
 
     @FXML
@@ -768,19 +409,12 @@ public class frame_3Controller {
                 mediaPlayer.setVolume(sliderValue / 100);
                 time_sleep = 210000;
                 flag = true;
-
-                for (int i=0;i < player1[0].length;i++){
-                    for (int j=0;j < player1[1].length ;j++){
-                        player1[i][j]=0;
-                    }
-                }
+                player = 1;
+                clear_matrix(player1);
                 System.out.println("player 1-------------------------");
                 PrintArray(player1);
-                for (int i=0;i < player2[0].length;i++){
-                    for (int j=0;j < player2[1].length ;j++){
-                        player2[i][j]=0;
-                    }
-                }
+
+                clear_matrix(player2);
                 System.out.println("player 2-------------------------");
                 PrintArray(player2);
 
