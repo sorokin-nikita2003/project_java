@@ -2,12 +2,9 @@ package com.example.demo;
 
 import javafx.scene.image.ImageView;
 
-import java.io.IOException;
+import java.io.*;
 import java.lang.reflect.Array;
-import java.util.ArrayDeque;
-import java.util.Arrays;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 import static com.example.demo.HelloApplication.*;
 
@@ -905,5 +902,47 @@ public class Logic {
             }
         }
         return res;
+    }
+
+    protected static void create_file(File file){
+        try {
+            file.createNewFile();
+            BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+            writer.write("Volume: 100.0 \n");
+            writer.write("Theme: light \n");
+            writer.write("Volume: true ");
+            writer.close();
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+    protected static void read_file(File file){
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))){
+            Scanner scan = new Scanner(reader);
+            sliderValue = Double.parseDouble(scan.nextLine().substring(8));
+            theme_color = scan.nextLine().substring(7);
+            if (Objects.equals(theme_color, "dark ")){
+                theme_color = "dark";
+            }
+            else {
+                theme_color = "light";
+            }
+            full_screan = Boolean.parseBoolean(scan.nextLine().substring(12));
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+    protected static void whrite_file(File file){
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))){
+            writer.write("Volume: " + sliderValue + " \n");
+            writer.write("Theme: " + theme_color + " \n");
+            writer.write("FullScrean: " + full_screan );
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
     }
 }

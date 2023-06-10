@@ -27,11 +27,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static com.example.demo.HelloApplication.mediaPlayer2;
-import static com.example.demo.HelloApplication.sliderValue;
-import static com.example.demo.HelloApplication.screan;
-import static com.example.demo.HelloApplication.theme_color;
-import static com.example.demo.HelloApplication.Screan;
+import static com.example.demo.HelloApplication.*;
 
 public class frame_4Controller {
     @FXML
@@ -57,16 +53,16 @@ public class frame_4Controller {
         String value_btn = btn.getId().substring(4);
         switch (value_btn){
             case ("light")->{
-                theme_color = value_btn;
+                theme_color = value_btn;;
             }
             case ("dark")->{
                 theme_color = value_btn;
             }
             case ("full")->{
-                screan = value_btn;
+                full_screan = true;
             }
             case ("window")->{
-                screan = value_btn;
+                full_screan = false;
             }
         }
 
@@ -108,11 +104,11 @@ public class frame_4Controller {
 //        Stage stage = (Stage) anchorPane.getScene().getWindow();
 //        anchorPane.setMaxWidth(1920);
 //        anchorPane.setVisible(false);
-        System.out.println(anchorPane.getScene());
 
         slider.setValue(sliderValue);
         btn_full.setToggleGroup(group_btn_screan);
         btn_window.setToggleGroup(group_btn_screan);
+
         btn_light.setToggleGroup(group_btn_theme);
         btn_dark.setToggleGroup(group_btn_theme);
 
@@ -126,15 +122,24 @@ public class frame_4Controller {
                 btn_dark.setSelected(true);
             }
         }
-        switch (screan){
-            case ("full")->{
-                btn_window.setSelected(false);
-                btn_full.setSelected(true);
-            }
-            case ("window")->{
-                btn_window.setSelected(true);
-                btn_full.setSelected(false);
-            }
+        if (full_screan){
+            btn_window.setSelected(false);
+            btn_full.setSelected(true);
         }
+        else {
+            btn_window.setSelected(true);
+            btn_full.setSelected(false);
+        }
+
+//        switch (full_screan){
+//            case (true)->{
+//                btn_window.setSelected(false);
+//                btn_full.setSelected(true);
+//            }
+//            case ("window")->{
+//                btn_window.setSelected(true);
+//                btn_full.setSelected(false);
+//            }
+//        }
     }
 }

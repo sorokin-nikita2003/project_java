@@ -1,0 +1,3 @@
+Volume: 24.7588424437299 
+Theme: dark 
+FullScrean: true

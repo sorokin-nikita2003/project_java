@@ -30,6 +30,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import static com.example.demo.HelloApplication.*;
+import static com.example.demo.Logic.whrite_file;
 //import static com.example.demo.HelloApplication.time_sleep;
 
 public class frame_1Controller implements Initializable {
@@ -53,7 +54,6 @@ public class frame_1Controller implements Initializable {
     private Button btn2;
     @FXML
     private Button btn4;
-
     @FXML
     private Group btn3;
 
@@ -127,6 +127,8 @@ public class frame_1Controller implements Initializable {
         btn_yes.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                whrite_file(file);
+                t.interrupt();
                 Platform.exit();
                 System.exit(0);
             }
@@ -148,6 +150,11 @@ public class frame_1Controller implements Initializable {
     }
     public void handleButtonClickSettings(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("frame_4.fxml"));
+//        Scene scene4 = new Scene(FXMLLoader.load(getClass().getResource("frame_4.fxml")));
+//        primaryStage.setScene(scene4);
+//        primaryStage.setFullScreen(true);
+//        primaryStage.show();
+
         Parent pane = loader.load();
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(pane);
@@ -156,9 +163,17 @@ public class frame_1Controller implements Initializable {
         //window.setFullScreen(true);
         window.setScene(scene);
         window.show();
+
+//        primaryStage.show();
+
+
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+//        scene2 = new Scene(FXMLLoader.load(getClass().getResource("frame_2.fxml")));
+//        scene3 = new Scene(FXMLLoader.load(getClass().getResource("frame_3.fxml")));
+//        scene4 = new Scene(FXMLLoader.load(getClass().getResource("frame_4.fxml")));
+
         name_player1 = "Игрок 1";
         name_player2 = "Игрок 2";
 
