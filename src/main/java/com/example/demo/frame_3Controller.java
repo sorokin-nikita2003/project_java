@@ -28,7 +28,8 @@ import java.io.File;
 import java.io.IOException;
 
 import static com.example.demo.HelloApplication.*;
-import static com.example.demo.Logic.*;
+import static com.example.demo.Logic.Support.*;
+import static com.example.demo.Logic.Clear.*;
 
 public class frame_3Controller {
     private AnchorPane anchorPane;

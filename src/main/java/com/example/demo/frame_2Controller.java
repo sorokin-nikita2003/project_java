@@ -14,13 +14,16 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.IOException;
-import java.net.URL;
 import java.util.Objects;
-import java.util.ResourceBundle;
 
 import static com.example.demo.HelloApplication.*;
-import static com.example.demo.Logic.*;
-//import static com.example.demo.HelloApplication.mediaPlayer2;
+import static com.example.demo.Logic.RandomShips.*;
+import static com.example.demo.Logic.Clear.*;
+import static com.example.demo.Logic.SetShips.*;
+import static com.example.demo.Logic.Default.*;
+import static com.example.demo.Logic.Support.*;
+import static com.example.demo.Logic.random;
+import static com.example.demo.Logic.ship_images;
 
 public class frame_2Controller {
     // 4    3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3    2
@@ -102,7 +105,7 @@ public class frame_2Controller {
                          try {
                              clear(mas_x, mas_y, rotate, img, matrix);
                              img.setRotate(90);
-                             set_turn_ship(mas_x_turn, mas_y_turn, img, matrix);
+                             set_turn_ship(img, matrix);
                          }
                          catch (Exception e){}
                      }
@@ -110,7 +113,7 @@ public class frame_2Controller {
                          try {
                              clear(mas_x_turn, mas_y_turn, rotate, img, matrix);
                              img.setRotate(0);
-                             set_ship(mas_x, mas_y, img,matrix);
+                             set_ship(img,matrix);
 
                          }
                          catch (Exception e){}
@@ -142,10 +145,10 @@ public class frame_2Controller {
         else {
             switch ((int)img.getRotate()){
                 case (0) ->{
-                    set_ship(mas_x, mas_y, img, matrix);
+                    set_ship(img, matrix);
                 }
                 case (90) ->{
-                    set_turn_ship(mas_x_turn, mas_y_turn, img, matrix);
+                    set_turn_ship(img, matrix);
                 }
             }
         }

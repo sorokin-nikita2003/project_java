@@ -30,8 +30,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import static com.example.demo.HelloApplication.*;
-import static com.example.demo.Logic.whrite_file;
-//import static com.example.demo.HelloApplication.time_sleep;
+import static com.example.demo.Logic.WorkFile.write_file;
 
 public class frame_1Controller implements Initializable {
     @FXML
@@ -127,7 +126,7 @@ public class frame_1Controller implements Initializable {
         btn_yes.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                whrite_file(file);
+                write_file(file);
                 t.interrupt();
                 Platform.exit();
                 System.exit(0);

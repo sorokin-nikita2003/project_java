@@ -14,7 +14,7 @@ import javafx.util.Duration;
 import java.io.*;
 import java.util.Scanner;
 
-import static com.example.demo.Logic.*;
+import static com.example.demo.Logic.WorkFile.*;
 
 public class HelloApplication extends Application {
     protected static File file = new File("settings.txt");
@@ -146,7 +146,7 @@ public class HelloApplication extends Application {
 
         launch();
         t.interrupt();
-        whrite_file(file);
+        write_file(file);
         System.out.println("end");
     }
 }
