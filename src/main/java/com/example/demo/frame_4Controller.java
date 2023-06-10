@@ -41,11 +41,6 @@ public class frame_4Controller {
     @FXML
     private AnchorPane anchorPane;
 
-//    private MediaPlayer mediaPlayer;
-//    public void settVolume(MediaPlayer mediaPlayer) {
-//        this.mediaPlayer = mediaPlayer;
-//    }
-
     @FXML
     private void RadioButtonClick(ActionEvent event) {
         Object obj = event.getSource();
@@ -69,9 +64,6 @@ public class frame_4Controller {
     }
     @FXML
     private void onPress(MouseEvent event) {
-        //MediaPlayer mediaPlayer2 = HelloApplication.getMediaPlayer2();
-        //mediaPlayer2.setVolume((double) volume);
-        //MediaPlayer mediaPlayer2 = HelloApplication.mediaPlayer2();
         mediaPlayer2.play();
         mediaPlayer2.seek(Duration.ZERO);
     }
@@ -79,14 +71,12 @@ public class frame_4Controller {
     @FXML
     private void handleButtonClickOk(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("frame_1.fxml"));
-        Parent pane = loader.load();
-//        scene.setCursor(Cursor.HAND);
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(pane);
-        window.centerOnScreen();
-        //window.setMaximized(true);
-        window.setScene(scene);
-        window.show();
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.setFullScreen(full_screan);
+        stage.show();
     }
 
     public void updateVolume(MouseEvent event) {
@@ -100,11 +90,6 @@ public class frame_4Controller {
         sliderValue = slider.getValue();
     }
     public void initialize() {
-
-//        Stage stage = (Stage) anchorPane.getScene().getWindow();
-//        anchorPane.setMaxWidth(1920);
-//        anchorPane.setVisible(false);
-
         slider.setValue(sliderValue);
         btn_full.setToggleGroup(group_btn_screan);
         btn_window.setToggleGroup(group_btn_screan);
@@ -130,16 +115,5 @@ public class frame_4Controller {
             btn_window.setSelected(true);
             btn_full.setSelected(false);
         }
-
-//        switch (full_screan){
-//            case (true)->{
-//                btn_window.setSelected(false);
-//                btn_full.setSelected(true);
-//            }
-//            case ("window")->{
-//                btn_window.setSelected(true);
-//                btn_full.setSelected(false);
-//            }
-//        }
     }
 }

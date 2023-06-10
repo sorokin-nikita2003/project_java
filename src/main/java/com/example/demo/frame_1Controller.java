@@ -52,10 +52,9 @@ public class frame_1Controller implements Initializable {
     @FXML
     private Button btn2;
     @FXML
-    private Button btn4;
+    static public Button btn4;
     @FXML
     private Group btn3;
-
     private String lastButtonPressed;
 
 
@@ -69,22 +68,15 @@ public class frame_1Controller implements Initializable {
     }
     @FXML
     private void handleButtonClickBot(ActionEvent event) throws IOException {
-//        frame_2Controller controller = new frame_2Controller();
-//        controller.setLastButtonPressed("bot");
-//        controller.check();
-        //int volume = 1;
-
         FXMLLoader loader = new FXMLLoader(getClass().getResource("frame_2.fxml"));
         Parent pane = loader.load();
         frame_2Controller controller = loader.getController();
         controller.setLastButtonPressed("bot");
-//        scene.setCursor(Cursor.HAND);
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(pane);
-        window.centerOnScreen();
-        window.setMaximized(true);
-        window.setScene(scene);
-        window.show();
+        stage.setScene(scene);
+        stage.setFullScreen(full_screan);
+        stage.show();
     }
     @FXML
     private void handleButtonClickTogether(ActionEvent event) throws IOException {
@@ -92,13 +84,11 @@ public class frame_1Controller implements Initializable {
         Parent pane = loader.load();
         frame_2Controller controller = loader.getController();
         controller.setLastButtonPressed("together_1");
-//        scene.setCursor(Cursor.HAND);
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(pane);
-        window.centerOnScreen();
-        window.setMaximized(true);
-        window.setScene(scene);
-        window.show();
+        stage.setScene(scene);
+        stage.setFullScreen(full_screan);
+        stage.show();
     }
 
     @FXML
@@ -147,25 +137,15 @@ public class frame_1Controller implements Initializable {
         window.setScene(scene);
         window.show();
     }
+    @FXML
     public void handleButtonClickSettings(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("frame_4.fxml"));
-//        Scene scene4 = new Scene(FXMLLoader.load(getClass().getResource("frame_4.fxml")));
-//        primaryStage.setScene(scene4);
-//        primaryStage.setFullScreen(true);
-//        primaryStage.show();
-
-        Parent pane = loader.load();
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(pane);
-        window.centerOnScreen();
-        window.setMaximized(true);
-        //window.setFullScreen(true);
-        window.setScene(scene);
-        window.show();
-
-//        primaryStage.show();
-
-
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.setFullScreen(full_screan);
+        stage.show();
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -199,7 +179,6 @@ public class frame_1Controller implements Initializable {
 //        frame1.setAlignment(btn1 ,Pos.CENTER);
 //        frame1.setPrefWidth(vboxWidth);
 //        vBox.setPrefHeight(vboxHeight);
-
     }
 
 //    @FXML

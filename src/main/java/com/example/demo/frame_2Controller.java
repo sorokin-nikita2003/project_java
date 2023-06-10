@@ -62,13 +62,6 @@ public class frame_2Controller {
         mediaPlayer2.seek(Duration.ZERO);
     }
     @FXML
-    private void TextChanged(InputMethodEvent event) {
-        Object obj = event.getSource();
-        TextField text = (TextField)obj;
-        text.getText();
-        System.out.println(text.getText());
-    }
-    @FXML
     public void onImagePressed(MouseEvent event) {
 //        String imageViewId = ((ImageView) event.getSource()).getId();
         ImageView clickedImageView = (ImageView) event.getSource();
@@ -160,16 +153,25 @@ public class frame_2Controller {
         player = 1;
         name_player2 = "Игрок 2";
         name_player1 = "Игрок 1";
+
+//        FXMLLoader loader = new FXMLLoader(getClass().getResource("frame_1.fxml"));
+//        Parent pane = loader.load();
+////            frame_2Controller controller = loader.getController();
+////            controller.setLastButtonPressed("bot");
+////        scene.setCursor(Cursor.HAND);
+//        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+//        Scene scene = new Scene(pane);
+//        window.setMaximized(true);
+//        window.setScene(scene);
+//        window.show();
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("frame_1.fxml"));
-        Parent pane = loader.load();
-//            frame_2Controller controller = loader.getController();
-//            controller.setLastButtonPressed("bot");
-//        scene.setCursor(Cursor.HAND);
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(pane);
-        window.setMaximized(true);
-        window.setScene(scene);
-        window.show();
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.setFullScreen(full_screan);
+        stage.show();
     }
 
     @FXML
@@ -266,35 +268,56 @@ public class frame_2Controller {
             score_player1 = 0;
             score_player2 = 0;
 
+//            FXMLLoader loader = new FXMLLoader(getClass().getResource("frame_3.fxml"));
+//            Parent pane = loader.load();
+//            AnchorPane anchorpane = (AnchorPane) pane.getChildrenUnmodifiable().get(0);
+//            frame_3Controller controller = loader.getController();
+//            controller.getAnchorPane(anchorpane);
+////            frame_2Controller controller = loader.getController();
+////            controller.setLastButtonPressed("bot");
+////        scene.setCursor(Cursor.HAND);
+//            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+//            Scene scene = new Scene(pane);
+//            window.setMaximized(true);
+//            window.setScene(scene);
+//            window.show();
+
             FXMLLoader loader = new FXMLLoader(getClass().getResource("frame_3.fxml"));
             Parent pane = loader.load();
             AnchorPane anchorpane = (AnchorPane) pane.getChildrenUnmodifiable().get(0);
             frame_3Controller controller = loader.getController();
             controller.getAnchorPane(anchorpane);
-//            frame_2Controller controller = loader.getController();
-//            controller.setLastButtonPressed("bot");
-//        scene.setCursor(Cursor.HAND);
-            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(pane);
-            window.setMaximized(true);
-            window.setScene(scene);
-            window.show();
+            stage.setScene(scene);
+            stage.setFullScreen(full_screan);
+            stage.show();
         }
         else if (Objects.equals(lastButtonPressed, "together_1" ) && count_ships(matrix) == 20){
             if (count_ships(matrix) == 20){
                 player += 1;
             }
 
+//            FXMLLoader loader = new FXMLLoader(getClass().getResource("frame_2.fxml"));
+//            Parent pane = loader.load();
+//            frame_2Controller controller = loader.getController();
+//            controller.setLastButtonPressed("together_2");
+////        scene.setCursor(Cursor.HAND);
+//            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+//            Scene scene = new Scene(pane);
+//            window.setMaximized(true);
+//            window.setScene(scene);
+//            window.show();
+
             FXMLLoader loader = new FXMLLoader(getClass().getResource("frame_2.fxml"));
             Parent pane = loader.load();
             frame_2Controller controller = loader.getController();
             controller.setLastButtonPressed("together_2");
-//        scene.setCursor(Cursor.HAND);
-            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(pane);
-            window.setMaximized(true);
-            window.setScene(scene);
-            window.show();
+            stage.setScene(scene);
+            stage.setFullScreen(full_screan);
+            stage.show();
         }
     }
     public void initialize() {
