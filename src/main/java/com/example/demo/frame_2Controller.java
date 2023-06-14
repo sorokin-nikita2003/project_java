@@ -10,15 +10,19 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Objects;
 
 import static com.example.demo.HelloApplication.*;
 import static com.example.demo.Logic.RandomShips.*;
 import static com.example.demo.Logic.Clear.*;
+import static com.example.demo.Logic.RandomShips.random_set_ship_image;
 import static com.example.demo.Logic.SetShips.*;
 import static com.example.demo.Logic.Default.*;
 import static com.example.demo.Logic.Support.*;
@@ -39,6 +43,7 @@ public class frame_2Controller {
     int rotate_ship = 0;
     @FXML
     private ImageView Ship4_1, Ship3_1, Ship3_2, Ship2_1, Ship2_2, Ship2_3, Ship1_1, Ship1_2, Ship1_3, Ship1_4;
+    private final ImageView[] ships = new ImageView[10];
     @FXML
     private Button btn1;
     @FXML
@@ -176,43 +181,7 @@ public class frame_2Controller {
 
     @FXML
     private void onButtonClick(MouseEvent event) throws IOException {
-        clear_matrix(matrix);
-        try {
-            generate_ships(matrix);
-        }
-        catch (Exception e){
-            try {
-                while (ship_images.peek() != null) {
-                    ship_images.pop();
-                    ship_images.pop();
-                }
-                clear_matrix(matrix);
-                generate_ships(matrix);
-            }
-            catch (Exception m){
-                while (ship_images.peek() != null) {
-                    ship_images.pop();
-                    ship_images.pop();
-                }
-                clear_matrix(matrix);
-                generate_ships(matrix);
-            }
-        }
-        System.out.println("__________________________________");
-        PrintArray(matrix);
-
-//        System.out.println(Ship4_1.getId());
-
-        random_set_ship_image(Ship4_1, matrix); //0
-        random_set_ship_image(Ship3_1, matrix);//1
-        random_set_ship_image(Ship3_2, matrix);//2
-        random_set_ship_image(Ship2_1, matrix);//3
-        random_set_ship_image(Ship2_2, matrix);//4
-        random_set_ship_image(Ship2_3, matrix);//5
-        random_set_ship_image(Ship1_1, matrix);//6
-        random_set_ship_image(Ship1_2, matrix);//7
-        random_set_ship_image(Ship1_3, matrix);//8
-        random_set_ship_image(Ship1_4, matrix);//9
+        set_random_ships(ships, matrix);
     }
 
     @FXML
@@ -223,41 +192,8 @@ public class frame_2Controller {
 
             if ((Objects.equals(lastButtonPressed, "bot"))){
                 matrix = player2;
-                try {
-                    generate_ships(matrix);
-                }
-                catch (Exception e){
-                    try {
-                        while (ship_images.peek() != null) {
-                            ship_images.pop();
-                            ship_images.pop();
-                        }
-                        clear_matrix(matrix);
-                        generate_ships(matrix);
-                    }
-                    catch (Exception m){
-                        while (ship_images.peek() != null) {
-                            ship_images.pop();
-                            ship_images.pop();
-                        }
-                        clear_matrix(matrix);
-                        generate_ships(matrix);
-                    }
-                }
-
-                random_set_ship_image(Ship4_1, matrix); //0
-                random_set_ship_image(Ship3_1, matrix);//1
-                random_set_ship_image(Ship3_2, matrix);//2
-                random_set_ship_image(Ship2_1, matrix);//3
-                random_set_ship_image(Ship2_2, matrix);//4
-                random_set_ship_image(Ship2_3, matrix);//5
-                random_set_ship_image(Ship1_1, matrix);//6
-                random_set_ship_image(Ship1_2, matrix);//7
-                random_set_ship_image(Ship1_3, matrix);//8
-                random_set_ship_image(Ship1_4, matrix);//9
-
+                set_random_ships(ships, matrix);
                 name_player2 = bot_names[random.nextInt(20)];
-
             }
 
             System.out.println(name_player1);
@@ -281,6 +217,11 @@ public class frame_2Controller {
 //            window.setMaximized(true);
 //            window.setScene(scene);
 //            window.show();
+
+            mediaPlayer.dispose();
+            mediaPlayer = new MediaPlayer(new Media(new File(songs[1]).toURI().toString()));
+            mediaPlayer.setVolume(sliderValue / 100);
+            flag = true;
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("frame_3.fxml"));
             Parent pane = loader.load();
@@ -321,7 +262,19 @@ public class frame_2Controller {
         }
     }
     public void initialize() {
-        System.out.println(player);
+        if (ships[0] == null){
+            ships[0] = Ship4_1;
+            ships[1] = Ship3_1;
+            ships[2] = Ship3_2;
+            ships[3] = Ship2_1;
+            ships[4] = Ship2_2;
+            ships[5] = Ship2_3;
+            ships[6] = Ship1_1;
+            ships[7] = Ship1_2;
+            ships[8] = Ship1_3;
+            ships[9] = Ship1_4;
+        }
+
         if (player == 1){
             text.setPromptText(name_player1);
             matrix = player1;

@@ -140,12 +140,13 @@ public class frame_1Controller implements Initializable {
     @FXML
     public void handleButtonClickSettings(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("frame_4.fxml"));
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
+//        Parent root = loader.load();
+//        Scene scene = new Scene(root);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.setFullScreen(full_screan);
-        stage.show();
+//        stage.setScene(scene);
+//        stage.setFullScreen(full_screan);
+//        stage.show();
+        Logic.changeScene(loader, stage);
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

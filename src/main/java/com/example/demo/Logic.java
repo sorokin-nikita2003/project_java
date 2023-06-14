@@ -1,11 +1,18 @@
 package com.example.demo;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.*;
 import java.util.*;
 
 import static com.example.demo.HelloApplication.*;
+import static com.example.demo.Logic.Clear.clear_matrix;
 
 
 // 0, 8 - путо
@@ -367,6 +374,22 @@ public class Logic {
             }
             return false;
         }
+        protected static boolean cheks_sets_random_ships(int[][] matrix){
+            boolean res;
+            try {
+                while (ship_images.peek() != null) {
+                    ship_images.pop();
+                    ship_images.pop();
+                }
+                clear_matrix(matrix);
+                RandomShips.generate_ships(matrix);
+                res = true;
+            }
+            catch (Exception m){
+                res = false;
+            }
+            return res;
+        }
     }
     protected static class SetShips{
         private static boolean set_ship_on_matrix(int y, int x, int power_ship, int rotate, int[][] matrix){
@@ -555,7 +578,7 @@ public class Logic {
             for (int type_ship = 3; type_ship >= 0; type_ship--) {
                 while (nymbers_ships[type_ship] != 0) {
                     try {
-                        random_set_ship(type_ship + 1, matrix);
+                        random_set_ship_matrix(type_ship + 1, matrix);
                     } catch (Exception e) {
                         throw new RuntimeException(e);
                     } finally {
@@ -564,7 +587,7 @@ public class Logic {
                 }
             }
         }
-        private static void random_set_ship(int ship, int[][] matrix) throws Exception {
+        private static void random_set_ship_matrix(int ship, int[][] matrix) throws Exception {
             ArrayDeque<Integer> index_ship = new ArrayDeque<Integer>();
             int index_x;
             int index_y;
@@ -646,6 +669,16 @@ public class Logic {
             ship_images.add(min_x);
             ship_images.add(min_y);
             score += 1;
+        }
+        protected static void set_random_ships(ImageView[] ships, int[][] matrix){
+            while (!(Checks.cheks_sets_random_ships(matrix))){
+                System.out.println("Error");
+            }
+//            System.out.println("__________________________________");
+//            Support.PrintArray(matrix);
+            for (ImageView el: ships){
+                random_set_ship_image(el, matrix);
+            }
         }
     }
     protected static class Default{
@@ -882,7 +915,48 @@ public class Logic {
             }
         }
     }
-    protected static class test{
+    protected static class Threads{
+        protected static class Music implements Runnable {
+            public void run() {
+                try{
+                    while (!t.isInterrupted()) {
+                        mediaPlayer.play();
+                        while (!(mediaPlayer.getCurrentTime().equals(mediaPlayer.getTotalDuration()))){
+                            Thread.sleep(1500);
+                            if(flag){
+                                flag = false;
+                                break;
+                            }
+                        }
+                        mediaPlayer.seek(Duration.ZERO);
+                    }
+                }
+                catch (InterruptedException e){
 
+                }
+            }
+        }
+        protected static class Time_game implements Runnable {
+            public void run() {
+                int i = 0;
+                try {
+                    while (true){
+                        i += 1;
+                        System.out.println(i);
+                        Thread.sleep(1000);
+                    }
+                }
+                catch (InterruptedException e){
+                    throw new RuntimeException(e);
+                }
+            }
+        }
+    }
+    protected static void changeScene(FXMLLoader loader, Stage stage) throws IOException {
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setFullScreen(full_screan);
+        stage.show();
     }
 }

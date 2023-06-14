@@ -43,7 +43,8 @@ public class HelloApplication extends Application {
     protected static MediaPlayer mediaPlayer;
     static String[] songs = {"music/main_sound.mp3", "music/battle_theme.mp3"};
 
-    public static Thread t = new Thread(new MyRunnable());
+    public static Thread t = new Thread(new Logic.Threads.Music());
+    private static final Thread time_game = new Thread(new Logic.Threads.Time_game());
     protected static MediaPlayer mediaPlayer2 = new MediaPlayer(new Media(new File("music/buttonClick.mp3").toURI().toString()));
 
     public HelloApplication() throws IOException {
@@ -53,36 +54,6 @@ public class HelloApplication extends Application {
         return mediaPlayer;
     }
 
-    public static class MyRunnable implements Runnable {
-        @Override
-        public void run() {
-            try{
-              while (!t.isInterrupted()) {
-                  mediaPlayer.play();
-                      while (!(mediaPlayer.getCurrentTime().equals(mediaPlayer.getTotalDuration()))){
-                          Thread.sleep(1500);
-                          if(flag){
-                              flag = false;
-                              break;
-                          }
-                      }
-                  mediaPlayer.seek(Duration.ZERO);
-              }
-            }
-            catch (InterruptedException e){
-
-            }
-        }
-//        public void run() {  public static MediaPlayer getMediaPlayer2() {
-//           // Код, который будет выполняться в потоке      return mediaPlayer2;
-//        }  }
-       }//protected MediaPlayer mediaPlayer2 = new MediaPlayer(new Media(new File("music/buttonClick.mp3").toURI().toString()));
-
-    //private static MediaPlayer mediaPlayer2;
-    /**public static MediaPlayer getMediaPlayer2() {
-        return mediaPlayer2;
-    }   **/
-    // Метод для получения mediaPlayer
     @Override
     public void start(Stage stage) throws IOException {
         Scene scene1 = new Scene(FXMLLoader.load(Objects.requireNonNull(getClass().getResource("frame_1.fxml"))));
@@ -90,10 +61,13 @@ public class HelloApplication extends Application {
         stage.setFullScreen(full_screan);
         stage.setTitle("Морской бой");
         stage.show();
-
-
         mediaPlayer = new MediaPlayer(new Media(new File(songs[0]).toURI().toString()));
         mediaPlayer.setVolume(sliderValue /100);
+
+
+//        time_game.start(); // поток на время игры
+
+
         t.start();
     }
 
@@ -107,6 +81,7 @@ public class HelloApplication extends Application {
 
         Application.launch(args);
         t.interrupt();
+        time_game.interrupt();
         write_file(file);
         System.out.println("end");
     }

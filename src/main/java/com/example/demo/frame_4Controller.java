@@ -42,7 +42,7 @@ public class frame_4Controller {
     private AnchorPane anchorPane;
 
     @FXML
-    private void RadioButtonClick(ActionEvent event) {
+    private void RadioButtonClick(ActionEvent event) throws IOException {
         Object obj = event.getSource();
         RadioButton btn = (RadioButton)obj;
         String value_btn = btn.getId().substring(4);
@@ -55,9 +55,15 @@ public class frame_4Controller {
             }
             case ("full")->{
                 full_screan = true;
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("frame_4.fxml"));
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                Logic.changeScene(loader, stage);
             }
             case ("window")->{
                 full_screan = false;
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("frame_4.fxml"));
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                Logic.changeScene(loader, stage);
             }
         }
 
@@ -78,19 +84,24 @@ public class frame_4Controller {
         stage.setFullScreen(full_screan);
         stage.show();
     }
-
-    public void updateVolume(MouseEvent event) {
-        //mediaPlayer.setVolume(slider.getValue());
-        MediaPlayer mediaPlayer = HelloApplication.getMediaPlayer();
-        double volume = slider.getValue() / 100.0;
-        mediaPlayer.setVolume(volume);
-        slider.valueProperty().addListener((observable, oldValue, newValue) -> {
-            mediaPlayer.setVolume((Double) newValue);
-        });
+    public void onSliderReleased(MouseEvent mouseEvent) {
+        mediaPlayer.setVolume((slider.getValue() / 100));
         sliderValue = slider.getValue();
+    }
+    public void updateVolume(MouseEvent event) {
+//        MediaPlayer mediaPlayer = HelloApplication.getMediaPlayer();
+//        double volume = slider.getValue() / 100.0;
+//        mediaPlayer.setVolume(volume);
+//        slider.valueProperty().addListener((observable, oldValue, newValue) -> {
+//            mediaPlayer.setVolume((Double) newValue);
+//        });
+//        sliderValue = slider.getValue();
+//        System.out.println(slider.getValue());
+//        System.out.println(slider.getValue() % 1);
     }
     public void initialize() {
         slider.setValue(sliderValue);
+
         btn_full.setToggleGroup(group_btn_screan);
         btn_window.setToggleGroup(group_btn_screan);
 

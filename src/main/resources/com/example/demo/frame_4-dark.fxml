@@ -5,9 +5,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="493.0" prefWidth="1491.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.frame_4Controller">
+<AnchorPane fx:id="anchorPane" prefHeight="1080" prefWidth="1920" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.frame_4Controller">
    <children>
-      <AnchorPane id="rect2" layoutX="-5.0" prefHeight="965.0" prefWidth="1920.0" styleClass="rect2" stylesheets="@itcss.css">
+      <AnchorPane id="rect2" layoutX="-5.0" prefHeight="965.0" prefWidth="1533.0" styleClass="rect2" stylesheets="@itcss.css">
          <children>
             <Group layoutX="376.0" layoutY="245.0">
                <children>
@@ -16,7 +16,7 @@
                         <Font name="Calibri" size="50.0" />
                      </font>
                   </Label>
-                  <Slider fx:id="slider" blockIncrement="0.1" layoutX="438.0" layoutY="21.0" majorTickUnit="25" minorTickCount="4" onMouseDragged="#updateVolume" onMouseReleased="#onSliderReleased" prefHeight="38.0" prefWidth="325.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="100.0" />
+                  <Slider fx:id="slider" layoutX="438.0" layoutY="21.0" minorTickCount="5" onMouseDragged="#updateVolume" prefHeight="38.0" prefWidth="325.0" showTickLabels="true" showTickMarks="true" value="100.0" />
                </children>
             </Group>
             <Group layoutX="376.0" layoutY="352.0">
