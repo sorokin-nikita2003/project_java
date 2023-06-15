@@ -172,6 +172,31 @@ public class frame_3Controller {
                         System.out.println(rect_id);
                         clickedImageView = (Rectangle) anchorPane.lookup(rect_id);
                         clickedImageView.setFill(Color.BLACK);
+                        if (i != 0 && player1[i-1][j] == 8) {
+                            int i8 = i-1;
+                            String rect_id2 = "#shot" + i8 + j;
+                            clickedImageView = (Rectangle) anchorPane.lookup(rect_id2);
+                            clickedImageView.setFill(Color.BLUE);
+                        }
+                        if (j != 0 && player1[i][j-1] == 8) {
+                            int j8 = j-1;
+                            String rect_id2 = "#shot" + i + j8;
+                            clickedImageView = (Rectangle) anchorPane.lookup(rect_id2);
+                            clickedImageView.setFill(Color.BLUE);
+                        }
+                        if (i != player1[0].length - 1 && player1[i+1][j] == 8) {
+                            int i8 = i+1;
+                            String rect_id2 = "#shot" + i8 + j;
+                            clickedImageView = (Rectangle) anchorPane.lookup(rect_id2);
+                            clickedImageView.setFill(Color.BLUE);
+                        }
+                        if (j != player1[1].length - 1 && player1[i][j+1] == 8) {
+                            int j8 = j+1;
+                            String rect_id2 = "#shot" + i + j8;
+                            clickedImageView = (Rectangle) anchorPane.lookup(rect_id2);
+                            clickedImageView.setFill(Color.BLUE);
+                        }
+
                         if (player1[i][j] == -1){
                             player1[i][j] = -2;
                         }
@@ -180,13 +205,50 @@ public class frame_3Controller {
                             break;
                         }
                     }
+                    if (i != -1 && j != player1[1].length - 1 && player1[i][j+1] == 8) {
+                        int j8 = j+1;
+                        String rect_id2 = "#shot" + i + j8;
+                        clickedImageView = (Rectangle) anchorPane.lookup(rect_id2);
+                        clickedImageView.setFill(Color.BLUE);
+                    }
+                    if (i != -1 && j != 0 && player1[i][j-1] == 8) {
+                        int j8 = j-1;
+                        String rect_id2 = "#shot" + i + j8;
+                        clickedImageView = (Rectangle) anchorPane.lookup(rect_id2);
+                        clickedImageView.setFill(Color.BLUE);
+                    }
+
                     i += 1;
-                    System.out.println("wefwe" + player1[i][j]);
+                    //System.out.println("wefwe" + player1[i][j]);
                     while (player1[i][j] == -1 || player1[i][j] == -2) {
                         String rect_id = "#shot" + i + j;
                         System.out.println(rect_id);
                         clickedImageView = (Rectangle) anchorPane.lookup(rect_id);
                         clickedImageView.setFill(Color.BLACK);
+                        if (i != 0 && player1[i-1][j] == 8) {
+                            int i8 = i-1;
+                            String rect_id2 = "#shot" + i8 + j;
+                            clickedImageView = (Rectangle) anchorPane.lookup(rect_id2);
+                            clickedImageView.setFill(Color.BLUE);
+                        }
+                        if (j != 0 && player1[i][j-1] == 8) {
+                            int j8 = j-1;
+                            String rect_id2 = "#shot" + i + j8;
+                            clickedImageView = (Rectangle) anchorPane.lookup(rect_id2);
+                            clickedImageView.setFill(Color.BLUE);
+                        }
+                        if (i != player1[0].length - 1 && player1[i+1][j] == 8) {
+                            int i8 = i+1;
+                            String rect_id2 = "#shot" + i8 + j;
+                            clickedImageView = (Rectangle) anchorPane.lookup(rect_id2);
+                            clickedImageView.setFill(Color.BLUE);
+                        }
+                        if (j != player1[1].length - 1 && player1[i][j+1] == 8) {
+                            int j8 = j+1;
+                            String rect_id2 = "#shot" + i + j8;
+                            clickedImageView = (Rectangle) anchorPane.lookup(rect_id2);
+                            clickedImageView.setFill(Color.BLUE);
+                        }
                         if (player1[i][j] == -1){
                             player1[i][j] = -2;
                         }
@@ -195,13 +257,49 @@ public class frame_3Controller {
                             break;
                         }
                     }
+                    if (i != player1[0].length && j != player1[1].length - 1 && player1[i][j+1] == 8) {
+                        int j8 = j+1;
+                        String rect_id2 = "#shot" + i + j8;
+                        clickedImageView = (Rectangle) anchorPane.lookup(rect_id2);
+                        clickedImageView.setFill(Color.BLUE);
+                    }
+                    if (i != player1[0].length && j != 0 && player1[i][j-1] == 8) {
+                        int j8 = j-1;
+                        String rect_id2 = "#shot" + i + j8;
+                        clickedImageView = (Rectangle) anchorPane.lookup(rect_id2);
+                        clickedImageView.setFill(Color.BLUE);
+                    }
                     i -= 1;
-                    System.out.println("wefwe" + player1[i][j]);
+                    //System.out.println("wefwe" + player1[i][j]);
                     while (player1[i][j] == -1 || player1[i][j] == -2) {
                         String rect_id = "#shot" + i + j;
                         System.out.println(rect_id);
                         clickedImageView = (Rectangle) anchorPane.lookup(rect_id);
                         clickedImageView.setFill(Color.BLACK);
+                        if (i != 0 && player1[i-1][j] == 8) {
+                            int i8 = i-1;
+                            String rect_id2 = "#shot" + i8 + j;
+                            clickedImageView = (Rectangle) anchorPane.lookup(rect_id2);
+                            clickedImageView.setFill(Color.BLUE);
+                        }
+                        if (j != 0 && player1[i][j-1] == 8) {
+                            int j8 = j-1;
+                            String rect_id2 = "#shot" + i + j8;
+                            clickedImageView = (Rectangle) anchorPane.lookup(rect_id2);
+                            clickedImageView.setFill(Color.BLUE);
+                        }
+                        if (i != player1[0].length - 1 && player1[i+1][j] == 8) {
+                            int i8 = i+1;
+                            String rect_id2 = "#shot" + i8 + j;
+                            clickedImageView = (Rectangle) anchorPane.lookup(rect_id2);
+                            clickedImageView.setFill(Color.BLUE);
+                        }
+                        if (j != player1[1].length - 1 && player1[i][j+1] == 8) {
+                            int j8 = j+1;
+                            String rect_id2 = "#shot" + i + j8;
+                            clickedImageView = (Rectangle) anchorPane.lookup(rect_id2);
+                            clickedImageView.setFill(Color.BLUE);
+                        }
                         if (player1[i][j] == -1){
                             player1[i][j] = -2;
                         }
@@ -210,6 +308,18 @@ public class frame_3Controller {
                             break;
                         }
                     }
+                    if (j != player1[1].length && i != player1[0].length - 1 && player1[i+1][j] == 8) {
+                        int i8 = i+1;
+                        String rect_id2 = "#shot" + i8 + j;
+                        clickedImageView = (Rectangle) anchorPane.lookup(rect_id2);
+                        clickedImageView.setFill(Color.BLUE);
+                    }
+                    if (j != player1[1].length && i != 0 && player1[i-1][j] == 8) {
+                        int i8 = i-1;
+                        String rect_id2 = "#shot" + i8 + j;
+                        clickedImageView = (Rectangle) anchorPane.lookup(rect_id2);
+                        clickedImageView.setFill(Color.BLUE);
+                    }
                     j -= 1;
                     System.out.println("wefwe" + player1[i][j]);
                     while (player1[i][j] == -1 || player1[i][j] == -2) {
@@ -217,6 +327,30 @@ public class frame_3Controller {
                         System.out.println(rect_id);
                         clickedImageView = (Rectangle) anchorPane.lookup(rect_id);
                         clickedImageView.setFill(Color.BLACK);
+                        if (i != 0 && player1[i-1][j] == 8) {
+                            int i8 = i-1;
+                            String rect_id2 = "#shot" + i8 + j;
+                            clickedImageView = (Rectangle) anchorPane.lookup(rect_id2);
+                            clickedImageView.setFill(Color.BLUE);
+                        }
+                        if (j != 0 && player1[i][j-1] == 8) {
+                            int j8 = j-1;
+                            String rect_id2 = "#shot" + i + j8;
+                            clickedImageView = (Rectangle) anchorPane.lookup(rect_id2);
+                            clickedImageView.setFill(Color.BLUE);
+                        }
+                        if (i != player1[0].length - 1 && player1[i+1][j] == 8) {
+                            int i8 = i+1;
+                            String rect_id2 = "#shot" + i8 + j;
+                            clickedImageView = (Rectangle) anchorPane.lookup(rect_id2);
+                            clickedImageView.setFill(Color.BLUE);
+                        }
+                        if (j != player1[1].length - 1 && player1[i][j+1] == 8) {
+                            int j8 = j+1;
+                            String rect_id2 = "#shot" + i + j8;
+                            clickedImageView = (Rectangle) anchorPane.lookup(rect_id2);
+                            clickedImageView.setFill(Color.BLUE);
+                        }
                         if (player1[i][j] == -1) {
                             player1[i][j] = -2;
                         }
@@ -226,70 +360,85 @@ public class frame_3Controller {
                             break;
                         }
                     }
+                    if (j != -1 && i != player1[0].length - 1 && player1[i+1][j] == 8) {
+                        int i8 = i+1;
+                        String rect_id2 = "#shot" + i8 + j;
+                        clickedImageView = (Rectangle) anchorPane.lookup(rect_id2);
+                        clickedImageView.setFill(Color.BLUE);
+                    }
+                    if (j != -1 && i != 0 && player1[i-1][j] == 8) {
+                        int i8 = i-1;
+                        String rect_id2 = "#shot" + i8 + j;
+                        clickedImageView = (Rectangle) anchorPane.lookup(rect_id2);
+                        clickedImageView.setFill(Color.BLUE);
+                    }
                     j += 1;
                     PrintArray(player1);
 
-//                    System.out.println("i: " + i);
-//                    System.out.println("j: " + j);
-                    while (i != player1[0].length && i != -1 && (player1[i][j] == 8 || player1[i][j] == -2)){
-                        i -= 1;
-                        //System.out.println("чему Ш  " + i);
-                    }
-                    i += 1;
-                    while (j != player1[1].length && j != -1 && (player1[i][j] == 8 || player1[i][j] == -2)){
-                        j -= 1;
-                    }
-                    j += 1;
-
-
-
-                    while (j != player1[1].length && j != -1 && player1[i][j] == 8 && ((i + 1 != 10 && j + 1 != 10 && player1[i+1][j+1] == -2) || (i + 1 != 10 && j - 1 != -1 && player1[i+1][j-1] == -2) || (i + 1 != 10 && player1[i+1][j] == -2))) {
-                        String rect_id = "#shot" + i + j;
-                        clickedImageView = (Rectangle) anchorPane.lookup(rect_id);
-                        clickedImageView.setFill(Color.BLUE);
-                        j += 1;
-                    }
-
-//                    System.out.println("i: " + i);
-//                    System.out.println("j: " + j);
-                    while (j != player1[1].length && j != -1 && (player1[i][j] == 8 || player1[i][j] == -2)){
-                        j += 1;
-                    }
-                    j -= 1;
-
-
-                    while (i != player1[0].length && i != -1 && player1[i][j] == 8 && ((i - 1 != -1 && j - 1 != -1 && player1[i-1][j-1] == -2) || (i + 1 != 10 && j - 1 != -1 && player1[i+1][j-1] == -2) || (j - 1 != -1 && player1[i][j-1] == -2))) {
-                        String rect_id = "#shot" + i + j;
-                        clickedImageView = (Rectangle) anchorPane.lookup(rect_id);
-                        clickedImageView.setFill(Color.BLUE);
-                        i += 1;
-                    }
-                    while (i != player1[0].length && i != -1 && (player1[i][j] == 8 || player1[i][j] == -2)){
-                        i += 1;
-                    }
-                    i -= 1;
-
-                    while (j != player1[1].length && j != -1 && player1[i][j] == 8 && ((i - 1 != -1 && j - 1 != -1 && player1[i-1][j-1] == -2) || (i - 1 != -1 && j + 1 != 10 && player1[i-1][j+1] == -2) ||(i - 1 != -1 && player1[i-1][j] == -2))) {
-                        String rect_id = "#shot" + i + j;
-                        clickedImageView = (Rectangle) anchorPane.lookup(rect_id);
-                        clickedImageView.setFill(Color.BLUE);
-                        j -= 1;
-                    }
-                    while (j != player1[1].length && j != -1 && (player1[i][j] == 8 || player1[i][j] == -2)){
-                        j -= 1;
-                    }
-                    j += 1;
-
-                    while (i != player1[0].length && i != -1 && player1[i][j] == 8 && ((i + 1 != 10 && j + 1 != 10 && player1[i+1][j+1] == -2) || (j + 1 != 10 && i - 1 != -1 && player1[i-1][j+1] == -2)  || (j + 1 != 10 && player1[i][j+1] == -2))) {
-                        String rect_id = "#shot" + i + j;
-                        clickedImageView = (Rectangle) anchorPane.lookup(rect_id);
-                        clickedImageView.setFill(Color.BLUE);
-                        i -= 1;
-                    }
-                    while (i != player1[1].length && i != -1 && (player1[i][j] == 8 || player1[i][j] == -2)){
-                        i -= 1;
-                    }
-                    i += 1;
+                    System.out.println("i: " + i);
+                    System.out.println("j: " + j);
+//                    while (i != player1[0].length && i != -1 && (player1[i][j] == 8 || player1[i][j] == -2) && player1[i][j] == -2){
+//                        i -= 1;
+//                        //System.out.println("чему Ш  " + i);
+//                    }
+//                    i += 1;
+//                    while (j != player1[1].length && j != -1 && (player1[i][j] == 8 || player1[i][j] == -2) && (player1[i-1][j] == -2 || player1[i][j-1] == -2 || player1[i+1][j] == -2 || player1[j+1][j] == -2)){
+//                        j -= 1;
+//                    }
+//                    j += 1;
+//
+//                    System.out.println("i = " + i);
+//                    System.out.println("j = " + j);
+//
+//                    while (j != player1[1].length && j != -1 && player1[i][j] == 8 && ((i + 1 != 10 && j + 1 != 10 && player1[i+1][j+1] == -2) || (i + 1 != 10 && player1[i+1][j] == -2))) {
+//                        String rect_id = "#shot" + i + j;
+//                        clickedImageView = (Rectangle) anchorPane.lookup(rect_id);
+//                        clickedImageView.setFill(Color.BLUE);
+//                        j += 1;
+////                        System.out.println("i = " + i);
+////                        System.out.println("j = " + j);
+//                    }
+//
+////                    System.out.println("i: " + i);
+////                    System.out.println("j: " + j);
+//                    while (j != player1[1].length && j != -1 && (player1[i][j] == 8 || player1[i][j] == -2)){
+//                        j += 1;
+//                    }
+//                    j -= 1;
+//
+//
+//                    while (i != player1[0].length && i != -1 && player1[i][j] == 8 && ((i + 1 != 10 && j - 1 != -1 && player1[i+1][j-1] == -2) || (j - 1 != -1 && player1[i][j-1] == -2))) {
+//                        String rect_id = "#shot" + i + j;
+//                        clickedImageView = (Rectangle) anchorPane.lookup(rect_id);
+//                        clickedImageView.setFill(Color.BLUE);
+//                        i += 1;
+//                    }
+//                    while (i != player1[0].length && i != -1 && (player1[i][j] == 8 || player1[i][j] == -2)){
+//                        i += 1;
+//                    }
+//                    i -= 1;
+//
+//                    while (j != player1[1].length && j != -1 && player1[i][j] == 8 && ((i - 1 != -1 && j - 1 != -1 && player1[i-1][j-1] == -2) || (i - 1 != -1 && player1[i-1][j] == -2))) {
+//                        String rect_id = "#shot" + i + j;
+//                        clickedImageView = (Rectangle) anchorPane.lookup(rect_id);
+//                        clickedImageView.setFill(Color.BLUE);
+//                        j -= 1;
+//                    }
+//                    while (j != player1[1].length && j != -1 && (player1[i][j] == 8 || player1[i][j] == -2)){
+//                        j -= 1;
+//                    }
+//                    j += 1;
+//
+//                    while (i != player1[0].length && i != -1 && player1[i][j] == 8 && ((j + 1 != 10 && i - 1 != -1 && player1[i-1][j+1] == -2)  || (j + 1 != 10 && player1[i][j+1] == -2))) {
+//                        String rect_id = "#shot" + i + j;
+//                        clickedImageView = (Rectangle) anchorPane.lookup(rect_id);
+//                        clickedImageView.setFill(Color.BLUE);
+//                        i -= 1;
+//                    }
+//                    while (i != player1[1].length && i != -1 && (player1[i][j] == 8 || player1[i][j] == -2)){
+//                        i -= 1;
+//                    }
+//                    i += 1;
 
 //                    while (player1[i][j] == 8 && player1[i - 1][j] == -1) {
 //                        String rect_id = "#shot" + i + j;
@@ -408,6 +557,31 @@ public class frame_3Controller {
                         System.out.println(rect_id);
                         clickedImageView = (Rectangle) anchorPane.lookup(rect_id);
                         clickedImageView.setFill(Color.BLACK);
+                        if (i != 0 && player2[i-1][j] == 8) {
+                            int i8 = i-1;
+                            String rect_id2 = "#shot2_" + i8 + j;
+                            clickedImageView = (Rectangle) anchorPane.lookup(rect_id2);
+                            clickedImageView.setFill(Color.BLUE);
+                        }
+                        if (j != 0 && player2[i][j-1] == 8) {
+                            int j8 = j-1;
+                            String rect_id2 = "#shot2_" + i + j8;
+                            clickedImageView = (Rectangle) anchorPane.lookup(rect_id2);
+                            clickedImageView.setFill(Color.BLUE);
+                        }
+                        if (i != player2[0].length - 1 && player2[i+1][j] == 8) {
+                            int i8 = i+1;
+                            String rect_id2 = "#shot2_" + i8 + j;
+                            clickedImageView = (Rectangle) anchorPane.lookup(rect_id2);
+                            clickedImageView.setFill(Color.BLUE);
+                        }
+                        if (j != player2[1].length - 1 && player2[i][j+1] == 8) {
+                            int j8 = j+1;
+                            String rect_id2 = "#shot2_" + i + j8;
+                            clickedImageView = (Rectangle) anchorPane.lookup(rect_id2);
+                            clickedImageView.setFill(Color.BLUE);
+                        }
+
                         if (player2[i][j] == -1){
                             player2[i][j] = -2;
                         }
@@ -416,13 +590,50 @@ public class frame_3Controller {
                             break;
                         }
                     }
+                    if (i != -1 && j != player2[1].length - 1 && player2[i][j+1] == 8) {
+                        int j8 = j+1;
+                        String rect_id2 = "#shot2_" + i + j8;
+                        clickedImageView = (Rectangle) anchorPane.lookup(rect_id2);
+                        clickedImageView.setFill(Color.BLUE);
+                    }
+                    if (i != -1 && j != 0 && player2[i][j-1] == 8) {
+                        int j8 = j-1;
+                        String rect_id2 = "#shot2_" + i + j8;
+                        clickedImageView = (Rectangle) anchorPane.lookup(rect_id2);
+                        clickedImageView.setFill(Color.BLUE);
+                    }
+
                     i += 1;
-                    System.out.println("wefwe" + player2[i][j]);
+                    //System.out.println("wefwe" + player1[i][j]);
                     while (player2[i][j] == -1 || player2[i][j] == -2) {
                         String rect_id = "#shot2_" + i + j;
                         System.out.println(rect_id);
                         clickedImageView = (Rectangle) anchorPane.lookup(rect_id);
                         clickedImageView.setFill(Color.BLACK);
+                        if (i != 0 && player2[i-1][j] == 8) {
+                            int i8 = i-1;
+                            String rect_id2 = "#shot2_" + i8 + j;
+                            clickedImageView = (Rectangle) anchorPane.lookup(rect_id2);
+                            clickedImageView.setFill(Color.BLUE);
+                        }
+                        if (j != 0 && player2[i][j-1] == 8) {
+                            int j8 = j-1;
+                            String rect_id2 = "#shot2_" + i + j8;
+                            clickedImageView = (Rectangle) anchorPane.lookup(rect_id2);
+                            clickedImageView.setFill(Color.BLUE);
+                        }
+                        if (i != player2[0].length - 1 && player2[i+1][j] == 8) {
+                            int i8 = i+1;
+                            String rect_id2 = "#shot2_" + i8 + j;
+                            clickedImageView = (Rectangle) anchorPane.lookup(rect_id2);
+                            clickedImageView.setFill(Color.BLUE);
+                        }
+                        if (j != player2[1].length - 1 && player2[i][j+1] == 8) {
+                            int j8 = j+1;
+                            String rect_id2 = "#shot2_" + i + j8;
+                            clickedImageView = (Rectangle) anchorPane.lookup(rect_id2);
+                            clickedImageView.setFill(Color.BLUE);
+                        }
                         if (player2[i][j] == -1){
                             player2[i][j] = -2;
                         }
@@ -431,13 +642,49 @@ public class frame_3Controller {
                             break;
                         }
                     }
+                    if (i != player2[0].length && j != player2[1].length - 1 && player2[i][j+1] == 8) {
+                        int j8 = j+1;
+                        String rect_id2 = "#shot2_" + i + j8;
+                        clickedImageView = (Rectangle) anchorPane.lookup(rect_id2);
+                        clickedImageView.setFill(Color.BLUE);
+                    }
+                    if (i != player2[0].length && j != 0 && player2[i][j-1] == 8) {
+                        int j8 = j-1;
+                        String rect_id2 = "#shot2_" + i + j8;
+                        clickedImageView = (Rectangle) anchorPane.lookup(rect_id2);
+                        clickedImageView.setFill(Color.BLUE);
+                    }
                     i -= 1;
-                    System.out.println("wefwe" + player2[i][j]);
+                    //System.out.println("wefwe" + player1[i][j]);
                     while (player2[i][j] == -1 || player2[i][j] == -2) {
                         String rect_id = "#shot2_" + i + j;
                         System.out.println(rect_id);
                         clickedImageView = (Rectangle) anchorPane.lookup(rect_id);
                         clickedImageView.setFill(Color.BLACK);
+                        if (i != 0 && player2[i-1][j] == 8) {
+                            int i8 = i-1;
+                            String rect_id2 = "#shot2_" + i8 + j;
+                            clickedImageView = (Rectangle) anchorPane.lookup(rect_id2);
+                            clickedImageView.setFill(Color.BLUE);
+                        }
+                        if (j != 0 && player2[i][j-1] == 8) {
+                            int j8 = j-1;
+                            String rect_id2 = "#shot2_" + i + j8;
+                            clickedImageView = (Rectangle) anchorPane.lookup(rect_id2);
+                            clickedImageView.setFill(Color.BLUE);
+                        }
+                        if (i != player2[0].length - 1 && player2[i+1][j] == 8) {
+                            int i8 = i+1;
+                            String rect_id2 = "#shot2_" + i8 + j;
+                            clickedImageView = (Rectangle) anchorPane.lookup(rect_id2);
+                            clickedImageView.setFill(Color.BLUE);
+                        }
+                        if (j != player2[1].length - 1 && player2[i][j+1] == 8) {
+                            int j8 = j+1;
+                            String rect_id2 = "#shot2_" + i + j8;
+                            clickedImageView = (Rectangle) anchorPane.lookup(rect_id2);
+                            clickedImageView.setFill(Color.BLUE);
+                        }
                         if (player2[i][j] == -1){
                             player2[i][j] = -2;
                         }
@@ -446,6 +693,18 @@ public class frame_3Controller {
                             break;
                         }
                     }
+                    if (j != player2[1].length && i != player2[0].length - 1 && player2[i+1][j] == 8) {
+                        int i8 = i+1;
+                        String rect_id2 = "#shot2_" + i8 + j;
+                        clickedImageView = (Rectangle) anchorPane.lookup(rect_id2);
+                        clickedImageView.setFill(Color.BLUE);
+                    }
+                    if (j != player2[1].length && i != 0 && player2[i-1][j] == 8) {
+                        int i8 = i-1;
+                        String rect_id2 = "#shot2_" + i8 + j;
+                        clickedImageView = (Rectangle) anchorPane.lookup(rect_id2);
+                        clickedImageView.setFill(Color.BLUE);
+                    }
                     j -= 1;
                     System.out.println("wefwe" + player2[i][j]);
                     while (player2[i][j] == -1 || player2[i][j] == -2) {
@@ -453,6 +712,30 @@ public class frame_3Controller {
                         System.out.println(rect_id);
                         clickedImageView = (Rectangle) anchorPane.lookup(rect_id);
                         clickedImageView.setFill(Color.BLACK);
+                        if (i != 0 && player2[i-1][j] == 8) {
+                            int i8 = i-1;
+                            String rect_id2 = "#shot2_" + i8 + j;
+                            clickedImageView = (Rectangle) anchorPane.lookup(rect_id2);
+                            clickedImageView.setFill(Color.BLUE);
+                        }
+                        if (j != 0 && player2[i][j-1] == 8) {
+                            int j8 = j-1;
+                            String rect_id2 = "#shot2_" + i + j8;
+                            clickedImageView = (Rectangle) anchorPane.lookup(rect_id2);
+                            clickedImageView.setFill(Color.BLUE);
+                        }
+                        if (i != player2[0].length - 1 && player2[i+1][j] == 8) {
+                            int i8 = i+1;
+                            String rect_id2 = "#shot2_" + i8 + j;
+                            clickedImageView = (Rectangle) anchorPane.lookup(rect_id2);
+                            clickedImageView.setFill(Color.BLUE);
+                        }
+                        if (j != player2[1].length - 1 && player2[i][j+1] == 8) {
+                            int j8 = j+1;
+                            String rect_id2 = "#shot2_" + i + j8;
+                            clickedImageView = (Rectangle) anchorPane.lookup(rect_id2);
+                            clickedImageView.setFill(Color.BLUE);
+                        }
                         if (player2[i][j] == -1) {
                             player2[i][j] = -2;
                         }
@@ -462,75 +745,86 @@ public class frame_3Controller {
                             break;
                         }
                     }
+                    if (j != -1 && i != player2[0].length - 1 && player2[i+1][j] == 8) {
+                        int i8 = i+1;
+                        String rect_id2 = "#shot2_" + i8 + j;
+                        clickedImageView = (Rectangle) anchorPane.lookup(rect_id2);
+                        clickedImageView.setFill(Color.BLUE);
+                    }
+                    if (j != -1 && i != 0 && player2[i-1][j] == 8) {
+                        int i8 = i-1;
+                        String rect_id2 = "#shot2_" + i8 + j;
+                        clickedImageView = (Rectangle) anchorPane.lookup(rect_id2);
+                        clickedImageView.setFill(Color.BLUE);
+                    }
                     j += 1;
-
 
                     PrintArray(player2);
 
 
-                    while (i != player2[0].length && i != -1 && (player2[i][j] == 8 || player2[i][j] == -2)){
-                        i -= 1;
-                        System.out.println("чему Ш  1" + i);
-                    }
-                    i += 1;
-                    while (j != player2[1].length && j != -1 && (player2[i][j] == 8 || player2[i][j] == -2)){
-                        j -= 1;
-                    }
-                    j += 1;
-
-
-//                    System.out.println("чему Ш  2  " + i);
-//                    System.out.println("чему Ш  4  " + j);
-                    while (j != player2[1].length && j != -1 && player2[i][j] == 8 && ((i + 1 != 10 && j + 1 != 10 && player2[i+1][j+1] == -2) || (i + 1 != 10 && j - 1 != -1 && player2[i+1][j-1] == -2) || (i + 1 != 10 && player2[i+1][j] == -2))) {
-                        //System.out.println("чему Ш  3" + i);
-                        String rect_id = "#shot2_" + i + j;
-                        clickedImageView = (Rectangle) anchorPane.lookup(rect_id);
-                        clickedImageView.setFill(Color.BLUE);
-                        j += 1;
-                    }
-
-    //                    System.out.println("i: " + i);
-    //                    System.out.println("j: " + j);
-                    while (j != player2[1].length && j != -1 && (player2[i][j] == 8 || player2[i][j] == -2)){
-                        j += 1;
-                    }
-                    j -= 1;
-
-
-                    while (i != player2[0].length && i != -1 && player2[i][j] == 8 && ((i - 1 != -1 && j - 1 != -1 && player2[i-1][j-1] == -2) || (i + 1 != 10 && j - 1 != -1 && player2[i+1][j-1] == -2) || (j - 1 != -1 && player2[i][j-1] == -2))) {
-                        String rect_id = "#shot2_" + i + j;
-                        clickedImageView = (Rectangle) anchorPane.lookup(rect_id);
-                        clickedImageView.setFill(Color.BLUE);
-                        i += 1;
-                    }
-                    while (i != player2[0].length && i != -1 && (player2[i][j] == 8 || player2[i][j] == -2)){
-                        i += 1;
-                    }
-                    i -= 1;
-
-                    while (j != player2[1].length && j != -1 && player2[i][j] == 8 && ((i - 1 != -1 && j - 1 != -1 && player2[i-1][j-1] == -2) || (i - 1 != -1 && j + 1 != 10 && player2[i-1][j+1] == -2) ||(i - 1 != -1 && player2[i-1][j] == -2))) {
-                        String rect_id = "#shot2_" + i + j;
-                        clickedImageView = (Rectangle) anchorPane.lookup(rect_id);
-                        clickedImageView.setFill(Color.BLUE);
-                        j -= 1;
-                    }
-                    while (j != player2[1].length && j != -1 && (player2[i][j] == 8 || player2[i][j] == -2)){
-                        j -= 1;
-                    }
-                    j += 1;
-
-                    while (i != player2[0].length && i != -1 && player2[i][j] == 8 && ((i + 1 != 10 && j + 1 != 10 && player2[i+1][j+1] == -2) || (j + 1 != 10 && i - 1 != -1 && player2[i-1][j+1] == -2)  || (j + 1 != 10 && player2[i][j+1] == -2))) {
-                        //System.out.println("12345678:   ");
-                        String rect_id = "#shot2_" + i + j;
-                        clickedImageView = (Rectangle) anchorPane.lookup(rect_id);
-                        clickedImageView.setFill(Color.BLUE);
-                        i -= 1;
-                        //System.out.println("24g43g34g34:   " + rect_id);
-                    }
-                    while (i != player2[1].length && i != -1 && (player2[i][j] == 8 || player2[i][j] == -2)){
-                        i -= 1;
-                    }
-                    i += 1;
+//                    while (i != player2[0].length && i != -1 && (player2[i][j] == 8 || player2[i][j] == -2)){
+//                        i -= 1;
+//                        System.out.println("чему Ш  1" + i);
+//                    }
+//                    i += 1;
+//                    while (j != player2[1].length && j != -1 && (player2[i][j] == 8 || player2[i][j] == -2)){
+//                        j -= 1;
+//                    }
+//                    j += 1;
+//
+//
+////                    System.out.println("чему Ш  2  " + i);
+////                    System.out.println("чему Ш  4  " + j);
+//                    while (j != player2[1].length && j != -1 && player2[i][j] == 8 && ((i + 1 != 10 && j + 1 != 10 && player2[i+1][j+1] == -2) || (i + 1 != 10 && j - 1 != -1 && player2[i+1][j-1] == -2) || (i + 1 != 10 && player2[i+1][j] == -2))) {
+//                        //System.out.println("чему Ш  3" + i);
+//                        String rect_id = "#shot2_" + i + j;
+//                        clickedImageView = (Rectangle) anchorPane.lookup(rect_id);
+//                        clickedImageView.setFill(Color.BLUE);
+//                        j += 1;
+//                    }
+//
+//    //                    System.out.println("i: " + i);
+//    //                    System.out.println("j: " + j);
+//                    while (j != player2[1].length && j != -1 && (player2[i][j] == 8 || player2[i][j] == -2)){
+//                        j += 1;
+//                    }
+//                    j -= 1;
+//
+//
+//                    while (i != player2[0].length && i != -1 && player2[i][j] == 8 && ((i - 1 != -1 && j - 1 != -1 && player2[i-1][j-1] == -2) || (i + 1 != 10 && j - 1 != -1 && player2[i+1][j-1] == -2) || (j - 1 != -1 && player2[i][j-1] == -2))) {
+//                        String rect_id = "#shot2_" + i + j;
+//                        clickedImageView = (Rectangle) anchorPane.lookup(rect_id);
+//                        clickedImageView.setFill(Color.BLUE);
+//                        i += 1;
+//                    }
+//                    while (i != player2[0].length && i != -1 && (player2[i][j] == 8 || player2[i][j] == -2)){
+//                        i += 1;
+//                    }
+//                    i -= 1;
+//
+//                    while (j != player2[1].length && j != -1 && player2[i][j] == 8 && ((i - 1 != -1 && j - 1 != -1 && player2[i-1][j-1] == -2) || (i - 1 != -1 && j + 1 != 10 && player2[i-1][j+1] == -2) ||(i - 1 != -1 && player2[i-1][j] == -2))) {
+//                        String rect_id = "#shot2_" + i + j;
+//                        clickedImageView = (Rectangle) anchorPane.lookup(rect_id);
+//                        clickedImageView.setFill(Color.BLUE);
+//                        j -= 1;
+//                    }
+//                    while (j != player2[1].length && j != -1 && (player2[i][j] == 8 || player2[i][j] == -2)){
+//                        j -= 1;
+//                    }
+//                    j += 1;
+//
+//                    while (i != player2[0].length && i != -1 && player2[i][j] == 8 && ((i + 1 != 10 && j + 1 != 10 && player2[i+1][j+1] == -2) || (j + 1 != 10 && i - 1 != -1 && player2[i-1][j+1] == -2)  || (j + 1 != 10 && player2[i][j+1] == -2))) {
+//                        //System.out.println("12345678:   ");
+//                        String rect_id = "#shot2_" + i + j;
+//                        clickedImageView = (Rectangle) anchorPane.lookup(rect_id);
+//                        clickedImageView.setFill(Color.BLUE);
+//                        i -= 1;
+//                        //System.out.println("24g43g34g34:   " + rect_id);
+//                    }
+//                    while (i != player2[1].length && i != -1 && (player2[i][j] == 8 || player2[i][j] == -2)){
+//                        i -= 1;
+//                    }
+//                    i += 1;
                     System.out.println("---------------------");
                     PrintArray(player2);
 

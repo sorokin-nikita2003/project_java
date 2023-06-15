@@ -11,7 +11,7 @@
     -fx-font-family: Calibri;
 }
 
-#btn1, #btn2, #btn3, #btn5, #btn6 {
+#btn1, #btn2, #btn3, #btn5, #btn6, #btn7 {
     -fx-background-color: radial-gradient(focus-distance 0%, center 50% 50%, radius 55%, #FF002E 0%, #5B0010 100%);
     -fx-background-radius: 70;
 }
@@ -19,7 +19,7 @@
     -fx-background-color: radial-gradient(focus-distance 0%, center 50% 50%, radius 55%, #FF002E 0%, #5B0010 100%);
 }
 
-#btn1:hover, #btn2:hover, #btn3:hover, #btn5:hover, #btn6:hover {
+#btn1:hover, #btn2:hover, #btn3:hover, #btn5:hover, #btn6:hover, #btn7:hover {
     -fx-background-color: radial-gradient(focus-distance 0%, center 50% 50%, radius 55%, #f58e93 0%, #5B0010 100%);
     -fx-cursor:hand
 }
