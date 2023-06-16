@@ -44,9 +44,9 @@ public class frame_1Controller implements Initializable {
     @FXML
     private Group ships;
     @FXML
-    private AnchorPane rect2;
+    public AnchorPane rect2;
     @FXML
-    private AnchorPane rect1;
+    public AnchorPane rect1;
     @FXML
     private Button btn1;
     @FXML
@@ -56,7 +56,6 @@ public class frame_1Controller implements Initializable {
     @FXML
     private Group btn3;
     private String lastButtonPressed;
-
 
     @FXML
     private void onPress(MouseEvent event) {
@@ -153,6 +152,7 @@ public class frame_1Controller implements Initializable {
 //        scene2 = new Scene(FXMLLoader.load(getClass().getResource("frame_2.fxml")));
 //        scene3 = new Scene(FXMLLoader.load(getClass().getResource("frame_3.fxml")));
 //        scene4 = new Scene(FXMLLoader.load(getClass().getResource("frame_4.fxml")));
+        //rect1.setStyle("-fx-background-color: BLACK;");
 
         name_player1 = "Игрок 1";
         name_player2 = "Игрок 2";
@@ -173,7 +173,7 @@ public class frame_1Controller implements Initializable {
 //        btn3.setLayoutX(100);
 
 
-        System.out.println(groupWidth2);
+        //System.out.println(groupWidth2);
 //        rect1.setAlignment(Pos.CENTER);
 
 //        btn1.setLayoutX(screenWidth/2);

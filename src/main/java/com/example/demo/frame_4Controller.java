@@ -14,6 +14,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
@@ -25,7 +26,10 @@ import javafx.util.Duration;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Arrays;
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.Set;
 
 import static com.example.demo.HelloApplication.*;
 
@@ -39,7 +43,12 @@ public class frame_4Controller {
     @FXML
     private Slider slider;
     @FXML
+    public static AnchorPane rect2;
+    @FXML
     private AnchorPane anchorPane;
+    @FXML
+    private AnchorPane root;
+
 
     @FXML
     private void RadioButtonClick(ActionEvent event) throws IOException {
@@ -49,9 +58,35 @@ public class frame_4Controller {
         switch (value_btn){
             case ("light")->{
                 theme_color = value_btn;;
+                // Получаем AnchorPane из frame_1.fxml
+                String color = "#ff0000"; // задаем новый цвет
+                List<Parent> frames = Arrays.asList(
+                        FXMLLoader.load(getClass().getResource("frame_1.fxml")), // загружаем все фреймы в список
+                        FXMLLoader.load(getClass().getResource("frame_2.fxml")),
+                        FXMLLoader.load(getClass().getResource("frame_3.fxml")),
+                        FXMLLoader.load(getClass().getResource("frame_4.fxml"))
+                );
+                for (Parent frame : frames) {
+                    AnchorPane rect1 = (AnchorPane) frame.lookup("#rect1"); // находим AnchorPane с id="rect2"
+                    rect1.setStyle("-fx-background-color: " + color); // устанавливаем новый цвет через inline CSS
+                    AnchorPane rect2 = (AnchorPane) frame.lookup("#rect2"); // находим AnchorPane с id="rect2"
+                    rect2.setStyle("-fx-background-color: " + color); // устанавливаем новый цвет через inline CSS
+                }
             }
             case ("dark")->{
                 theme_color = value_btn;
+
+                String color = "#ffc7c7"; // задаем новый цвет
+                List<Parent> frames = Arrays.asList(
+                        FXMLLoader.load(getClass().getResource("frame_1.fxml")), // загружаем все фреймы в список
+                        FXMLLoader.load(getClass().getResource("frame_2.fxml")),
+                        FXMLLoader.load(getClass().getResource("frame_3.fxml")),
+                        FXMLLoader.load(getClass().getResource("frame_4.fxml"))
+                );
+                for (Parent frame : frames) {
+                    AnchorPane rect2 = (AnchorPane) frame.lookup("#rect2"); // находим AnchorPane с id="rect2"
+                    rect2.setStyle("-fx-background-color: " + color); // устанавливаем новый цвет через inline CSS
+                }
             }
             case ("full")->{
                 full_screan = true;

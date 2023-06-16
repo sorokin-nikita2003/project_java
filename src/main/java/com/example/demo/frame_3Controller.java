@@ -38,6 +38,8 @@ public class frame_3Controller {
     }
     @FXML
     Button btn1;
+    @FXML
+    public static AnchorPane rect2;
 
     @FXML
     Label text1, text2;
@@ -90,9 +92,9 @@ public class frame_3Controller {
     private void shot(MouseEvent event) {
         Rectangle clickedImageView = (Rectangle) event.getSource();
         int i = Integer.parseInt(String.valueOf(clickedImageView.getId().charAt(4)));
-        System.out.println(i);
+//        System.out.println(i);
         int j = Integer.parseInt(String.valueOf(clickedImageView.getId().charAt(5)));
-        System.out.println(j);
+//        System.out.println(j);
         Paint polygColor = polyg.getFill();
         if (polygColor == Color.RED && clickedImageView.getFill() != Color.BLACK && clickedImageView.getFill() != Color.GRAY && clickedImageView.getFill() != Color.BLUE) {
             //System.out.println(clickedImageView.getFill());
@@ -104,6 +106,8 @@ public class frame_3Controller {
                         50.0, 70.0);
                 polyg.setFill(Color.GREEN);
             } else {
+                score_player1 += 1;
+                System.out.println("score_player1 " + score_player1);
                 clickedImageView.setFill(Color.GRAY);
                 player1[i][j] = -1;
 
@@ -111,7 +115,7 @@ public class frame_3Controller {
                 int flag_right = 0;
                 int flag_top = 0;
                 int flag_down = 0;
-                System.out.println("length" + player1[0].length);
+                //System.out.println("length" + player1[0].length);
 
                 while (player1[i][j] == -1) {
                     System.out.println("1111" + player1[i][j]);
@@ -124,7 +128,7 @@ public class frame_3Controller {
                 }
                 i += 1;
                 int we = player1[1].length - 1;
-                System.out.println("ewfewfewf " + we);
+                //System.out.println("ewfewfewf " + we);
 
                 while (player1[i][j] == -1) {
                     System.out.println("2222" + player1[i][j]);
@@ -137,7 +141,7 @@ public class frame_3Controller {
                 i -= 1;
 
                 while (player1[i][j] == -1) {
-                    System.out.println("3333" + player1[i][j]);
+                    //System.out.println("3333" + player1[i][j]);
                     j -= 1;
                     if (j == player1[1].length || j == -1 || player1[i][j] == 8) {
                         flag_down = 1;
@@ -148,7 +152,7 @@ public class frame_3Controller {
                 //System.out.println("3333" + player1[i][j]);
 
                 while (player1[i][j] == -1) {
-                    System.out.println("4444" + player1[i][j]);
+                    //System.out.println("4444" + player1[i][j]);
                     j += 1;
                     if (j == player1[1].length || j == -1 || player1[i][j] == 8) {
                         flag_top = 1;
@@ -169,7 +173,7 @@ public class frame_3Controller {
                     Scene scene = null;
                     while (player1[i][j] == -1 || player1[i][j] == -2) {
                         String rect_id = "#shot" + i + j;
-                        System.out.println(rect_id);
+                        //System.out.println(rect_id);
                         clickedImageView = (Rectangle) anchorPane.lookup(rect_id);
                         clickedImageView.setFill(Color.BLACK);
                         if (i != 0 && player1[i-1][j] == 8) {
@@ -222,7 +226,7 @@ public class frame_3Controller {
                     //System.out.println("wefwe" + player1[i][j]);
                     while (player1[i][j] == -1 || player1[i][j] == -2) {
                         String rect_id = "#shot" + i + j;
-                        System.out.println(rect_id);
+                        //System.out.println(rect_id);
                         clickedImageView = (Rectangle) anchorPane.lookup(rect_id);
                         clickedImageView.setFill(Color.BLACK);
                         if (i != 0 && player1[i-1][j] == 8) {
@@ -273,7 +277,7 @@ public class frame_3Controller {
                     //System.out.println("wefwe" + player1[i][j]);
                     while (player1[i][j] == -1 || player1[i][j] == -2) {
                         String rect_id = "#shot" + i + j;
-                        System.out.println(rect_id);
+                        //System.out.println(rect_id);
                         clickedImageView = (Rectangle) anchorPane.lookup(rect_id);
                         clickedImageView.setFill(Color.BLACK);
                         if (i != 0 && player1[i-1][j] == 8) {
@@ -321,10 +325,10 @@ public class frame_3Controller {
                         clickedImageView.setFill(Color.BLUE);
                     }
                     j -= 1;
-                    System.out.println("wefwe" + player1[i][j]);
+                    //System.out.println("wefwe" + player1[i][j]);
                     while (player1[i][j] == -1 || player1[i][j] == -2) {
                         String rect_id = "#shot" + i + j;
-                        System.out.println(rect_id);
+                        //System.out.println(rect_id);
                         clickedImageView = (Rectangle) anchorPane.lookup(rect_id);
                         clickedImageView.setFill(Color.BLACK);
                         if (i != 0 && player1[i-1][j] == 8) {
@@ -355,7 +359,7 @@ public class frame_3Controller {
                             player1[i][j] = -2;
                         }
                         j -= 1;
-                        System.out.println("wefwe" + rect_id);
+                        //System.out.println("wefwe" + rect_id);
                         if (j == player1[1].length || j == -1 || player1[i][j] == 8) {
                             break;
                         }
@@ -375,8 +379,8 @@ public class frame_3Controller {
                     j += 1;
                     PrintArray(player1);
 
-                    System.out.println("i: " + i);
-                    System.out.println("j: " + j);
+//                    System.out.println("i: " + i);
+//                    System.out.println("j: " + j);
 //                    while (i != player1[0].length && i != -1 && (player1[i][j] == 8 || player1[i][j] == -2) && player1[i][j] == -2){
 //                        i -= 1;
 //                        //System.out.println("чему Ш  " + i);
@@ -465,6 +469,68 @@ public class frame_3Controller {
 //                        clickedImageView.setFill(Color.BLUE);
 //                    }
                 }
+                if (score_player1 == 20) {
+                    Stage window = new Stage();
+
+//        Pane pane = new Pane();
+
+                    Group root = new Group();
+                    Scene scene = new Scene(root, 600,100);
+
+                    Label label = new Label("Игрок " + name_player1 + " выиграл");
+                    label.setAlignment(Pos.CENTER);
+                    label.setStyle("-fx-font-size:40;-fx-font-size:40");
+
+                    Button btn_ok = new Button("Да");
+                    btn_ok.setLayoutX(300);
+                    btn_ok.setLayoutY(60);
+
+
+                    btn_ok.setOnAction(new EventHandler<ActionEvent>() {
+                        @Override
+                        public void handle(ActionEvent event) {
+                            mediaPlayer.dispose();
+                            mediaPlayer = new MediaPlayer(new Media(new File(songs[0]).toURI().toString()));
+                            mediaPlayer.setVolume(sliderValue / 100);
+                            time_sleep = 210000;
+                            flag = true;
+                            player = 1;
+                            clear_matrix(player1);
+                            //.out.println("player 1-------------------------");
+                            PrintArray(player1);
+
+                            clear_matrix(player2);
+                            //System.out.println("player 2-------------------------");
+                            PrintArray(player2);
+
+                            FXMLLoader loader = new FXMLLoader(getClass().getResource("frame_1.fxml"));
+                            Parent pane = null;
+                            try {
+                                pane = loader.load();
+                            } catch (IOException e) {
+                                throw new RuntimeException(e);
+                            }
+//            frame_2Controller controller = loader.getController();
+//            controller.setLastButtonPressed("bot");
+//        scene.setCursor(Cursor.HAND);
+                            Stage window1 = (Stage)((Node)event.getSource()).getScene().getWindow();
+                            Stage window2 = (Stage)btn1.getScene().getWindow();
+                            Scene scene = new Scene(pane);
+                            window.close();
+                            window2.close();
+                            window1.setMaximized(true);
+                            window1.setScene(scene);
+                            window1.show();
+                        }
+                    });
+                    root.getChildren().add(label);
+                    root.getChildren().add(btn_ok);
+
+                    window.setScene(scene);
+                    window.initModality(Modality.WINDOW_MODAL);
+//        window.initOwner(parentStage);
+                    window.showAndWait();
+                }
                 //PrintArray(player1);
             }
             //polyg.getPoints().removeAll();
@@ -475,11 +541,11 @@ public class frame_3Controller {
     private void shot2(MouseEvent event) {
         Rectangle clickedImageView = (Rectangle) event.getSource();
         int i = Integer.parseInt(String.valueOf(clickedImageView.getId().charAt(6)));
-        System.out.println(i);
+//        System.out.println(i);
         int j = Integer.parseInt(String.valueOf(clickedImageView.getId().charAt(7)));
-        System.out.println(j);
+//        System.out.println(j);
         Paint polygColor = polyg.getFill();
-        System.out.println(polygColor);
+//        System.out.println(polygColor);
         if (polygColor == Color.GREEN && clickedImageView.getFill() != Color.BLACK && clickedImageView.getFill() != Color.GRAY && clickedImageView.getFill() != Color.BLUE) {
             //System.out.println(111111);
             if (player2[i][j] == 0 || player2[i][j] == 8) {
@@ -489,6 +555,7 @@ public class frame_3Controller {
                         0.0, 70.0);
                 polyg.setFill(Color.RED);
             } else {
+                score_player2 += 1;
                 clickedImageView.setFill(Color.GRAY);
                 player2[i][j] = -1;
 
@@ -496,10 +563,10 @@ public class frame_3Controller {
                 int flag_right = 0;
                 int flag_top = 0;
                 int flag_down = 0;
-                System.out.println("length" + player2[0].length);
+//                System.out.println("length" + player2[0].length);
 
                 while (player2[i][j] == -1) {
-                    System.out.println("1111" + player2[i][j]);
+//                    System.out.println("1111" + player2[i][j]);
                     i -= 1;
                     if (i == player2[0].length || i == -1 || player2[i][j] == 8) {
                         flag_left = 1;
@@ -509,10 +576,10 @@ public class frame_3Controller {
                 }
                 i += 1;
                 int we = player2[1].length - 1;
-                System.out.println("ewfewfewf " + we);
+//                System.out.println("ewfewfewf " + we);
 
                 while (player2[i][j] == -1) {
-                    System.out.println("2222" + player2[i][j]);
+//                    System.out.println("2222" + player2[i][j]);
                     i += 1;
                     if (i == player2[0].length || i == -1 || player2[i][j] == 8) {
                         flag_right = 1;
@@ -522,7 +589,7 @@ public class frame_3Controller {
                 i -= 1;
 
                 while (player2[i][j] == -1) {
-                    System.out.println("3333" + player2[i][j]);
+//                    System.out.println("3333" + player2[i][j]);
                     j -= 1;
                     if (j == player2[1].length || j == -1 || player2[i][j] == 8) {
                         flag_down = 1;
@@ -533,7 +600,7 @@ public class frame_3Controller {
                 //System.out.println("3333" + player1[i][j]);
 
                 while (player2[i][j] == -1) {
-                    System.out.println("4444" + player2[i][j]);
+//                    System.out.println("4444" + player2[i][j]);
                     j += 1;
                     if (j == player2[1].length || j == -1 || player2[i][j] == 8) {
                         flag_top = 1;
@@ -543,10 +610,10 @@ public class frame_3Controller {
                 j -= 1;
                 //System.out.println("3333" + player1[i][j]);
 
-                System.out.println("left " + flag_left);
-                System.out.println("right " + flag_right);
-                System.out.println("top " + flag_top);
-                System.out.println("down " + flag_down);
+//                System.out.println("left " + flag_left);
+//                System.out.println("right " + flag_right);
+//                System.out.println("top " + flag_top);
+//                System.out.println("down " + flag_down);
 
                 if (flag_down == 1 && flag_left == 1 && flag_top == 1 && flag_right == 1) {
                     PrintArray(player2);
@@ -554,7 +621,7 @@ public class frame_3Controller {
                     Scene scene = null;
                     while (player2[i][j] == -1 || player2[i][j] == -2) {
                         String rect_id = "#shot2_" + i + j;
-                        System.out.println(rect_id);
+//                        System.out.println(rect_id);
                         clickedImageView = (Rectangle) anchorPane.lookup(rect_id);
                         clickedImageView.setFill(Color.BLACK);
                         if (i != 0 && player2[i-1][j] == 8) {
@@ -607,7 +674,7 @@ public class frame_3Controller {
                     //System.out.println("wefwe" + player1[i][j]);
                     while (player2[i][j] == -1 || player2[i][j] == -2) {
                         String rect_id = "#shot2_" + i + j;
-                        System.out.println(rect_id);
+//                        System.out.println(rect_id);
                         clickedImageView = (Rectangle) anchorPane.lookup(rect_id);
                         clickedImageView.setFill(Color.BLACK);
                         if (i != 0 && player2[i-1][j] == 8) {
@@ -658,7 +725,7 @@ public class frame_3Controller {
                     //System.out.println("wefwe" + player1[i][j]);
                     while (player2[i][j] == -1 || player2[i][j] == -2) {
                         String rect_id = "#shot2_" + i + j;
-                        System.out.println(rect_id);
+//                        System.out.println(rect_id);
                         clickedImageView = (Rectangle) anchorPane.lookup(rect_id);
                         clickedImageView.setFill(Color.BLACK);
                         if (i != 0 && player2[i-1][j] == 8) {
@@ -706,10 +773,10 @@ public class frame_3Controller {
                         clickedImageView.setFill(Color.BLUE);
                     }
                     j -= 1;
-                    System.out.println("wefwe" + player2[i][j]);
+//                    System.out.println("wefwe" + player2[i][j]);
                     while (player2[i][j] == -1 || player2[i][j] == -2) {
                         String rect_id = "#shot2_" + i + j;
-                        System.out.println(rect_id);
+//                        System.out.println(rect_id);
                         clickedImageView = (Rectangle) anchorPane.lookup(rect_id);
                         clickedImageView.setFill(Color.BLACK);
                         if (i != 0 && player2[i-1][j] == 8) {
@@ -740,7 +807,7 @@ public class frame_3Controller {
                             player2[i][j] = -2;
                         }
                         j -= 1;
-                        System.out.println("wefwe" + rect_id);
+//                        System.out.println("wefwe" + rect_id);
                         if (j == player2[1].length || j == -1 || player2[i][j] == 8) {
                             break;
                         }
@@ -825,9 +892,71 @@ public class frame_3Controller {
 //                        i -= 1;
 //                    }
 //                    i += 1;
-                    System.out.println("---------------------");
+//                    System.out.println("---------------------");
                     PrintArray(player2);
 
+                }
+                if (score_player2 == 20) {
+                    Stage window = new Stage();
+
+//        Pane pane = new Pane();
+
+                    Group root = new Group();
+                    Scene scene = new Scene(root, 600,100);
+
+                    Label label = new Label("Игрок " + name_player2 + " выиграл");
+                    label.setAlignment(Pos.CENTER);
+                    label.setStyle("-fx-font-size:40;-fx-font-size:40");
+
+                    Button btn_ok = new Button("Да");
+                    btn_ok.setLayoutX(300);
+                    btn_ok.setLayoutY(60);
+
+
+                    btn_ok.setOnAction(new EventHandler<ActionEvent>() {
+                        @Override
+                        public void handle(ActionEvent event) {
+                            mediaPlayer.dispose();
+                            mediaPlayer = new MediaPlayer(new Media(new File(songs[0]).toURI().toString()));
+                            mediaPlayer.setVolume(sliderValue / 100);
+                            time_sleep = 210000;
+                            flag = true;
+                            player = 1;
+                            clear_matrix(player1);
+//                            System.out.println("player 1-------------------------");
+                            PrintArray(player1);
+
+                            clear_matrix(player2);
+//                            System.out.println("player 2-------------------------");
+                            PrintArray(player2);
+
+                            FXMLLoader loader = new FXMLLoader(getClass().getResource("frame_1.fxml"));
+                            Parent pane = null;
+                            try {
+                                pane = loader.load();
+                            } catch (IOException e) {
+                                throw new RuntimeException(e);
+                            }
+//            frame_2Controller controller = loader.getController();
+//            controller.setLastButtonPressed("bot");
+//        scene.setCursor(Cursor.HAND);
+                            Stage window1 = (Stage)((Node)event.getSource()).getScene().getWindow();
+                            Stage window2 = (Stage)btn1.getScene().getWindow();
+                            Scene scene = new Scene(pane);
+                            window.close();
+                            window2.close();
+                            window1.setMaximized(true);
+                            window1.setScene(scene);
+                            window1.show();
+                        }
+                    });
+                    root.getChildren().add(label);
+                    root.getChildren().add(btn_ok);
+
+                    window.setScene(scene);
+                    window.initModality(Modality.WINDOW_MODAL);
+//        window.initOwner(parentStage);
+                    window.showAndWait();
                 }
 
             }
@@ -887,11 +1016,11 @@ public class frame_3Controller {
                 flag = true;
                 player = 1;
                 clear_matrix(player1);
-                System.out.println("player 1-------------------------");
+//                System.out.println("player 1-------------------------");
                 PrintArray(player1);
 
                 clear_matrix(player2);
-                System.out.println("player 2-------------------------");
+//                System.out.println("player 2-------------------------");
                 PrintArray(player2);
 
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("frame_1.fxml"));

@@ -7,7 +7,7 @@
 
 <AnchorPane fx:id="anchorPane" prefHeight="493.0" prefWidth="1491.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.frame_4Controller">
    <children>
-      <AnchorPane id="rect2" layoutX="-5.0" prefHeight="965.0" prefWidth="1920.0" styleClass="rect2" stylesheets="@itcss.css">
+      <AnchorPane fx:id="rect2" layoutX="-5.0" prefHeight="965.0" prefWidth="1920.0" styleClass="rect2" stylesheets="@itcss.css">
          <children>
             <Group layoutX="376.0" layoutY="245.0">
                <children>

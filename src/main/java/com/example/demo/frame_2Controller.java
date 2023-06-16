@@ -42,6 +42,8 @@ public class frame_2Controller {
     int count_click = 0;
     int rotate_ship = 0;
     @FXML
+    public static AnchorPane rect2;
+    @FXML
     private ImageView Ship4_1, Ship3_1, Ship3_2, Ship2_1, Ship2_2, Ship2_3, Ship1_1, Ship1_2, Ship1_3, Ship1_4;
     private final ImageView[] ships = new ImageView[10];
     @FXML
