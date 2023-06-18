@@ -230,6 +230,7 @@ public class frame_2Controller {
             AnchorPane anchorpane = (AnchorPane) pane.getChildrenUnmodifiable().get(0);
             frame_3Controller controller = loader.getController();
             controller.getAnchorPane(anchorpane);
+            controller.setLastButtonPressed(lastButtonPressed);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(pane);
             stage.setScene(scene);
