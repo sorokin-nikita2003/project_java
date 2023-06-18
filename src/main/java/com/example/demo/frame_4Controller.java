@@ -43,7 +43,7 @@ public class frame_4Controller {
     @FXML
     private Slider slider;
     @FXML
-    public static AnchorPane rect2;
+    public AnchorPane rect2;
     @FXML
     private AnchorPane anchorPane;
     @FXML
@@ -57,36 +57,24 @@ public class frame_4Controller {
         String value_btn = btn.getId().substring(4);
         switch (value_btn){
             case ("light")->{
-                theme_color = value_btn;;
-                // Получаем AnchorPane из frame_1.fxml
-                String color = "#ff0000"; // задаем новый цвет
-                List<Parent> frames = Arrays.asList(
-                        FXMLLoader.load(getClass().getResource("frame_1.fxml")), // загружаем все фреймы в список
-                        FXMLLoader.load(getClass().getResource("frame_2.fxml")),
-                        FXMLLoader.load(getClass().getResource("frame_3.fxml")),
-                        FXMLLoader.load(getClass().getResource("frame_4.fxml"))
-                );
-                for (Parent frame : frames) {
-                    AnchorPane rect1 = (AnchorPane) frame.lookup("#rect1"); // находим AnchorPane с id="rect2"
-                    rect1.setStyle("-fx-background-color: " + color); // устанавливаем новый цвет через inline CSS
-                    AnchorPane rect2 = (AnchorPane) frame.lookup("#rect2"); // находим AnchorPane с id="rect2"
-                    rect2.setStyle("-fx-background-color: " + color); // устанавливаем новый цвет через inline CSS
-                }
+                theme_color = value_btn;
+                rect1Color = "-fx-background-color: linear-gradient(#1E6BFF, #2871FFAB, #6197FF5C)";;
+                rect2Color = "-fx-background-color: linear-gradient(#001AFF5E, #001AFF00)";;
+//                FXMLLoader loader = new FXMLLoader(getClass().getResource("frame_4.fxml"));
+//                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                //Logic.changeColor(loader, stage);
+                rect2.setStyle(rect2Color);
             }
             case ("dark")->{
-                theme_color = value_btn;
+                theme_color = value_btn;;
+                rect1Color = "-fx-background-color: linear-gradient(#66007A, #5C5C5C)";
+                rect2Color = "-fx-background-color: linear-gradient(#6A300A, #001AFF00)";
+//                FXMLLoader loader = new FXMLLoader(getClass().getResource("frame_4.fxml"));
+//                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                //Logic.changeColor(loader, stage);
+                rect2.setStyle(rect2Color);
 
-                String color = "#ffc7c7"; // задаем новый цвет
-                List<Parent> frames = Arrays.asList(
-                        FXMLLoader.load(getClass().getResource("frame_1.fxml")), // загружаем все фреймы в список
-                        FXMLLoader.load(getClass().getResource("frame_2.fxml")),
-                        FXMLLoader.load(getClass().getResource("frame_3.fxml")),
-                        FXMLLoader.load(getClass().getResource("frame_4.fxml"))
-                );
-                for (Parent frame : frames) {
-                    AnchorPane rect2 = (AnchorPane) frame.lookup("#rect2"); // находим AnchorPane с id="rect2"
-                    rect2.setStyle("-fx-background-color: " + color); // устанавливаем новый цвет через inline CSS
-                }
+
             }
             case ("full")->{
                 full_screan = true;
@@ -135,6 +123,8 @@ public class frame_4Controller {
 //        System.out.println(slider.getValue() % 1);
     }
     public void initialize() {
+        rect2.setStyle(rect2Color);
+
         slider.setValue(sliderValue);
 
         btn_full.setToggleGroup(group_btn_screan);

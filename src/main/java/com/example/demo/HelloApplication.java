@@ -29,6 +29,8 @@ public class HelloApplication extends Application {
     protected static String name_player1 = "Игрок 1";
     protected static String name_player2 = "Игрок 2";
     protected static double sliderValue;
+    public static String rect1Color;
+    public static String rect2Color;
     protected static String theme_color;
     protected static boolean full_screan;
     protected static final int[] mas_x = {152, 201, 249, 297, 345, 392, 441, 488, 537, 584};
@@ -73,6 +75,7 @@ public class HelloApplication extends Application {
 
 
     public static void main(String[] args) {
+        System.out.println("start");
         if (!file.exists()){
             create_file(file);
         }
@@ -83,6 +86,5 @@ public class HelloApplication extends Application {
         t.interrupt();
         time_game.interrupt();
         write_file(file);
-        System.out.println("end");
     }
 }

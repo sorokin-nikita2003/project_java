@@ -39,7 +39,7 @@ public class frame_3Controller {
     @FXML
     Button btn1;
     @FXML
-    public static AnchorPane rect2;
+    public AnchorPane rect2;
 
     @FXML
     Label text1, text2;
@@ -477,7 +477,7 @@ public class frame_3Controller {
                     Group root = new Group();
                     Scene scene = new Scene(root, 600,100);
 
-                    Label label = new Label("Игрок " + name_player1 + " выиграл");
+                    Label label = new Label("Игрок " + name_player2 + " выиграл");
                     label.setAlignment(Pos.CENTER);
                     label.setStyle("-fx-font-size:40;-fx-font-size:40");
 
@@ -904,7 +904,7 @@ public class frame_3Controller {
                     Group root = new Group();
                     Scene scene = new Scene(root, 600,100);
 
-                    Label label = new Label("Игрок " + name_player2 + " выиграл");
+                    Label label = new Label("Игрок " + name_player1 + " выиграл");
                     label.setAlignment(Pos.CENTER);
                     label.setStyle("-fx-font-size:40;-fx-font-size:40");
 
@@ -1038,8 +1038,8 @@ public class frame_3Controller {
                 Scene scene = new Scene(pane);
                 window.close();
                 window2.close();
-                window1.setMaximized(true);
                 window1.setScene(scene);
+                window1.setFullScreen(full_screan);
                 window1.show();
             }
         });
@@ -1061,6 +1061,8 @@ public class frame_3Controller {
     }
    // @Override
     public void initialize() {
+        rect2.setStyle(rect2Color);
+
         mediaPlayer.dispose();
         mediaPlayer = new MediaPlayer(new Media(new File(songs[1]).toURI().toString()));
         mediaPlayer.setVolume(sliderValue / 100);

@@ -153,6 +153,9 @@ public class frame_1Controller implements Initializable {
 //        scene3 = new Scene(FXMLLoader.load(getClass().getResource("frame_3.fxml")));
 //        scene4 = new Scene(FXMLLoader.load(getClass().getResource("frame_4.fxml")));
         //rect1.setStyle("-fx-background-color: BLACK;");
+        //System.out.println(rect1Color);
+        rect1.setStyle(rect1Color);
+        rect2.setStyle(rect2Color);
 
         name_player1 = "Игрок 1";
         name_player2 = "Игрок 2";

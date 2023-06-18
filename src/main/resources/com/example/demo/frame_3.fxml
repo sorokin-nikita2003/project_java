@@ -336,7 +336,7 @@
                         <Font name="Calibri Bold" size="32.0" />
                     </font>
                 </Button>
-            <Label fx:id="text1" layoutX="254.0" layoutY="5.0" prefHeight="78.0" prefWidth="393.0" text="Игрок 1">
+            <Label fx:id="text1" layoutX="254.0" layoutY="5.0" prefHeight="78.0" prefWidth="393.0" text="Игрок 1" textFill="#48a93d">
                <font>
                   <Font name="Calibri Bold" size="64.0" />
                </font>
@@ -567,7 +567,7 @@
                   <Font size="40.0" />
                </font>
             </Text>
-            <Label fx:id="text2" layoutX="1021.0" layoutY="3.0" prefHeight="78.0" prefWidth="350.0" text="Игрок 1">
+            <Label fx:id="text2" layoutX="1021.0" layoutY="3.0" prefHeight="78.0" prefWidth="350.0" text="Игрок 1" textFill="#48a93d">
                <font>
                   <Font name="Calibri Bold" size="64.0" />
                </font>
