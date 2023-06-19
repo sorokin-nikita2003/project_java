@@ -33,6 +33,8 @@ import java.util.concurrent.TimeUnit;
 import static com.example.demo.HelloApplication.*;
 import static com.example.demo.Logic.Support.*;
 import static com.example.demo.Logic.Clear.*;
+import static com.example.demo.Logic.in;
+import static com.example.demo.Logic.random;
 
 public class frame_3Controller {
     private AnchorPane anchorPane;
@@ -974,7 +976,7 @@ public class frame_3Controller {
         polygColor = polyg.getFill();
 
         if (polygColor == Color.RED && Objects.equals(lastButtonPressed, "bot")){
-            int k = 0;
+            //int k = 0;
 //            while (k < 1000000) {
 //                System.out.println(k);
 //                k += 1;
@@ -983,17 +985,9 @@ public class frame_3Controller {
             j = ThreadLocalRandom.current().nextInt(0, 10);
             String rect_id3 = "#shot" + i + j;
             clickedImageView = (Rectangle) anchorPane.lookup(rect_id3);
-            if (player1[i][j] == 0 || player1[i][j] == 8) {
-                clickedImageView.setFill(Color.BLUE);
-                polyg.getPoints().setAll(0.0, 0.0,
-                        0.0, 140.0,
-                        50.0, 70.0);
-                polyg.setFill(Color.GREEN);
-            }
-            else {
-                while (player1[i][j] != 0 && player1[i][j] != 8) {
+            while (i != -1 && i != 10 && j != -1 && j != 10 && player1[i][j] != 0 && player1[i][j] != 8) {
                 score_player1 += 1;
-                System.out.println("score_player1 " + score_player1);
+                //System.out.println("score_player1 " + score_player1);
                 clickedImageView.setFill(Color.GRAY);
                 player1[i][j] = -1;
 
@@ -1354,19 +1348,25 @@ public class frame_3Controller {
 //                        clickedImageView = (Rectangle) anchorPane.lookup(rect_id);
 //                        clickedImageView.setFill(Color.BLUE);
 //                    }
-                }
                     i = ThreadLocalRandom.current().nextInt(0, 10);
                     j = ThreadLocalRandom.current().nextInt(0, 10);
-                    rect_id3 = "#shot" + i + j;
-                    clickedImageView = (Rectangle) anchorPane.lookup(rect_id3);
-                    if (player1[i][j] == 0 || player1[i][j] == 8) {
-                        clickedImageView.setFill(Color.BLUE);
-                        polyg.getPoints().setAll(0.0, 0.0,
-                                0.0, 140.0,
-                                50.0, 70.0);
-                        polyg.setFill(Color.GREEN);
-                        break;
+                }
+                else {
+                    // Генерируем случайное число 0 или 1
+                    int result1 = random.nextInt(2);
+                    i = (result1 == 0) ? i-1 : i+1;
+                    while (i == -1 || i == 10) {
+                        result1 = random.nextInt(2);
+                        i = (result1 == 0) ? i-1 : i+1;
                     }
+
+                    int result2 = random.nextInt(2);
+                    j = (result2 == 0) ? j-1 : j+1;
+                    while (j == -1 || j == 10) {
+                        result1 = random.nextInt(2);
+                        j = (result1 == 0) ? j-1 : j+1;
+                    }
+                }
                 if (score_player1 == 20) {
                     Stage window = new Stage();
 
@@ -1428,10 +1428,15 @@ public class frame_3Controller {
                     window.initModality(Modality.WINDOW_MODAL);
 //        window.initOwner(parentStage);
                     window.showAndWait();
-                    break;
+                    //break;
                 }
-                }
-                //PrintArray(player1);
+            }
+            if (player1[i][j] == 0 || player1[i][j] == 8) {
+                clickedImageView.setFill(Color.BLUE);
+                polyg.getPoints().setAll(0.0, 0.0,
+                        0.0, 140.0,
+                        50.0, 70.0);
+                polyg.setFill(Color.GREEN);
             }
         }
     }
