@@ -572,7 +572,7 @@
                   <Font name="Calibri Bold" size="64.0" />
                </font>
             </Label>
-            <Label layoutX="698.0" layoutY="85.0" prefHeight="54.0" prefWidth="146.0" text="Label" textFill="#48a93d">
+            <Label fx:id="game_time" layoutX="698.0" layoutY="85.0" prefHeight="54.0" prefWidth="146.0" text="Label" textFill="#48a93d">
                <font>
                   <Font size="36.0" />
                </font>

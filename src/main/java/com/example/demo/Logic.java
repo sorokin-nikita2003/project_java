@@ -1,9 +1,11 @@
 package com.example.demo;
 
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -30,7 +32,8 @@ public class Logic {
     static ArrayDeque<Integer> ship_images = new ArrayDeque<Integer>();
     static Random random = new Random();
     static Scanner in = new Scanner(System.in);
-
+    static Label game_time;
+    static boolean status_work_time_game;
     protected static class Support {
         protected static void PrintArray(int[][] Array) {
             for (int i = 0; i < 10; i++) {
@@ -967,18 +970,48 @@ public class Logic {
                         mediaPlayer.seek(Duration.ZERO);
                     }
                 } catch (InterruptedException e) {
-
+                    throw new RuntimeException(e);
                 }
             }
         }
-
+//00:00
         protected static class Time_game implements Runnable {
             public void run() {
-                int i = 0;
+                int seconds = 0;
+                int minutes = 0;
+                int hours = 0;
+                String result;
                 try {
-                    while (true) {
-                        i += 1;
-                        System.out.println(i);
+                    while (status_work_time_game) {
+                        seconds += 1;
+                        result = "";
+                        if (seconds == 60) {
+                            minutes += 1;
+                            seconds = 0;
+                        }
+                        if (minutes == 60) {
+                            hours += 1;
+                            minutes = 0;
+                        }
+                        if (hours > 0 && hours < 10) {
+                            result += ("0" + hours + ":");
+                        }
+                        if (hours > 9) {
+                            result += (hours + ":");
+                        }
+                        if (minutes < 10) {
+                            result += ("0" + minutes + ":");
+                        } else {
+                            result += (minutes + ":");
+                        }
+                        if (seconds < 10) {
+                            result += ("0" + seconds);
+                        } else {
+                            result += (seconds);
+                        }
+                        String finalResult = result;
+                        Platform.runLater(() -> game_time.setText(finalResult));
+//                        System.out.println(result);
                         Thread.sleep(1000);
                     }
                 } catch (InterruptedException e) {
@@ -994,6 +1027,14 @@ public class Logic {
         stage.setScene(scene);
         stage.setFullScreen(full_screan);
         stage.show();
+    }
+    protected static void set_label_time(Label label){
+        game_time = label;
+        status_work_time_game = true;
+    }
+    protected static void stop_tread_time(Label label){
+        label.setText("");
+        status_work_time_game = false;
     }
 
 //    protected static void changeColor(FXMLLoader loader, Stage stage) throws IOException {

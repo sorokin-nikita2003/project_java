@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -37,6 +38,7 @@ import static com.example.demo.Logic.in;
 import static com.example.demo.Logic.random;
 
 public class frame_3Controller {
+//    private static final Thread time_game = new Thread(new Logic.Threads.Time_game());
     private AnchorPane anchorPane;
     public void getAnchorPane (AnchorPane anchorPane) {
         this.anchorPane = anchorPane;
@@ -49,9 +51,10 @@ public class frame_3Controller {
     Button btn1;
     @FXML
     public AnchorPane rect2;
-
     @FXML
     Label text1, text2;
+    @FXML
+    Label game_time;
     @FXML
     Polygon polyg;
     @FXML
@@ -501,7 +504,6 @@ public class frame_3Controller {
                             mediaPlayer.dispose();
                             mediaPlayer = new MediaPlayer(new Media(new File(songs[0]).toURI().toString()));
                             mediaPlayer.setVolume(sliderValue / 100);
-                            time_sleep = 210000;
                             flag = true;
                             player = 1;
                             clear_matrix(player1);
@@ -928,9 +930,9 @@ public class frame_3Controller {
                             mediaPlayer.dispose();
                             mediaPlayer = new MediaPlayer(new Media(new File(songs[0]).toURI().toString()));
                             mediaPlayer.setVolume(sliderValue / 100);
-                            time_sleep = 210000;
                             flag = true;
                             player = 1;
+                            Logic.stop_tread_time(game_time);
                             clear_matrix(player1);
 //                            System.out.println("player 1-------------------------");
                             PrintArray(player1);
@@ -1390,9 +1392,9 @@ public class frame_3Controller {
                             mediaPlayer.dispose();
                             mediaPlayer = new MediaPlayer(new Media(new File(songs[0]).toURI().toString()));
                             mediaPlayer.setVolume(sliderValue / 100);
-                            time_sleep = 210000;
                             flag = true;
                             player = 1;
+                            Logic.stop_tread_time(game_time);
                             clear_matrix(player1);
                             //.out.println("player 1-------------------------");
                             PrintArray(player1);
@@ -1488,17 +1490,13 @@ public class frame_3Controller {
                 mediaPlayer.dispose();
                 mediaPlayer = new MediaPlayer(new Media(new File(songs[0]).toURI().toString()));
                 mediaPlayer.setVolume(sliderValue / 100);
-                time_sleep = 210000;
                 flag = true;
                 player = 1;
+                Logic.stop_tread_time(game_time);
                 clear_matrix(player1);
 //                System.out.println("player 1-------------------------");
-                PrintArray(player1);
-
                 clear_matrix(player2);
 //                System.out.println("player 2-------------------------");
-                PrintArray(player2);
-
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("frame_1.fxml"));
                 Parent pane = null;
                 try {
@@ -1515,6 +1513,7 @@ public class frame_3Controller {
                 window.close();
                 window2.close();
                 window1.setScene(scene);
+                window1.setTitle("Морской бой");
                 window1.setFullScreen(full_screan);
                 window1.show();
             }
@@ -1537,11 +1536,13 @@ public class frame_3Controller {
     }
    // @Override
     public void initialize() {
+        Thread time_game = new Thread(new Logic.Threads.Time_game());
+        Logic.set_label_time(game_time);
+        time_game.start();
         rect2.setStyle(rect2Color);
         mediaPlayer.dispose();
         mediaPlayer = new MediaPlayer(new Media(new File(songs[1]).toURI().toString()));
         mediaPlayer.setVolume(sliderValue / 100);
-        time_sleep = 480000;
         flag = true;
 //        System.out.println(name_player1);
         text1.setText(name_player1);

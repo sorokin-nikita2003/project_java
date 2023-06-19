@@ -40,7 +40,6 @@ public class HelloApplication extends Application {
     static int[][] player1 = new int[10][10];
     static int[][] player2 = new int[10][10];
     protected static int player = 1;
-    protected static int time_sleep = 210000;
     protected static boolean flag = false;
     protected static MediaPlayer mediaPlayer;
     static String[] songs = {"music/main_sound.mp3", "music/battle_theme.mp3"};
@@ -67,7 +66,7 @@ public class HelloApplication extends Application {
         mediaPlayer.setVolume(sliderValue /100);
 
 
-//        time_game.start(); // поток на время игры
+        //time_game.start(); // поток на время игры
 
 
         t.start();
