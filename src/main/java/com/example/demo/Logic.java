@@ -34,6 +34,7 @@ public class Logic {
     static Scanner in = new Scanner(System.in);
     static Label game_time;
     static boolean status_work_time_game;
+    static boolean status_work_music;
     protected static class Support {
         protected static void PrintArray(int[][] Array) {
             for (int i = 0; i < 10; i++) {
@@ -958,10 +959,10 @@ public class Logic {
         protected static class Music implements Runnable {
             public void run() {
                 try {
-                    while (!t.isInterrupted()) {
+                    while (status_work_music) {
                         mediaPlayer.play();
                         while (!(mediaPlayer.getCurrentTime().equals(mediaPlayer.getTotalDuration()))) {
-                            Thread.sleep(1500);
+                            Thread.sleep(1000);
                             if (flag) {
                                 flag = false;
                                 break;
@@ -1035,6 +1036,12 @@ public class Logic {
     protected static void stop_tread_time(Label label){
         label.setText("");
         status_work_time_game = false;
+    }
+    protected static void start_tread_music(){
+        status_work_music = true;
+    }
+    protected static void stop_tread_music(){
+        status_work_music = false;
     }
 
 //    protected static void changeColor(FXMLLoader loader, Stage stage) throws IOException {

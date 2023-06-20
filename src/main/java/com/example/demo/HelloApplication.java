@@ -64,7 +64,7 @@ public class HelloApplication extends Application {
         stage.show();
         mediaPlayer = new MediaPlayer(new Media(new File(songs[0]).toURI().toString()));
         mediaPlayer.setVolume(sliderValue /100);
-
+        Logic.start_tread_music();
 
         //time_game.start(); // поток на время игры
 
@@ -82,8 +82,8 @@ public class HelloApplication extends Application {
         read_file(file);
 
         Application.launch(args);
-        t.interrupt();
-        time_game.interrupt();
+
+        Logic.stop_tread_music();
         write_file(file);
     }
 }

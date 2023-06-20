@@ -485,6 +485,7 @@ public class frame_3Controller {
 //                    }
                 }
                 if (score_player1 == 20) {
+                    Logic.stop_tread_time(game_time);
                     Stage window = new Stage();
 
 //        Pane pane = new Pane();
@@ -911,6 +912,7 @@ public class frame_3Controller {
 
                 }
                 if (score_player2 == 20) {
+                    Logic.stop_tread_time(game_time);
                     Stage window = new Stage();
 
 //        Pane pane = new Pane();
@@ -935,7 +937,6 @@ public class frame_3Controller {
                             mediaPlayer.setVolume(sliderValue / 100);
                             flag = true;
                             player = 1;
-                            Logic.stop_tread_time(game_time);
                             clear_matrix(player1);
 //                            System.out.println("player 1-------------------------");
                             PrintArray(player1);
@@ -1016,7 +1017,7 @@ public class frame_3Controller {
                 //System.out.println("ewfewfewf " + we);
 
                 while (player1[i][j] == -1) {
-                    System.out.println("2222" + player1[i][j]);
+//                    System.out.println("2222" + player1[i][j]);
                     i += 1;
                     if (i == player1[0].length || i == -1 || player1[i][j] == 8) {
                         flag_right = 1;

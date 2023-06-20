@@ -116,7 +116,7 @@ public class frame_1Controller implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 write_file(file);
-                t.interrupt();
+                Logic.stop_tread_music();
                 Platform.exit();
                 System.exit(0);
             }
