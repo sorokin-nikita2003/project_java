@@ -273,7 +273,7 @@ public class frame_2Controller {
 //        double parentHeight = group1.getParent().getLayoutBounds().getHeight();
         double groupWidth1 = group1.getBoundsInParent().getWidth();
 //        double groupHeight = group1.getBoundsInParent().getHeight();
-        group1.setLayoutX(screenWidth/2 - groupWidth1/1.3);
+        group1.setLayoutX(screenWidth/2 - groupWidth1/1.85);
         rect2.setStyle(rect2Color);
 
         if (ships[0] == null){

@@ -22,6 +22,7 @@ import javafx.scene.paint.Paint;
 import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Modality;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -51,6 +52,8 @@ public class frame_3Controller {
     Button btn1;
     @FXML
     public AnchorPane rect2;
+    @FXML
+    private Group group1;
     @FXML
     Label text1, text2;
     @FXML
@@ -482,6 +485,7 @@ public class frame_3Controller {
 //                    }
                 }
                 if (score_player1 == 20) {
+                    Logic.stop_tread_time(game_time);
                     Stage window = new Stage();
 
 //        Pane pane = new Pane();
@@ -908,6 +912,7 @@ public class frame_3Controller {
 
                 }
                 if (score_player2 == 20) {
+                    Logic.stop_tread_time(game_time);
                     Stage window = new Stage();
 
 //        Pane pane = new Pane();
@@ -932,7 +937,6 @@ public class frame_3Controller {
                             mediaPlayer.setVolume(sliderValue / 100);
                             flag = true;
                             player = 1;
-                            Logic.stop_tread_time(game_time);
                             clear_matrix(player1);
 //                            System.out.println("player 1-------------------------");
                             PrintArray(player1);
@@ -1013,7 +1017,7 @@ public class frame_3Controller {
                 //System.out.println("ewfewfewf " + we);
 
                 while (player1[i][j] == -1) {
-                    System.out.println("2222" + player1[i][j]);
+//                    System.out.println("2222" + player1[i][j]);
                     i += 1;
                     if (i == player1[0].length || i == -1 || player1[i][j] == 8) {
                         flag_right = 1;
@@ -1536,10 +1540,24 @@ public class frame_3Controller {
     }
    // @Override
     public void initialize() {
+        double screenWidth = Screen.getPrimary().getBounds().getWidth();
+//        double parentWidth1 = group1.getParent().getLayoutBounds().getWidth();
+//        double parentHeight = group1.getParent().getLayoutBounds().getHeight();
+        double groupWidth1 = group1.getBoundsInParent().getWidth();
+//        double groupHeight = group1.getBoundsInParent().getHeight();
+        group1.setLayoutX(screenWidth/2 - groupWidth1/1.85);
+
+        double screenHeight = Screen.getPrimary().getBounds().getHeight();
+//        double parentWidth1 = group1.getParent().getLayoutBounds().getWidth();
+//        double parentHeight = group1.getParent().getLayoutBounds().getHeight();
+        double groupHeight1 = group1.getBoundsInParent().getHeight();
+//        double groupHeight = group1.getBoundsInParent().getHeight();
+        group1.setLayoutY(screenHeight/2 - groupWidth1/3.3);
+
+        rect2.setStyle(rect2Color);
         Thread time_game = new Thread(new Logic.Threads.Time_game());
         Logic.set_label_time(game_time);
         time_game.start();
-        rect2.setStyle(rect2Color);
         mediaPlayer.dispose();
         mediaPlayer = new MediaPlayer(new Media(new File(songs[1]).toURI().toString()));
         mediaPlayer.setVolume(sliderValue / 100);
