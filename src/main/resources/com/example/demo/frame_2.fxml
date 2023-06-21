@@ -10,7 +10,7 @@
 <VBox alignment="CENTER" prefHeight="493.0" prefWidth="1491.0" spacing="20.0" stylesheets="itcss.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.frame_2Controller">
     <Group fx:id="group1">
     <children>
-        <AnchorPane id="rect2" prefHeight="1146.0" prefWidth="1491.0" styleClass="rect2" stylesheets="@itcss.css">
+        <AnchorPane fx:id="rect2" prefHeight="1146.0" prefWidth="1491.0" styleClass="rect2" stylesheets="@itcss.css">
             <children>
                 <Group layoutX="66.91999816894531" layoutY="158.9199981689453">
                     <children>

@@ -12,6 +12,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -41,6 +42,10 @@ public class frame_2Controller {
     double x, y;
     int count_click = 0;
     int rotate_ship = 0;
+    @FXML
+    private Group group1;
+    @FXML
+    public AnchorPane rect2;
     @FXML
     private ImageView Ship4_1, Ship3_1, Ship3_2, Ship2_1, Ship2_2, Ship2_3, Ship1_1, Ship1_2, Ship1_3, Ship1_4;
     private final ImageView[] ships = new ImageView[10];
@@ -228,6 +233,7 @@ public class frame_2Controller {
             AnchorPane anchorpane = (AnchorPane) pane.getChildrenUnmodifiable().get(0);
             frame_3Controller controller = loader.getController();
             controller.getAnchorPane(anchorpane);
+            controller.setLastButtonPressed(lastButtonPressed);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(pane);
             stage.setScene(scene);
@@ -262,6 +268,14 @@ public class frame_2Controller {
         }
     }
     public void initialize() {
+        double screenWidth = Screen.getPrimary().getBounds().getWidth();
+//        double parentWidth1 = group1.getParent().getLayoutBounds().getWidth();
+//        double parentHeight = group1.getParent().getLayoutBounds().getHeight();
+        double groupWidth1 = group1.getBoundsInParent().getWidth();
+//        double groupHeight = group1.getBoundsInParent().getHeight();
+        group1.setLayoutX(screenWidth/2 - groupWidth1/1.3);
+        rect2.setStyle(rect2Color);
+
         if (ships[0] == null){
             ships[0] = Ship4_1;
             ships[1] = Ship3_1;

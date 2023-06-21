@@ -29,6 +29,8 @@ public class HelloApplication extends Application {
     protected static String name_player1 = "Игрок 1";
     protected static String name_player2 = "Игрок 2";
     protected static double sliderValue;
+    public static String rect1Color;
+    public static String rect2Color;
     protected static String theme_color;
     protected static boolean full_screan;
     protected static final int[] mas_x = {152, 201, 249, 297, 345, 392, 441, 488, 537, 584};
@@ -38,7 +40,6 @@ public class HelloApplication extends Application {
     static int[][] player1 = new int[10][10];
     static int[][] player2 = new int[10][10];
     protected static int player = 1;
-    protected static int time_sleep = 210000;
     protected static boolean flag = false;
     protected static MediaPlayer mediaPlayer;
     static String[] songs = {"music/main_sound.mp3", "music/battle_theme.mp3"};
@@ -65,7 +66,7 @@ public class HelloApplication extends Application {
         mediaPlayer.setVolume(sliderValue /100);
 
 
-//        time_game.start(); // поток на время игры
+        //time_game.start(); // поток на время игры
 
 
         t.start();
@@ -73,6 +74,7 @@ public class HelloApplication extends Application {
 
 
     public static void main(String[] args) {
+        System.out.println("start");
         if (!file.exists()){
             create_file(file);
         }
@@ -83,6 +85,5 @@ public class HelloApplication extends Application {
         t.interrupt();
         time_game.interrupt();
         write_file(file);
-        System.out.println("end");
     }
 }
