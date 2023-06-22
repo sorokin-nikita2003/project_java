@@ -68,7 +68,6 @@ public class HelloApplication extends Application {
 
         //time_game.start(); // поток на время игры
 
-
         t.start();
     }
 

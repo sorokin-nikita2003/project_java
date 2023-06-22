@@ -45,6 +45,7 @@ import static com.example.demo.Logic.Support.PrintArray;
 //
 
 public class Logic {
+    private static int score_player = 0;
     static int score = 0;
     static ArrayDeque<Integer> ship_images = new ArrayDeque<Integer>();
     static Random random = new Random();
@@ -1060,7 +1061,7 @@ public class Logic {
     protected static void stop_tread_music(){
         status_work_music = false;
     }
-    protected static void shoot_enemy(MouseEvent event, int[][] player, int score_player, String id, Polygon polyg, String name_player, Paint color1, Paint color2, AnchorPane anchorPane, Button btn1, int char_i, int char_j, List<Double> coordinates) {
+    protected static void shoot_enemy(MouseEvent event, int[][] player, int number_player, String id, Polygon polyg, String name_player, Paint color1, Paint color2, AnchorPane anchorPane, Button btn1, int char_i, int char_j, List<Double> coordinates) {
         Rectangle clickedImageView = (Rectangle) event.getSource();
         int i = Integer.parseInt(String.valueOf(clickedImageView.getId().charAt(char_i)));
 //        System.out.println(i);
@@ -1075,8 +1076,18 @@ public class Logic {
                 polyg.getPoints().setAll(coordinates);
                 polyg.setFill(color2);
             } else {
-                score_player += 1;
-                System.out.println("score_player " + score_player);
+                switch (number_player){
+                    case (1)->{
+                        score_player1 += 1;
+                        score_player = score_player1;
+                    }
+                    case (2)->{
+                        score_player2 += 1;
+                        score_player = score_player2;
+                    }
+                }
+//                score_player += 1;
+                System.out.println("score_player: " + score_player);
                 clickedImageView.setFill(Color.GRAY);
                 player[i][j] = -1;
 
@@ -1439,6 +1450,8 @@ public class Logic {
 //                    }
                 }
                 if (score_player == 20) {
+                    score_player1 = 0;
+                    score_player2 = 0;
                     Logic.victory_window(name_player, btn1);
                 }
                 //PrintArray(player);
@@ -1537,8 +1550,8 @@ public class Logic {
                 clickedImageView = (Rectangle) anchorPane.lookup(rect_id3);
             }
 
-            while (player[i][j] != 0 && player[i][j] != 8 && score_player != 20) {
-                score_player += 1;
+            while (player[i][j] != 0 && player[i][j] != 8 && score_player1 != 20) {
+                score_player2 += 1;
                 //System.out.println("score_player " + score_player);
                 clickedImageView.setFill(Color.GRAY);
                 player[i][j] = -1;
