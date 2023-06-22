@@ -59,7 +59,7 @@ public class frame_3Controller {
     @FXML
     public AnchorPane rect2;
     @FXML
-    private Group group1;
+    Group group1;
     @FXML
     Label text1, text2;
     @FXML
