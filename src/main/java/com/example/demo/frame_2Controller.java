@@ -176,12 +176,9 @@ public class frame_2Controller {
 //        window.show();
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("frame_1.fxml"));
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.setFullScreen(full_screan);
-        stage.show();
+        Logic.changeScene(loader, stage);
+
     }
 
     @FXML
@@ -229,16 +226,12 @@ public class frame_2Controller {
             flag = true;
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("frame_3.fxml"));
-            Parent pane = loader.load();
-            AnchorPane anchorpane = (AnchorPane) pane.getChildrenUnmodifiable().get(0);
-            frame_3Controller controller = loader.getController();
-            controller.getAnchorPane(anchorpane);
-            controller.setLastButtonPressed(lastButtonPressed);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(pane);
-            stage.setScene(scene);
-            stage.setFullScreen(full_screan);
-            stage.show();
+            Logic.changeScene(loader, stage);
+//            AnchorPane anchorpane = (AnchorPane) pane.getChildrenUnmodifiable().get(0);
+            frame_3Controller controller = loader.getController();
+//            controller.getAnchorPane(anchorpane);
+            controller.setLastButtonPressed(lastButtonPressed);
         }
         else if (Objects.equals(lastButtonPressed, "together_1" ) && count_ships(matrix) == 20){
             if (count_ships(matrix) == 20){
@@ -257,14 +250,11 @@ public class frame_2Controller {
 //            window.show();
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("frame_2.fxml"));
-            Parent pane = loader.load();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Logic.changeScene(loader, stage);
             frame_2Controller controller = loader.getController();
             controller.setLastButtonPressed("together_2");
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(pane);
-            stage.setScene(scene);
-            stage.setFullScreen(full_screan);
-            stage.show();
+
         }
     }
     public void initialize() {
