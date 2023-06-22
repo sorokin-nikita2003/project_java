@@ -42,11 +42,11 @@ import static com.example.demo.Logic.random;
 
 public class frame_3Controller {
     //    private static final Thread time_game = new Thread(new Logic.Threads.Time_game());
-    private AnchorPane anchorPane;
-
-    public void getAnchorPane(AnchorPane anchorPane) {
-        this.anchorPane = anchorPane;
-    }
+//    private AnchorPane anchorPane;
+//
+//    public void getAnchorPane(AnchorPane anchorPane) {
+//        this.anchorPane = anchorPane;
+//    }
 
     private String lastButtonPressed;
 
@@ -59,7 +59,7 @@ public class frame_3Controller {
     @FXML
     public AnchorPane rect2;
     @FXML
-    Group group1;
+    private Group group1;
     @FXML
     Label text1, text2;
     @FXML
@@ -118,8 +118,8 @@ public class frame_3Controller {
         coordinates.add(140.0);
         coordinates.add(50.0);
         coordinates.add(70.0);
-        Logic.shoot_enemy(event, player1, 1, "#shot", polyg, name_player2, Color.RED, Color.GREEN, anchorPane, btn1, 4, 5, coordinates);
-        System.out.println("score_player 1:" + score_player1);
+        Logic.shoot_enemy(event, player1, score_player1, "#shot", polyg, name_player2, Color.RED, Color.GREEN, rect2, btn1, 4, 5, coordinates);
+        System.out.println("score_player " + score_player1);
     }
 
     @FXML
@@ -131,10 +131,10 @@ public class frame_3Controller {
         coordinates.add(140.0);
         coordinates.add(0.0);
         coordinates.add(70.0);
-        Logic.shoot_enemy(event, player2, 2, "#shot2_", polyg, name_player1, Color.GREEN, Color.RED, anchorPane, btn1, 6, 7, coordinates);
-        System.out.println("score_player 2:" + score_player2);
+        Logic.shoot_enemy(event, player2, score_player2, "#shot2_", polyg, name_player1, Color.GREEN, Color.RED, rect2, btn1, 6, 7, coordinates);
+        System.out.println("score_player " + score_player2);
         System.out.println(polyg.getFill() == Color.RED);
-        //Logic.shoot_bot(player1, score_player1, "#shot", polyg, name_player2, anchorPane, btn1, lastButtonPressed);
+        Logic.shoot_bot(player1, score_player1, "#shot", polyg, name_player2, rect2, btn1, lastButtonPressed);
 
     }
 //        if (polygColor){
@@ -186,8 +186,6 @@ public class frame_3Controller {
                 mediaPlayer.setVolume(sliderValue / 100);
                 flag = true;
                 player = 1;
-                score_player1 = 0;
-                score_player2 = 0;
                 Logic.stop_tread_time(game_time);
                 clear_matrix(player1);
 //                System.out.println("player 1-------------------------");

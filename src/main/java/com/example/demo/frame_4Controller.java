@@ -35,6 +35,8 @@ import static com.example.demo.HelloApplication.*;
 
 public class frame_4Controller {
     @FXML
+    private Group group1;
+    @FXML
     private Button btn6;
     @FXML
     private RadioButton btn_full, btn_window, btn_light, btn_dark;
@@ -123,6 +125,19 @@ public class frame_4Controller {
 //        System.out.println(slider.getValue() % 1);
     }
     public void initialize() {
+        double screenWidth = Screen.getPrimary().getBounds().getWidth();
+//        double parentWidth1 = group1.getParent().getLayoutBounds().getWidth();
+//        double parentHeight = group1.getParent().getLayoutBounds().getHeight();
+        double groupWidth1 = group1.getBoundsInParent().getWidth();
+//        double groupHeight = group1.getBoundsInParent().getHeight();
+        group1.setLayoutX(screenWidth / 2 - groupWidth1 / 0.8);
+
+        double screenHeight = Screen.getPrimary().getBounds().getHeight();
+//        double parentWidth1 = group1.getParent().getLayoutBounds().getWidth();
+//        double parentHeight = group1.getParent().getLayoutBounds().getHeight();
+        double groupHeight1 = group1.getBoundsInParent().getHeight();
+//        double groupHeight = group1.getBoundsInParent().getHeight();
+        group1.setLayoutY(screenHeight / 2 - groupWidth1 / 1.5);
         rect2.setStyle(rect2Color);
 
         slider.setValue(sliderValue);

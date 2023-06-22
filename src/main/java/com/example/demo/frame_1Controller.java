@@ -68,26 +68,18 @@ public class frame_1Controller implements Initializable {
     @FXML
     private void handleButtonClickBot(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("frame_2.fxml"));
-        Parent pane = loader.load();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Logic.changeScene(loader, stage);
         frame_2Controller controller = loader.getController();
         controller.setLastButtonPressed("bot");
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(pane);
-        stage.setScene(scene);
-        stage.setFullScreen(full_screan);
-        stage.show();
     }
     @FXML
     private void handleButtonClickTogether(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("frame_2.fxml"));
-        Parent pane = loader.load();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Logic.changeScene(loader, stage);
         frame_2Controller controller = loader.getController();
         controller.setLastButtonPressed("together_1");
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(pane);
-        stage.setScene(scene);
-        stage.setFullScreen(full_screan);
-        stage.show();
     }
 
     @FXML
