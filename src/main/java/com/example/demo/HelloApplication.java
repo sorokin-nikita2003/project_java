@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.media.Media;
 import javafx.stage.Stage;
 import javafx.scene.media.MediaPlayer;
@@ -58,6 +59,13 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         Scene scene1 = new Scene(FXMLLoader.load(Objects.requireNonNull(getClass().getResource("frame_1.fxml"))));
+
+//        InputStream iconStream = getClass().getResourceAsStream("icon.png");
+//        System.out.println(iconStream);
+//        Image image = new Image(iconStream);
+//        stage.getIcons().add(image);
+
+        stage.setAlwaysOnTop(true);
         stage.setScene(scene1);
         stage.setFullScreen(full_screan);
         stage.setTitle("Морской бой");
