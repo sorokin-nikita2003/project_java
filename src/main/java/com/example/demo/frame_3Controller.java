@@ -134,6 +134,7 @@ public class frame_3Controller {
         Logic.shoot_enemy(event, player2, 2, "#shot2_", polyg, name_player1, Color.GREEN, Color.RED, rect2, btn1, 6, 7, coordinates);
         System.out.println("score_player " + score_player2);
         System.out.println(polyg.getFill() == Color.RED);
+        Logic.shoot_bot(player1, "#shot", polyg, name_player2, rect2, btn1, lastButtonPressed);
 
     }
 //        if (polygColor){
