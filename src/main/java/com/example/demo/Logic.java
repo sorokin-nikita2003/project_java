@@ -322,7 +322,7 @@ public class Logic {
                     result = true;
                 }
             } catch (Exception e) {
-                return false;
+                return result;
             }
             return result;
         }
@@ -649,6 +649,10 @@ public class Logic {
                 y1 = random.nextInt(10);
             } while (matrix[x1][y1] != 0 || !Checks.check_root(x1, y1, ship, matrix));
 
+            System.out.println("x1:" + x1);
+            System.out.println("y1:" + y1);
+
+
             matrix[x1][y1] = ship;
             index_ship.add(x1);
             index_ship.add(y1);
@@ -720,6 +724,8 @@ public class Logic {
         protected static void set_random_ships(ImageView[] ships, int[][] matrix) {
             while (!(Checks.cheks_sets_random_ships(matrix))) {
                 System.out.println("Error");
+//                PrintArray(matrix);
+//                break;
             }
 //            System.out.println("__________________________________");
 //            Support.PrintArray(matrix);
@@ -1052,7 +1058,6 @@ public class Logic {
         status_work_time_game = true;
     }
     protected static void stop_tread_time(Label label){
-        label.setText("");
         status_work_time_game = false;
     }
     protected static void start_tread_music(){
@@ -1467,9 +1472,9 @@ public class Logic {
 //        Pane pane = new Pane();
 
         Group root = new Group();
-        Scene scene = new Scene(root, 600,100);
+        Scene scene = new Scene(root, 600,150);
 
-        Label label = new Label("Игрок " + name_player + " выиграл");
+        Label label = new Label(game_time.getText() +"\n" + "Игрок " + name_player + " выиграл");
         label.setAlignment(Pos.CENTER);
         label.setStyle("-fx-font-size:40;-fx-font-size:40");
 

@@ -1,3 +1,3 @@
-Volume: 65.0 
+Volume: 35.0 
 Theme: dark 
-FullScrean: true
+FullScrean: false
