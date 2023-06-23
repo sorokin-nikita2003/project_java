@@ -152,7 +152,7 @@
                         <Font name="Calibri Bold" size="32.0" />
                      </font>
                   </Button>
-                  <Button id="btn1" layoutX="410.0" layoutY="151.0" maxHeight="152.0" maxWidth="429.0" minHeight="152.0" minWidth="429.0" mnemonicParsing="false" onAction="#handleButtonClick_3" onMousePressed="#onPress" prefHeight="152.0" prefWidth="429.0" styleClass="btn1" stylesheets="@itcss.css" text="Выйти" textFill="WHITE">
+                  <Button id="btn1" layoutX="410.0" layoutY="151.0" maxHeight="152.0" maxWidth="429.0" minHeight="152.0" minWidth="429.0" mnemonicParsing="false" onAction="#handleButtonClickExit" onMousePressed="#onPress" prefHeight="152.0" prefWidth="429.0" styleClass="btn1" stylesheets="@itcss.css" text="Выйти" textFill="WHITE">
                      <font>
                         <Font name="Calibri Bold" size="32.0" />
                      </font>
