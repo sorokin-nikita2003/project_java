@@ -1490,7 +1490,7 @@ public class Logic {
                 mediaPlayer = new MediaPlayer(new Media(new File(songs[0]).toURI().toString()));
                 mediaPlayer.setVolume(sliderValue / 100);
                 flag = true;
-//                            players = 1;
+                player = 1;
                 clear_matrix(player1);
                 //.out.println("player 1-------------------------");
                 PrintArray(player1);
