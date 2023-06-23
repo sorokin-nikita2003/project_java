@@ -19,7 +19,7 @@
                                     <Font name="Calibri" size="50.0"/>
                                 </font>
                             </Label>
-                            <Slider fx:id="slider" blockIncrement="0.1" layoutX="438.0" layoutY="21.0"
+                            <Slider fx:id="slider" blockIncrement="5.0" layoutX="438.0" layoutY="21.0"
                                     majorTickUnit="25" minorTickCount="4" onMouseDragged="#updateVolume"
                                     onMouseReleased="#onSliderReleased" prefHeight="38.0" prefWidth="325.0"
                                     showTickLabels="true" showTickMarks="true" snapToTicks="true" value="100.0"/>

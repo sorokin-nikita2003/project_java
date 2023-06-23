@@ -12,6 +12,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -166,5 +167,15 @@ public class frame_4Controller {
             btn_window.setSelected(true);
             btn_full.setSelected(false);
         }
+        slider.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.LEFT) {
+                mediaPlayer.setVolume((slider.getValue() / 100));
+                sliderValue = slider.getValue();
+            }
+            if (event.getCode() == KeyCode.RIGHT) {
+                mediaPlayer.setVolume((slider.getValue() / 100));
+                sliderValue = slider.getValue();
+            }
+        });
     }
 }
