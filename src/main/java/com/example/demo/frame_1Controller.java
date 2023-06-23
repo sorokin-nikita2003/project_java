@@ -85,11 +85,11 @@ public class frame_1Controller implements Initializable {
     }
 
     @FXML
-    private void handleButtonClick_3(ActionEvent event) {
+    private void handleButtonClickExit(ActionEvent event) {
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
 
-        Pane pane = new Pane();
+//        Pane pane = new Pane();
 
         Group root = new Group();
         Scene scene = new Scene(root, 600,100);
