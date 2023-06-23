@@ -1508,8 +1508,9 @@ public class Logic {
                 Scene scene = new Scene(pane);
                 window.close();
                 window2.close();
-                window1.setMaximized(true);
                 window1.setScene(scene);
+                window1.setTitle("Морской бой");
+                window1.setFullScreen(full_screan);
                 window1.show();
             }
         });
@@ -1522,7 +1523,7 @@ public class Logic {
         window.showAndWait();
     }
 
-    protected static void shoot_bot(int[][] player, int score_player, String id, Polygon polyg, String name_player, AnchorPane anchorPane, Button btn1, String lastButtonPressed) {
+    protected static void shoot_bot(int[][] player, String id, Polygon polyg, String name_player, AnchorPane anchorPane, Button btn1, String lastButtonPressed) {
         Rectangle clickedImageView;
         int i;
 //        System.out.println(i);
@@ -1551,7 +1552,8 @@ public class Logic {
             }
 
             while (player[i][j] != 0 && player[i][j] != 8 && score_player1 != 20) {
-                score_player2 += 1;
+                score_player1 += 1;
+                score_player = score_player1;
                 //System.out.println("score_player " + score_player);
                 clickedImageView.setFill(Color.GRAY);
                 player[i][j] = -1;
@@ -1913,6 +1915,11 @@ public class Logic {
 //                        clickedImageView = (Rectangle) anchorPane.lookup(rect_id);
 //                        clickedImageView.setFill(Color.BLUE);
 //                    }
+                    if (score_player == 20) {
+                        score_player1 = 0;
+                        score_player2 = 0;
+                        Logic.victory_window(name_player, btn1);
+                    }
                 }
                 i = ThreadLocalRandom.current().nextInt(0, 10);
                 j = ThreadLocalRandom.current().nextInt(0, 10);
@@ -1924,9 +1931,6 @@ public class Logic {
                     rect_id3 = id + i + j;
                     clickedImageView = (Rectangle) anchorPane.lookup(rect_id3);
                 }
-            }
-            if (score_player == 20) {
-                Logic.victory_window(name_player, btn1);
             }
             if (player[i][j] == 0 || player[i][j] == 8) {
                 clickedImageView.setFill(Color.BLUE);
