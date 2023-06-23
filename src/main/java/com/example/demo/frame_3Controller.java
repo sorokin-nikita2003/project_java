@@ -157,7 +157,8 @@ public class frame_3Controller {
 
     @FXML
     private void handleButtonClickExit(ActionEvent event) throws IOException {
-        Stage window = new Stage();
+        Stage modal_window = new Stage();
+        Stage frame_3 = (Stage) btn1.getScene().getWindow();
 
 //        Pane pane = new Pane();
 
@@ -192,30 +193,30 @@ public class frame_3Controller {
                 clear_matrix(player2);
 //                System.out.println("player 2-------------------------");
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("frame_1.fxml"));
-                Parent pane = null;
-                try {
-                    pane = loader.load();
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
+//                Parent pane = null;
+//                try {
+//                    pane = loader.load();
+//                } catch (IOException e) {
+//                    throw new RuntimeException(e);
+//                }
 //            frame_2Controller controller = loader.getController();
 //            controller.setLastButtonPressed("bot");
 //        scene.setCursor(Cursor.HAND);
-                Stage window1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                Stage window2 = (Stage) btn1.getScene().getWindow();
-                Scene scene = new Scene(pane);
-                window.close();
-                window2.close();
-                window1.setScene(scene);
-                window1.setTitle("Морской бой");
-                window1.setFullScreen(full_screan);
-                window1.show();
+                Stage frame_1 = new Stage();
+//                Scene scene = new Scene(pane);
+                modal_window.close();
+                frame_3.close();
+                try {
+                    Logic.changeScene(loader, frame_1);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             }
         });
         btn_no.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                window.close();
+                modal_window.close();
             }
         });
 
@@ -223,10 +224,11 @@ public class frame_3Controller {
         root.getChildren().add(btn_yes);
         root.getChildren().add(btn_no);
 
-        window.setScene(scene);
-        window.initModality(Modality.WINDOW_MODAL);
+        modal_window.setScene(scene);
+        modal_window.initModality(Modality.WINDOW_MODAL);
+        modal_window.initOwner(frame_3);
 //        window.initOwner(parentStage);
-        window.showAndWait();
+        modal_window.showAndWait();
     }
 
     // @Override

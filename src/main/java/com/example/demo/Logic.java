@@ -1461,7 +1461,8 @@ public class Logic {
     }
     protected static void victory_window(String name_player, Button btn1) {
         Logic.stop_tread_time(game_time);
-        Stage window = new Stage();
+        Stage modal_window = new Stage();
+        Stage frame_3 = (Stage) btn1.getScene().getWindow();
 
 //        Pane pane = new Pane();
 
@@ -1494,33 +1495,28 @@ public class Logic {
                 PrintArray(player2);
 
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("frame_1.fxml"));
-                Parent pane = null;
-                try {
-                    pane = loader.load();
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
 //            frame_2Controller controller = loader.getController();
 //            controller.setLastButtonPressed("bot");
 //        scene.setCursor(Cursor.HAND);
-                Stage window1 = (Stage)((Node)event.getSource()).getScene().getWindow();
-                Stage window2 = (Stage)btn1.getScene().getWindow();
-                Scene scene = new Scene(pane);
-                window.close();
-                window2.close();
-                window1.setScene(scene);
-                window1.setTitle("Морской бой");
-                window1.setFullScreen(full_screan);
-                window1.show();
+                Stage frame_1 = new Stage();
+//                Scene scene = new Scene(pane);
+                modal_window.close();
+                frame_3.close();
+                try {
+                    Logic.changeScene(loader, frame_1);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             }
         });
         root.getChildren().add(label);
         root.getChildren().add(btn_ok);
 
-        window.setScene(scene);
-        window.initModality(Modality.WINDOW_MODAL);
+        modal_window.setScene(scene);
+        modal_window.initModality(Modality.WINDOW_MODAL);
+        modal_window.initOwner(frame_3);
 //        window.initOwner(parentStage);
-        window.showAndWait();
+        modal_window.showAndWait();
     }
 
     protected static void shoot_bot(int[][] player, String id, Polygon polyg, String name_player, AnchorPane anchorPane, Button btn1, String lastButtonPressed) {

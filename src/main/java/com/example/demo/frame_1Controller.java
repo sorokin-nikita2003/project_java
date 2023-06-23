@@ -86,8 +86,10 @@ public class frame_1Controller implements Initializable {
 
     @FXML
     private void handleButtonClickExit(ActionEvent event) {
-        Stage window = new Stage();
-        window.initModality(Modality.APPLICATION_MODAL);
+        Stage modal_window = new Stage();
+        Stage windowOwner = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+        modal_window.initModality(Modality.APPLICATION_MODAL);
 
 //        Pane pane = new Pane();
 
@@ -106,6 +108,7 @@ public class frame_1Controller implements Initializable {
         Button btn_yes = new Button("Да");
         btn_yes.setLayoutX(100);
         btn_yes.setLayoutY(60);
+
         btn_yes.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -118,7 +121,7 @@ public class frame_1Controller implements Initializable {
         btn_no.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                window.close();
+                modal_window.close();
             }
         });
 
@@ -127,8 +130,9 @@ public class frame_1Controller implements Initializable {
         root.getChildren().add(btn_yes);
         root.getChildren().add(btn_no);
 
-        window.setScene(scene);
-        window.show();
+        modal_window.setScene(scene);
+        modal_window.initOwner(windowOwner);
+        modal_window.show();
     }
     @FXML
     public void handleButtonClickSettings(ActionEvent event) throws IOException {
