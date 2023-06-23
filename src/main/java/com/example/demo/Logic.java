@@ -1941,6 +1941,13 @@ public class Logic {
             }
         }
     }
+    protected static void frame_2_open(ActionEvent event, String btn) throws IOException {
+        FXMLLoader loader = new FXMLLoader(Logic.class.getResource("frame_2.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Logic.changeScene(loader, stage);
+        frame_2Controller controller = loader.getController();
+        controller.setLastButtonPressed(btn);
+    }
 
 
 //    protected static void changeColor(FXMLLoader loader, Stage stage) throws IOException {

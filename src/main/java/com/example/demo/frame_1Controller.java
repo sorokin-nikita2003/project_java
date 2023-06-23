@@ -67,19 +67,21 @@ public class frame_1Controller implements Initializable {
     }
     @FXML
     private void handleButtonClickBot(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("frame_2.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Logic.changeScene(loader, stage);
-        frame_2Controller controller = loader.getController();
-        controller.setLastButtonPressed("bot");
+        Logic.frame_2_open(event, "bot");
+//        FXMLLoader loader = new FXMLLoader(getClass().getResource("frame_2.fxml"));
+//        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//        Logic.changeScene(loader, stage);
+//        frame_2Controller controller = loader.getController();
+//        controller.setLastButtonPressed("bot");
     }
     @FXML
     private void handleButtonClickTogether(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("frame_2.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Logic.changeScene(loader, stage);
-        frame_2Controller controller = loader.getController();
-        controller.setLastButtonPressed("together_1");
+        Logic.frame_2_open(event, "together_1");
+//        FXMLLoader loader = new FXMLLoader(getClass().getResource("frame_2.fxml"));
+//        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//        Logic.changeScene(loader, stage);
+//        frame_2Controller controller = loader.getController();
+//        controller.setLastButtonPressed("together_1");
     }
 
     @FXML

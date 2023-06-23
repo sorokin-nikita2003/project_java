@@ -60,10 +60,10 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws IOException {
         Scene scene1 = new Scene(FXMLLoader.load(Objects.requireNonNull(getClass().getResource("frame_1.fxml"))));
 
-//        InputStream iconStream = getClass().getResourceAsStream("icon.png");
+//        InputStream iconStream = getClass().getResourceAsStream("file:icon.png");
 //        System.out.println(iconStream);
 //        Image image = new Image(iconStream);
-//        stage.getIcons().add(image);
+        stage.getIcons().add(new Image("file:icon.png"));
 
         stage.setAlwaysOnTop(true);
         stage.setScene(scene1);
