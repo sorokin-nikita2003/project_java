@@ -1920,6 +1920,7 @@ public class Logic {
                         score_player1 = 0;
                         score_player2 = 0;
                         Logic.victory_window(name_player, btn1);
+                        break;
                     }
                 }
                 i = ThreadLocalRandom.current().nextInt(0, 10);
