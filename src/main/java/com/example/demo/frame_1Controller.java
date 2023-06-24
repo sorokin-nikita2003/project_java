@@ -145,6 +145,12 @@ public class frame_1Controller implements Initializable {
 //        stage.show();
         Logic.changeScene(loader, stage);
     }
+    @FXML
+    public void handleButtonClickAchivments(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("frame_5.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Logic.changeScene(loader, stage);
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 //        scene2 = new Scene(FXMLLoader.load(getClass().getResource("frame_2.fxml")));

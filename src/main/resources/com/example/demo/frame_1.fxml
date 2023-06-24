@@ -125,7 +125,7 @@
                      </ImageView>
                   </graphic>
                </Button>
-               <Button fx:id="btn_achiv" layoutX="131.0" layoutY="26.0" mnemonicParsing="false" onAction="#handleButtonClickSettings" onMousePressed="#onPress" prefHeight="75.0" prefWidth="100.0" styleClass="btn4" stylesheets="@itcss.css" textFill="WHITE">
+               <Button fx:id="btn_achiv" layoutX="131.0" layoutY="26.0" mnemonicParsing="false" onAction="#handleButtonClickAchivments" onMousePressed="#onPress" prefHeight="75.0" prefWidth="100.0" styleClass="btn4" stylesheets="@itcss.css" textFill="WHITE">
                   <font>
                      <Font name="Calibri Bold" size="32.0" />
                   </font>
