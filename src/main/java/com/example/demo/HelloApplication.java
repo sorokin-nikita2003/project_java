@@ -48,6 +48,9 @@ public class HelloApplication extends Application {
     public static Thread t = new Thread(new Logic.Threads.Music());
     private static final Thread time_game = new Thread(new Logic.Threads.Time_game());
     protected static MediaPlayer mediaPlayer2 = new MediaPlayer(new Media(new File("music/buttonClick.mp3").toURI().toString()));
+    protected static MediaPlayer mediaPlayer3 = new MediaPlayer(new Media(new File("music/injure_the_ship.mp3").toURI().toString()));
+    protected static MediaPlayer mediaPlayer4 = new MediaPlayer(new Media(new File("music/kill_the_ship.mp3").toURI().toString()));
+    protected static MediaPlayer mediaPlayer5 = new MediaPlayer(new Media(new File("music/water_splashing.mp3").toURI().toString()));
 
     public HelloApplication() throws IOException {
     }

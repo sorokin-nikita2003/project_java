@@ -1078,6 +1078,8 @@ public class Logic {
             //System.out.println(111111);
             if (player[i][j] == 0 || player[i][j] == 8) {
                 clickedImageView.setFill(Color.BLUE);
+                mediaPlayer5.play();
+                mediaPlayer5.seek(Duration.ZERO);
                 polyg.getPoints().setAll(coordinates);
                 polyg.setFill(color2);
             } else {
@@ -1094,6 +1096,7 @@ public class Logic {
 //                score_player += 1;
                 System.out.println("score_player: " + score_player);
                 clickedImageView.setFill(Color.GRAY);
+
                 player[i][j] = -1;
 
                 int flag_left = 0;
@@ -1364,6 +1367,9 @@ public class Logic {
                     j += 1;
                     PrintArray(player);
 
+                    mediaPlayer4.play();
+                    mediaPlayer4.seek(Duration.ZERO);
+
 //                    System.out.println("i: " + i);
 //                    System.out.println("j: " + j);
 //                    while (i != player[0].length && i != -1 && (player[i][j] == 8 || player[i][j] == -2) && player[i][j] == -2){
@@ -1453,6 +1459,10 @@ public class Logic {
 //                        clickedImageView = (Rectangle) anchorPane.lookup(rect_id);
 //                        clickedImageView.setFill(Color.BLUE);
 //                    }
+                }
+                else {
+                    mediaPlayer3.play();
+                    mediaPlayer3.seek(Duration.ZERO);
                 }
                 if (score_player == 20) {
                     score_player1 = 0;
