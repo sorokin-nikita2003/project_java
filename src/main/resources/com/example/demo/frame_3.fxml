@@ -102,6 +102,7 @@
                     <Group fx:id="ships" layoutX="-478.0" layoutY="-75.0" />
                 </children>
             </Group>
+            <Group fx:id="rootPane">
             <Group layoutX="96.0" layoutY="99.0">
                 <children>
                     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5993ffb0" height="49.0" stroke="BLACK" strokeType="INSIDE" width="49.0" />
@@ -487,6 +488,7 @@
                         </font>
                     </Text>
                 </children>
+            </Group>
             </Group>
             <Text layoutX="929.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1" wrappingWidth="16.0687255859375">
                 <font>

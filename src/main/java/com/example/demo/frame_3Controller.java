@@ -15,6 +15,8 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
@@ -54,6 +56,8 @@ public class frame_3Controller {
         this.lastButtonPressed = lastButtonPressed;
     }
 
+    @FXML
+    Group rootPane;
     @FXML
     Button btn1;
     @FXML
