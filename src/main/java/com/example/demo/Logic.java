@@ -341,9 +341,10 @@ public class Logic {
                 if (check_len(len, power)) {
                     return result;
                 }
+
                 len = 0;
                 for (int i = 1; i <= power; i++) {
-                    if (matrix[x - i][y] != 0) {
+                    if (matrix[x][y + i] != 0) {
                         break;
                     } else {
                         len += 1;
@@ -352,9 +353,11 @@ public class Logic {
                 if (check_len(len, power)) {
                     return result;
                 }
+                result = false;
+            } catch (Exception e) {
                 len = 0;
                 for (int i = 1; i <= power; i++) {
-                    if (matrix[x][y + i] != 0) {
+                    if (matrix[x - i][y] != 0) {
                         break;
                     } else {
                         len += 1;
@@ -374,9 +377,6 @@ public class Logic {
                 if (check_len(len, power)) {
                     return result;
                 }
-                result = false;
-            } catch (Exception e) {
-                return false;
             }
             return result;
         }
