@@ -37,8 +37,8 @@ public class frame_1Controller implements Initializable {
     private Group group1;
     @FXML
     private Group group2;
-    @FXML
-    private VBox frame1;
+//    @FXML
+//    private VBox frame1;
     @FXML
     private ResourceBundle rb;
     @FXML

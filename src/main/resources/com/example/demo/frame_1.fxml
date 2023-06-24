@@ -7,7 +7,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<VBox fx:id="frame1" alignment="CENTER" prefHeight="1024" prefWidth="1491.0" spacing="20.0" styleClass="vbox" stylesheets="itcss.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.frame_1Controller">
+<VBox fx:id="frame1" alignment="CENTER" prefHeight="1024" prefWidth="1491.0" spacing="20.0" styleClass="vbox" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.frame_1Controller">
    <children>
       <AnchorPane fx:id="rect2" prefHeight="493.0" prefWidth="1491.0" styleClass="rect2" stylesheets="@itcss.css">
          <Group fx:id="group2">
