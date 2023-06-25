@@ -46,7 +46,7 @@ import static com.example.demo.Logic.Support.PrintArray;
 //
 
 public class Logic {
-        static int last_i = 10;
+    static int last_i = 10;
     static int last_j = 10;
     protected static String game;
     private static int score_player = 0;
@@ -1278,6 +1278,9 @@ public class Logic {
 //            controller.setLastButtonPressed("bot");
 //        scene.setCursor(Cursor.HAND);
                 Stage frame_1 = new Stage();
+                frame_1.getIcons().add(new Image("file:icon.png"));
+                frame_1.setTitle("Морской бой");
+
 //                Scene scene = new Scene(pane);
                 modal_window.close();
                 frame_3.close();

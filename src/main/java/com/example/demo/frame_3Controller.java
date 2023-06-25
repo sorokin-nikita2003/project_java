@@ -12,6 +12,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -207,6 +208,9 @@ public class frame_3Controller {
 //            controller.setLastButtonPressed("bot");
 //        scene.setCursor(Cursor.HAND);
                 Stage frame_1 = new Stage();
+                frame_1.getIcons().add(new Image("file:icon.png"));
+                frame_1.setTitle("Морской бой");
+
 //                Scene scene = new Scene(pane);
                 modal_window.close();
                 frame_3.close();

@@ -203,6 +203,8 @@ public class frame_2Controller {
 
             score_player1 = 0;
             score_player2 = 0;
+            last_i = 10;
+            last_j = 10;
 
 //            FXMLLoader loader = new FXMLLoader(getClass().getResource("frame_3.fxml"));
 //            Parent pane = loader.load();
