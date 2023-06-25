@@ -13,6 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -33,6 +34,7 @@ import static com.example.demo.HelloApplication.*;
 import static com.example.demo.Logic.WorkFile.write_file;
 
 public class frame_1Controller implements Initializable {
+    public ImageView btn_achieve;
     @FXML
     private Group group1;
     @FXML
@@ -52,7 +54,7 @@ public class frame_1Controller implements Initializable {
     @FXML
     private Button btn2;
     @FXML
-    static public Button btn4;
+    static public ImageView btn4;
     @FXML
     private Group btn3;
     private String lastButtonPressed;
@@ -135,7 +137,7 @@ public class frame_1Controller implements Initializable {
         modal_window.show();
     }
     @FXML
-    public void handleButtonClickSettings(ActionEvent event) throws IOException {
+    public void handleButtonClickSettings(MouseEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("frame_4.fxml"));
 //        Parent root = loader.load();
 //        Scene scene = new Scene(root);
@@ -146,7 +148,7 @@ public class frame_1Controller implements Initializable {
         Logic.changeScene(loader, stage);
     }
     @FXML
-    public void handleButtonClickAchivments(ActionEvent event) throws IOException {
+    public void handleButtonClickAchivments(MouseEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("frame_5.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Logic.changeScene(loader, stage);

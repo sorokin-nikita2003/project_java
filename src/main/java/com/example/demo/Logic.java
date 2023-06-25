@@ -1243,16 +1243,16 @@ public class Logic {
         btn_ok.setLayoutX(300);
         btn_ok.setLayoutY(60);
 
-        if (!achievement[3] && time(game_time.getText()) <= 30 && game.equals("bot")){
+        if (!achievement[3] && name_player.equals(name_player1) && time(game_time.getText()) <= 30 && game.equals("bot")){
             achievement[3] = true;
         }
-        if (!achievement[2] && game.equals("bot")){
+        if (!achievement[2] && name_player.equals(name_player1) && game.equals("bot")){
             achievement[2] = true;
         }
         if (!achievement[1] && name_player.equals(name_player1) && game.equals("together")){
             achievement[1] = true;
         }
-        if (!achievement[0] && score_player1 == 0 && game.equals("bot")){
+        if (!achievement[0] && name_player.equals(name_player1) && score_player1 == 0 && game.equals("bot")){
             achievement[0] = true;
         }
         score_player1 = 0;

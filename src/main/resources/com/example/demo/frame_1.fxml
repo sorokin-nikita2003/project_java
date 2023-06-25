@@ -115,26 +115,15 @@
                      </Group>
                   </children>
                </Group>
-               <Button fx:id="btn4" layoutX="21.0" layoutY="26.0" mnemonicParsing="false" onAction="#handleButtonClickSettings" onMousePressed="#onPress" prefHeight="75.0" prefWidth="100.0" styleClass="btn4" stylesheets="@itcss.css" textFill="WHITE">
-                  <font>
-                     <Font name="Calibri Bold" size="32.0" />
-                  </font>
-                  <graphic>
-                     <ImageView fitHeight="42.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
-                        <Image url="@img/settings.png" />
-                     </ImageView>
-                  </graphic>
-               </Button>
-               <Button fx:id="btn_achiv" layoutX="131.0" layoutY="26.0" mnemonicParsing="false" onAction="#handleButtonClickAchivments" onMousePressed="#onPress" prefHeight="75.0" prefWidth="100.0" styleClass="btn4" stylesheets="@itcss.css" textFill="WHITE">
-                  <font>
-                     <Font name="Calibri Bold" size="32.0" />
-                  </font>
-                  <graphic>
-                     <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                        <Image url="@img/achivments.png" />
-                     </ImageView>
-                  </graphic>
-               </Button>
+               <ImageView fx:id="btn4" fitHeight="120.0" fitWidth="120.0" layoutX="21.0" layoutY="26.0" onMouseClicked="#handleButtonClickSettings" onMousePressed="#onPress" pickOnBounds="true" preserveRatio="true">
+                  <Image url="@img/settings.png" />
+               </ImageView>
+               <ImageView fx:id="btn_achieve" fitHeight="80.0" fitWidth="80.0" layoutX="141.0" layoutY="26.0" onMouseClicked="#handleButtonClickAchivments" onMousePressed="#onPress" pickOnBounds="true" preserveRatio="true">
+                  <Image url="@img/achivment.png" />
+                  <cursor>
+                     <Cursor fx:constant="HAND" />
+                  </cursor>
+               </ImageView>
             </children>
          </Group>
       </AnchorPane>
