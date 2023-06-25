@@ -21,22 +21,19 @@ import java.io.IOException;
 import java.util.Objects;
 
 import static com.example.demo.HelloApplication.*;
+import static com.example.demo.Logic.*;
 import static com.example.demo.Logic.RandomShips.*;
 import static com.example.demo.Logic.Clear.*;
 import static com.example.demo.Logic.RandomShips.random_set_ship_image;
 import static com.example.demo.Logic.SetShips.*;
 import static com.example.demo.Logic.Default.*;
 import static com.example.demo.Logic.Support.*;
-import static com.example.demo.Logic.random;
-import static com.example.demo.Logic.ship_images;
 
 public class frame_2Controller {
     // 4    3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3    2
     //{79, 104, 127, 152, 175, 200, 223, 248, 272, 296, 318, 344, 368, 392, 415, 440, 465, 488, 510, 536, 561};
     // 2     3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3   4,2   3    2
     //{282, 307, 330, 355, 376, 403, 426, 451, 474, 499, 522, 546, 568, 595, 618, 643, 665}
-
-    static String[] bot_names = {"Вера", "Александр", "Алиса","Александра","Агата", "Ева", "Сергей","Антон","Артём", "Дарина", "Василиса","Максим","Дарья", "София", "Константин","Виктория","Владимир", "Тимофей", "Григорий","Леонид"} ;
 
     static int[][] matrix ;
     double x, y;
@@ -191,11 +188,12 @@ public class frame_2Controller {
         count_click = 0;
         if ((Objects.equals(lastButtonPressed, "bot") || Objects.equals(lastButtonPressed, "together_2")) && count_ships(matrix) == 20){
             player = 0;
-
+            game = "together";
             if ((Objects.equals(lastButtonPressed, "bot"))){
                 matrix = player2;
                 set_random_ships(ships, matrix);
-                name_player2 = bot_names[random.nextInt(20)];
+                name_player2 = Logic.bot_names[random.nextInt(20)];
+                game = "bot";
             }
 
             System.out.println(name_player1);

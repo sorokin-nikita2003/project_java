@@ -88,6 +88,8 @@ public class HelloApplication extends Application {
 
         read_file(file);
 
+//        System.out.println(Logic.time("01:05:00"));
+//        System.out.println(Logic.time("00:30"));
         Application.launch(args);
 
         Logic.stop_tread_music();

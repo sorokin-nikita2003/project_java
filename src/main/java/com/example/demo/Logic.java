@@ -48,6 +48,7 @@ import static com.example.demo.Logic.Support.PrintArray;
 public class Logic {
     //    static int last_i = 10;
 //    static int last_j = 10;
+    protected static String game;
     private static int score_player = 0;
     static int score = 0;
     static ArrayDeque<Integer> ship_images = new ArrayDeque<Integer>();
@@ -57,6 +58,8 @@ public class Logic {
     static boolean status_work_time_game;
     static boolean status_work_music;
     static ImageView crossImage = new ImageView(new Image("file:img/mark_shot_49x49.png", true));
+    static String[] bot_names = {"Вера", "Александр", "Алиса","Александра","Агата", "Ева", "Сергей","Антон","Артём", "Дарина", "Василиса","Максим","Дарья", "София", "Константин","Виктория","Владимир", "Тимофей", "Григорий","Леонид"} ;
+
 
     protected static class Support {
         protected static void PrintArray(int[][] Array) {
@@ -1088,6 +1091,23 @@ public class Logic {
         status_work_time_game = true;
     }
 
+    protected static int time(String text){
+        int seconds = 0;
+        int minutes = 0;
+        int hours = 0;
+        int len = text.length();
+        if (len == 8){
+            hours = Integer.parseInt(text.substring(0,2));
+            text = text.substring(3);
+        }
+        minutes = Integer.parseInt(text.substring(0,2));
+        text = text.substring(3);
+        seconds = Integer.parseInt(text.substring(0,2));
+        seconds = hours * 3600 + minutes * 60 + seconds;
+        return seconds;
+    }
+
+//00:00:00
     protected static void stop_tread_time(Label label) {
         status_work_time_game = false;
     }
@@ -1197,8 +1217,6 @@ public class Logic {
                     mediaPlayer3.seek(Duration.ZERO);
                 }
                 if (score_player == 20) {
-                    score_player1 = 0;
-                    score_player2 = 0;
                     Logic.victory_window(name_player, btn1);
                 }
                 //PrintArray(player);
@@ -1225,7 +1243,20 @@ public class Logic {
         btn_ok.setLayoutX(300);
         btn_ok.setLayoutY(60);
 
-
+        if (!achievement[3] && time(game_time.getText()) <= 30 && game.equals("bot")){
+            achievement[3] = true;
+        }
+        if (!achievement[2] && game.equals("bot")){
+            achievement[2] = true;
+        }
+        if (!achievement[1] && name_player.equals(name_player1) && game.equals("together")){
+            achievement[1] = true;
+        }
+        if (!achievement[0] && score_player1 == 0 && game.equals("bot")){
+            achievement[0] = true;
+        }
+        score_player1 = 0;
+        score_player2 = 0;
         btn_ok.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -1268,6 +1299,7 @@ public class Logic {
     }
 
     protected static void shoot_bot(int[][] player, String id, Polygon polyg, String name_player, AnchorPane anchorPane, Button btn1, String lastButtonPressed) {
+//        game = "bot";
         Rectangle clickedImageView;
         int i;
 //        System.out.println(i);
@@ -1327,8 +1359,6 @@ public class Logic {
                     PrintArray(player);
 
                     if (score_player == 20) {
-                        score_player1 = 0;
-                        score_player2 = 0;
                         Logic.victory_window(name_player, btn1);
                         break;
                     }

@@ -37,10 +37,9 @@ import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
 
 import static com.example.demo.HelloApplication.*;
+import static com.example.demo.Logic.*;
 import static com.example.demo.Logic.Support.*;
 import static com.example.demo.Logic.Clear.*;
-import static com.example.demo.Logic.in;
-import static com.example.demo.Logic.random;
 
 public class frame_3Controller {
     //    private static final Thread time_game = new Thread(new Logic.Threads.Time_game());
@@ -123,7 +122,7 @@ public class frame_3Controller {
         coordinates.add(50.0);
         coordinates.add(70.0);
         Logic.shoot_enemy(event, player1, 1, "#shot", polyg, name_player2, Color.RED, Color.GREEN, rect2, btn1, 4, 5, coordinates);
-        System.out.println("score_player " + score_player1);
+        System.out.println("score_player 1: " + score_player1);
     }
 
     @FXML
@@ -136,9 +135,10 @@ public class frame_3Controller {
         coordinates.add(0.0);
         coordinates.add(70.0);
         Logic.shoot_enemy(event, player2, 2, "#shot2_", polyg, name_player1, Color.GREEN, Color.RED, rect2, btn1, 6, 7, coordinates);
-        System.out.println("score_player " + score_player2);
         System.out.println(polyg.getFill() == Color.RED);
         Logic.shoot_bot(player1, "#shot", polyg, name_player2, rect2, btn1, lastButtonPressed);
+        System.out.println("score_player 2:" + score_player2);
+        System.out.println("score_player 1:" + score_player1);
 
     }
 //        if (polygColor){
@@ -251,6 +251,7 @@ public class frame_3Controller {
 //        double groupHeight = group1.getBoundsInParent().getHeight();
         group1.setLayoutY(screenHeight / 2 - groupWidth1 / 3.3);
 
+
         rect2.setStyle(rect2Color);
         Thread time_game = new Thread(new Logic.Threads.Time_game());
         Logic.set_label_time(game_time);
@@ -263,5 +264,6 @@ public class frame_3Controller {
         text1.setText(name_player1);
         text2.setText(name_player2);
 //        System.out.println(text1.getText());
+
     }
 }
