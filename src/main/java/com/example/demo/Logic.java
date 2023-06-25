@@ -945,7 +945,7 @@ public class Logic {
                     writer.write("Volume: 100.0 \n");
                     writer.write("Theme: light \n");
                     writer.write("FullScrean: true\n");
-                    writer.write("Achivments: 0000");
+                    writer.write("Achivements: 0000");
                     writer.close();
                 } else {
                     System.out.println("Файл не создан. Что-то пошло не так.");
@@ -973,9 +973,9 @@ public class Logic {
                     ;
                 }
                 full_screan = Boolean.parseBoolean(scan.nextLine().substring(12));
-                String achivments = scan.nextLine().substring(12);
+                String achivements = scan.nextLine().substring(13);
                 for(int i = 0 ; i< 4; i++){
-                    switch (achivments.substring(i, i+1)){
+                    switch (achivements.substring(i, i+1)){
                         case("1") ->{
                             achievement[i] = true;
                         }
@@ -995,7 +995,7 @@ public class Logic {
                 writer.write("Volume: " + sliderValue + " \n");
                 writer.write("Theme: " + theme_color + " \n");
                 writer.write("FullScrean: " + full_screan + "\n");
-                writer.write("Achivments: ");
+                writer.write("Achivements: ");
                 for (int i = 0; i < 4;  i++){
                     if(achievement[i]){
                         writer.write("1");
