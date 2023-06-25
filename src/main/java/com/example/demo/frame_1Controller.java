@@ -14,6 +14,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -28,6 +29,7 @@ import javafx.util.Duration;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 import static com.example.demo.HelloApplication.*;
@@ -181,6 +183,34 @@ public class frame_1Controller implements Initializable {
 //        group1.setLayoutY((parentHeight + groupHeight) / 2);
 //        btn3.setLayoutX(100);
 
+
+        rect1.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.S) {
+                cheat += "S";
+            }
+            else if (event.getCode() == KeyCode.DIGIT1) {
+                cheat += "1";
+            }
+            else if (event.getCode() == KeyCode.DIGIT0) {
+                cheat += "0";
+            }
+            else {
+                cheat = "";
+            }
+            if (Objects.equals(cheat, "S11")) {
+                achievement = new boolean[]{true, true, true, true};
+                cheat = "";
+                System.out.println("Чит активирован");
+            }
+            if (Objects.equals(cheat, "S00")) {
+                achievement = new boolean[]{false, false, false, false};
+                cheat = "";
+                System.out.println("Чит активирован");
+            }
+            if (cheat.length() > 3) {
+                cheat = "";
+            }
+        });
 
         //System.out.println(groupWidth2);
 //        rect1.setAlignment(Pos.CENTER);
