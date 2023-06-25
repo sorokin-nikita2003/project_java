@@ -249,7 +249,7 @@ public class frame_3Controller {
 //        double parentHeight = group1.getParent().getLayoutBounds().getHeight();
         double groupHeight1 = group1.getBoundsInParent().getHeight();
 //        double groupHeight = group1.getBoundsInParent().getHeight();
-        group1.setLayoutY(screenHeight / 2 - groupWidth1 / 3.3);
+        group1.setLayoutY(screenHeight / 2 - groupHeight1 / 1.5);
 
 
         rect2.setStyle(rect2Color);
