@@ -1,4 +1,4 @@
 Volume: 15.0 
 Theme: light 
-FullScrean: false
-Achivments: 0000
+FullScrean: true
+Achivments: 1111
