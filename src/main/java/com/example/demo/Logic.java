@@ -46,8 +46,8 @@ import static com.example.demo.Logic.Support.PrintArray;
 //
 
 public class Logic {
-    //    static int last_i = 10;
-//    static int last_j = 10;
+        static int last_i = 10;
+    static int last_j = 10;
     protected static String game;
     private static int score_player = 0;
     static int score = 0;
@@ -1299,8 +1299,8 @@ public class Logic {
     }
 
     protected static void shoot_bot(int[][] player, String id, Polygon polyg, String name_player, AnchorPane anchorPane, Button btn1, String lastButtonPressed) {
-//        game = "bot";
-        Rectangle clickedImageView;
+        Rectangle clickedImageView = null;
+        String rect_id3;
         int i;
 //        System.out.println(i);
         int j;
@@ -1316,18 +1316,129 @@ public class Logic {
 //                System.out.println(k);
 //                k += 1;
 //            }
-            i = ThreadLocalRandom.current().nextInt(0, 10);
-            j = ThreadLocalRandom.current().nextInt(0, 10);
-            String rect_id3 = id + i + j;
-            clickedImageView = (Rectangle) anchorPane.lookup(rect_id3);
-            while (clickedImageView.getFill() == Color.BLACK || clickedImageView.getFill() == Color.GRAY || clickedImageView.getFill() == Color.BLUE) {
+            if (last_i == 10 || last_j == 10) {
                 i = ThreadLocalRandom.current().nextInt(0, 10);
                 j = ThreadLocalRandom.current().nextInt(0, 10);
                 rect_id3 = id + i + j;
                 clickedImageView = (Rectangle) anchorPane.lookup(rect_id3);
+                while (clickedImageView.getFill() == Color.BLACK || clickedImageView.getFill() == Color.GRAY || clickedImageView.getFill() == Color.BLUE) {
+                    i = ThreadLocalRandom.current().nextInt(0, 10);
+                    j = ThreadLocalRandom.current().nextInt(0, 10);
+                    rect_id3 = id + i + j;
+                    clickedImageView = (Rectangle) anchorPane.lookup(rect_id3);
+                }
+            }
+            else {
+                i = last_i;
+                j = last_j;
+                System.out.println("lasti lastj меняются");
+                System.out.println("111111 " + last_i);
+                System.out.println("111111 " + last_j);
+
+                int i_top = i - 1;
+                String rect_id_top = id + i_top + j;
+                Rectangle clickedImageView_top = (Rectangle) anchorPane.lookup(rect_id_top);
+                int i_down = i + 1;
+                String rect_id_down = id + i_down + j;
+                Rectangle clickedImageView_down = (Rectangle) anchorPane.lookup(rect_id_down);
+                int j_left = j - 1;
+                String rect_id_left = id + i + j_left;
+                Rectangle clickedImageView_left = (Rectangle) anchorPane.lookup(rect_id_left);
+                int j_right = j + 1;
+                String rect_id_right = id + i + j_right;
+                Rectangle clickedImageView_right = (Rectangle) anchorPane.lookup(rect_id_right);
+
+                if ((i == 0 || (clickedImageView_top.getFill() != Color.BLACK && clickedImageView_top.getFill() != Color.GRAY) || clickedImageView_top.getFill() == Color.BLUE) && (i == 9 || (clickedImageView_down.getFill() != Color.BLACK && clickedImageView_down.getFill() != Color.GRAY) || clickedImageView_down.getFill() == Color.BLUE) && (j == 0 || (clickedImageView_left.getFill() != Color.BLACK && clickedImageView_left.getFill() != Color.GRAY) || clickedImageView_left.getFill() == Color.BLUE) && (j == 9 || (clickedImageView_right.getFill() != Color.BLACK && clickedImageView_right.getFill() != Color.GRAY) || clickedImageView_right.getFill() == Color.BLUE)) {
+                    System.out.println("цикл 2_1");
+                    int result_i = ThreadLocalRandom.current().nextInt(0, 3);
+                    if (result_i == 0) {
+                        i = i_top;
+                    } else if (result_i == 2) {
+                        i = i_down;
+                    } else if (result_i == 1) {
+                        int result_j = ThreadLocalRandom.current().nextInt(0, 2);
+                        if (result_j == 0) {
+                            j = j_left;
+                        } else if (result_j == 1) {
+                            j = j_right;
+                        }
+                    }
+                    rect_id3 = id + i + j;
+                    clickedImageView = (Rectangle) anchorPane.lookup(rect_id3);
+                    while (i == -1 || i == 10 || j == -1 || j == 10 || clickedImageView == null || clickedImageView.getFill() == Color.BLUE) {
+                        result_i = ThreadLocalRandom.current().nextInt(0, 3);
+                        if (result_i == 0) {
+                            i = i_top;
+                            j = last_j;
+                        } else if (result_i == 2) {
+                            i = i_down;
+                            j = last_j;
+                        } else if (result_i == 1) {
+                            int result_j = ThreadLocalRandom.current().nextInt(0, 2);
+                            if (result_j == 0) {
+                                j = j_left;
+                                i = last_i;
+                            } else if (result_j == 1) {
+                                j = j_right;
+                                i = last_i;
+                            }
+                        }
+                        rect_id3 = id + i + j;
+                        clickedImageView = (Rectangle) anchorPane.lookup(rect_id3);
+                        System.out.println("зациклился " + rect_id3);
+                    }
+                } else if (i != 0 && clickedImageView_top.getFill() == Color.GRAY) {
+                    System.out.println("цикл 3_1");
+                    if (i != 9 && clickedImageView_down.getFill() != Color.BLUE) {
+                        i += 1;
+                    } else {
+                        while (player[i][j] == -1) {
+                            i -= 1;
+                        }
+                    }
+                } else if (i != 9 && clickedImageView_down.getFill() == Color.GRAY) {
+                    System.out.println("цикл 4_1");
+                    if (i != 0 && clickedImageView_top.getFill() != Color.BLUE) {
+                        i -= 1;
+                    } else {
+                        while (player[i][j] == -1) {
+                            i += 1;
+                        }
+                    }
+                } else if (j != 0 && clickedImageView_left.getFill() == Color.GRAY) {
+                    System.out.println("цикл 5_1");
+                    if (j != 9 && clickedImageView_right.getFill() != Color.BLUE) {
+                        j += 1;
+                    } else {
+                        while (player[i][j] == -1) {
+                            j -= 1;
+                        }
+                    }
+                } else if (j != 9 && clickedImageView_right.getFill() == Color.GRAY) {
+                    System.out.println("цикл 6_1");
+                    if (j != 0 && clickedImageView_left.getFill() != Color.BLUE) {
+                        j -= 1;
+                    } else {
+                        while (player[i][j] == -1) {
+                            j += 1;
+                        }
+                    }
+                }
+                rect_id3 = id + i + j;
+                clickedImageView = (Rectangle) anchorPane.lookup(rect_id3);
+                System.out.println("111111 " + last_i);
+                System.out.println("111111 " + last_j);
+                System.out.println("111111 " + i);
+                System.out.println("111111 " + j);
             }
 
             while (player[i][j] != 0 && player[i][j] != 8 && score_player1 != 20) {
+                System.out.println("222222 " + i);
+                System.out.println("222222 " + j);
+                System.out.println("222222 " + rect_id3);
+                last_i = i;
+                last_j = j;
+
                 score_player1 += 1;
                 score_player = score_player1;
                 //System.out.println("score_player " + score_player);
@@ -1359,20 +1470,128 @@ public class Logic {
                     PrintArray(player);
 
                     if (score_player == 20) {
+                        score_player1 = 0;
+                        score_player2 = 0;
                         Logic.victory_window(name_player, btn1);
                         break;
                     }
-                }
-                i = ThreadLocalRandom.current().nextInt(0, 10);
-                j = ThreadLocalRandom.current().nextInt(0, 10);
-                rect_id3 = id + i + j;
-                clickedImageView = (Rectangle) anchorPane.lookup(rect_id3);
-                while (clickedImageView.getFill() == Color.BLACK || clickedImageView.getFill() == Color.GRAY || clickedImageView.getFill() == Color.BLUE) {
+
+                    last_i = 10;
+                    last_j = 10;
+
                     i = ThreadLocalRandom.current().nextInt(0, 10);
                     j = ThreadLocalRandom.current().nextInt(0, 10);
                     rect_id3 = id + i + j;
                     clickedImageView = (Rectangle) anchorPane.lookup(rect_id3);
+                    while (clickedImageView.getFill() == Color.BLACK || clickedImageView.getFill() == Color.GRAY || clickedImageView.getFill() == Color.BLUE) {
+                        i = ThreadLocalRandom.current().nextInt(0, 10);
+                        j = ThreadLocalRandom.current().nextInt(0, 10);
+                        rect_id3 = id + i + j;
+                        clickedImageView = (Rectangle) anchorPane.lookup(rect_id3);
+                    }
+
+                } else {
+                    i = last_i;
+                    j = last_j;
+                    System.out.println("lasti lastj меняются 2 раз");
+                    System.out.println("333333 " + last_i);
+                    System.out.println("444444 " + last_j);
+
+                    int i_top = i - 1;
+                    String rect_id_top = id + i_top + j;
+                    Rectangle clickedImageView_top = (Rectangle) anchorPane.lookup(rect_id_top);
+                    int i_down = i + 1;
+                    String rect_id_down = id + i_down + j;
+                    Rectangle clickedImageView_down = (Rectangle) anchorPane.lookup(rect_id_down);
+                    int j_left = j - 1;
+                    String rect_id_left = id + i + j_left;
+                    Rectangle clickedImageView_left = (Rectangle) anchorPane.lookup(rect_id_left);
+                    int j_right = j + 1;
+                    String rect_id_right = id + i + j_right;
+                    Rectangle clickedImageView_right = (Rectangle) anchorPane.lookup(rect_id_right);
+
+                    if ((i == 0 || (clickedImageView_top.getFill() != Color.BLACK && clickedImageView_top.getFill() != Color.GRAY) || clickedImageView_top.getFill() == Color.BLUE) && (i == 9 || (clickedImageView_down.getFill() != Color.BLACK && clickedImageView_down.getFill() != Color.GRAY) || clickedImageView_down.getFill() == Color.BLUE) && (j == 0 || (clickedImageView_left.getFill() != Color.BLACK && clickedImageView_left.getFill() != Color.GRAY) || clickedImageView_left.getFill() == Color.BLUE) && (j == 9 || (clickedImageView_right.getFill() != Color.BLACK && clickedImageView_right.getFill() != Color.GRAY) || clickedImageView_right.getFill() == Color.BLUE)) {
+                        System.out.println("цикл 2");
+                        int result_i = ThreadLocalRandom.current().nextInt(0, 3);
+                        if (result_i == 0) {
+                            i = i_top;
+                        } else if (result_i == 2) {
+                            i = i_down;
+                        } else if (result_i == 1) {
+                            int result_j = ThreadLocalRandom.current().nextInt(0, 2);
+                            if (result_j == 0) {
+                                j = j_left;
+                            } else if (result_j == 1) {
+                                j = j_right;
+                            }
+                        }
+                        rect_id3 = id + i + j;
+                        clickedImageView = (Rectangle) anchorPane.lookup(rect_id3);
+                        System.out.println("i +" + i);
+                        System.out.println("j +" + j);
+                        while (i == -1 || i == 10 || j == -1 || j == 10 || clickedImageView == null || clickedImageView.getFill() == Color.BLUE) {
+                            result_i = ThreadLocalRandom.current().nextInt(0, 3);
+                            if (result_i == 0) {
+                                i = i_top;
+                                j = last_j;
+                            } else if (result_i == 2) {
+                                i = i_down;
+                                j = last_j;
+                            } else if (result_i == 1) {
+                                int result_j = ThreadLocalRandom.current().nextInt(0, 2);
+                                if (result_j == 0) {
+                                    j = j_left;
+                                    i = last_i;
+                                } else if (result_j == 1) {
+                                    j = j_right;
+                                    i = last_i;
+                                }
+                            }
+                            rect_id3 = id + i + j;
+                            clickedImageView = (Rectangle) anchorPane.lookup(rect_id3);
+                            System.out.println("зациклился 2" + rect_id3);
+                        }
+                    } else if (i != 0 && clickedImageView_top.getFill() == Color.GRAY) {
+                        System.out.println("цикл 3");
+                        if (i != 9 && clickedImageView_down.getFill() != Color.BLUE) {
+                            i += 1;
+                        } else {
+                            while (player[i][j] == -1) {
+                                i -= 1;
+                            }
+                        }
+                    } else if (i != 9 && clickedImageView_down.getFill() == Color.GRAY) {
+                        System.out.println("цикл 4");
+                        if (i != 0 && clickedImageView_top.getFill() != Color.BLUE) {
+                            i -= 1;
+                        } else {
+                            while (player[i][j] == -1) {
+                                i += 1;
+                            }
+                        }
+                    } else if (j != 0 && clickedImageView_left.getFill() == Color.GRAY) {
+                        System.out.println("цикл 5");
+                        if (j != 9 && clickedImageView_right.getFill() != Color.BLUE) {
+                            j += 1;
+                        } else {
+                            while (player[i][j] == -1) {
+                                j -= 1;
+                            }
+                        }
+                    } else if (j != 9 && clickedImageView_right.getFill() == Color.GRAY) {
+                        System.out.println("цикл 6");
+                        if (j != 0 && clickedImageView_left.getFill() != Color.BLUE) {
+                            j -= 1;
+                        } else {
+                            while (player[i][j] == -1) {
+                                j += 1;
+                            }
+                        }
+                    }
+                    rect_id3 = id + i + j;
+                    clickedImageView = (Rectangle) anchorPane.lookup(rect_id3);
                 }
+
             }
             if (player[i][j] == 0 || player[i][j] == 8) {
                 clickedImageView.setFill(Color.BLUE);
@@ -1383,6 +1602,7 @@ public class Logic {
             }
         }
     }
+
 
     protected static void frame_2_open(ActionEvent event, String btn) throws IOException {
         FXMLLoader loader = new FXMLLoader(Logic.class.getResource("frame_2.fxml"));
