@@ -1,78 +1,132 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.demo.frame_5Controller" prefHeight="493.0" prefWidth="1491.0">
+<AnchorPane prefHeight="493.0" prefWidth="1491.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.frame_5Controller">
     <children>
         <AnchorPane fx:id="rect2" layoutX="-5.0" prefHeight="965.0" prefWidth="1920.0" styleClass="rect2" stylesheets="@itcss.css">
             <Group fx:id="group1">
                 <children>
-                    <Group layoutX="376.0" layoutY="245.0">
-                        <children>
-                            <Label prefHeight="75.0" prefWidth="532.0" text="Громкость звука" textFill="#cc0000">
-                                <font>
-                                    <Font name="Calibri" size="50.0"/>
-                                </font>
-                            </Label>
-                            <Slider fx:id="slider" blockIncrement="5.0" layoutX="438.0" layoutY="21.0"
-                                    majorTickUnit="25" minorTickCount="4" onMouseDragged="#updateVolume"
-                                    onMouseReleased="#onSliderReleased" prefHeight="38.0" prefWidth="325.0"
-                                    showTickLabels="true" showTickMarks="true" snapToTicks="true" value="100.0"/>
-                        </children>
-                    </Group>
-                    <Group layoutX="376.0" layoutY="352.0">
-                        <children>
-                            <Label prefHeight="75.0" prefWidth="717.0" text="Тема" textFill="#cc0000">
-                                <font>
-                                    <Font name="Calibri" size="50.0"/>
-                                </font>
-                            </Label>
-                            <RadioButton fx:id="btn_light" layoutX="389.0" layoutY="20.0" mnemonicParsing="false"
-                                         onAction="#RadioButtonClick" text="Светлая">
-                                <font>
-                                    <Font size="24.0"/>
-                                </font>
-                            </RadioButton>
-                            <RadioButton fx:id="btn_dark" layoutX="579.0" layoutY="20.0" mnemonicParsing="false"
-                                         onAction="#RadioButtonClick" text="Темная">
-                                <font>
-                                    <Font size="24.0"/>
-                                </font>
-                            </RadioButton>
-                        </children>
-                    </Group>
-                    <Group layoutX="376.0" layoutY="455.0">
-                        <children>
-                            <Label prefHeight="75.0" prefWidth="717.0" text="Режим показа" textFill="#cc0000">
-                                <font>
-                                    <Font name="Calibri" size="50.0"/>
-                                </font>
-                            </Label>
-                            <RadioButton fx:id="btn_full" layoutX="389.0" layoutY="20.0" mnemonicParsing="false"
-                                         onAction="#RadioButtonClick" text="Полноэкранный">
-                                <font>
-                                    <Font size="24.0"/>
-                                </font>
-                            </RadioButton>
-                            <RadioButton fx:id="btn_window" layoutX="627.0" layoutY="20.0" mnemonicParsing="false"
-                                         onAction="#RadioButtonClick" prefHeight="35.0" prefWidth="158.0"
-                                         text="Оконный">
-                                <font>
-                                    <Font size="24.0"/>
-                                </font>
-                            </RadioButton>
-                        </children>
-                    </Group>
-                    <Group layoutX="566.0" layoutY="611.0"/>
-                    <Button fx:id="btn6" layoutX="727.0" layoutY="598.0" mnemonicParsing="false"
-                            onAction="#handleButtonClickOk" onMousePressed="#onPress" stylesheets="@itcss.css" text="ОК"
-                            textFill="WHITE">
+                    <Label alignment="CENTER" layoutY="-18.0" prefHeight="136.0" prefWidth="1924.0" text="Зал славы" textAlignment="CENTER" textFill="#ff0000f7" wrapText="true">
                         <font>
-                            <Font name="Calibri Bold" size="32.0"/>
+                            <Font name="Arial" size="72.0" />
+                        </font>
+                    </Label>
+                    <Group fx:id="achivement1" layoutX="150.0" layoutY="100.0">
+                        <ImageView fitHeight="450.0" fitWidth="400.0">
+                            <image>
+                                <Image url="@img/border.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fitHeight="120.0" fitWidth="200.0" layoutX="100.0" layoutY="180.0">
+                            <image>
+                                <Image url="@img/border_for_image.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="100.0">
+                            <image>
+                                <Image url="@img/achivement1.png" />
+                            </image>
+                        </ImageView>
+                        <Label alignment="CENTER" layoutX="21.0" layoutY="219.0" prefHeight="40.0" prefWidth="350.0" text="Идеальная победа" textAlignment="CENTER" textFill="#fff200" wrapText="true">
+                            <font>
+                                <Font name="Calibri" size="40.0" />
+                            </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="13.0" layoutY="275.0" prefHeight="136.0" prefWidth="373.0" text="Выиграйте не потеряв ни одного корабля" textAlignment="CENTER" textFill="#ffee00bb" wrapText="true">
+                            <font>
+                                <Font name="Calibri" size="24.0" />
+                            </font>
+                        </Label>
+                    </Group>
+                    <Group fx:id="achivement2" layoutX="560.0" layoutY="100.0">
+                        <ImageView fitHeight="450.0" fitWidth="400.0">
+                            <image>
+                                <Image url="@img/border.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fitHeight="120.0" fitWidth="200.0" layoutX="100.0" layoutY="180.0">
+                            <image>
+                                <Image url="@img/border_for_image.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fitHeight="250.0" fitWidth="250.0" layoutX="75.0" layoutY="-30.0">
+                            <image>
+                                <Image url="@img/achivement2.png" />
+                            </image>
+                        </ImageView>
+                        <Label alignment="CENTER" layoutX="21.0" layoutY="219.0" prefHeight="40.0" prefWidth="350.0" text="Это моё море" textAlignment="CENTER" textFill="#fff200" wrapText="true">
+                            <font>
+                                <Font name="Calibri" size="40.0" />
+                            </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="13.0" layoutY="275.0" prefHeight="136.0" prefWidth="373.0" text="Выиграйте сражение с другом" textAlignment="CENTER" textFill="#ffee00bb" wrapText="true">
+                            <font>
+                                <Font name="Calibri" size="24.0" />
+                            </font>
+                        </Label>
+                    </Group>
+                    <Group fx:id="achivement3" layoutX="970.0" layoutY="100.0">
+                        <ImageView fitHeight="450.0" fitWidth="400.0">
+                            <image>
+                                <Image url="@img/border.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fitHeight="120.0" fitWidth="200.0" layoutX="100.0" layoutY="180.0">
+                            <image>
+                                <Image url="@img/border_for_image.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fitHeight="185.0" fitWidth="185.0" layoutX="107.5" layoutY="10.0">
+                            <image>
+                                <Image url="@img/achivement3.png" />
+                            </image>
+                        </ImageView>
+                        <Label alignment="CENTER" layoutX="21.0" layoutY="219.0" prefHeight="40.0" prefWidth="350.0" text="И это всё...." textAlignment="CENTER" textFill="#fff200" wrapText="true">
+                            <font>
+                                <Font name="Calibri" size="40.0" />
+                            </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="13.0" layoutY="275.0" prefHeight="136.0" prefWidth="373.0" text="Выиграйте сражение с ботом" textAlignment="CENTER" textFill="#ffee00bb" wrapText="true">
+                            <font>
+                                <Font name="Calibri" size="24.0" />
+                            </font>
+                        </Label>
+                    </Group>
+                    <Group fx:id="achivement4" layoutX="1380.0" layoutY="100.0">
+                        <ImageView fitHeight="450.0" fitWidth="400.0">
+                            <image>
+                                <Image url="@img/border.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fitHeight="120.0" fitWidth="200.0" layoutX="100.0" layoutY="180.0">
+                            <image>
+                                <Image url="@img/border_for_image.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="100.0">
+                            <image>
+                                <Image url="@img/achivement4.png" />
+                            </image>
+                        </ImageView>
+                        <Label alignment="CENTER" layoutX="21.0" layoutY="219.0" prefHeight="40.0" prefWidth="350.0" text="Бурный натиск" textAlignment="CENTER" textFill="#fff200" wrapText="true">
+                            <font>
+                                <Font name="Calibri" size="40.0" />
+                            </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="13.0" layoutY="275.0" prefHeight="136.0" prefWidth="373.0" text="Выиграйте сражение с ботом за 30 секунд" textAlignment="CENTER" textFill="#ffee00bb" wrapText="true">
+                            <font>
+                                <Font name="Calibri" size="24.0" />
+                            </font>
+                        </Label>
+                    </Group>
+                    <Button fx:id="btn6" layoutX="920.0" layoutY="598.0" mnemonicParsing="false" onAction="#handleButtonClickOk" onMousePressed="#onPress" stylesheets="@itcss.css" text="ОК" textFill="WHITE">
+                        <font>
+                            <Font name="Calibri Bold" size="32.0" />
                         </font>
                     </Button>
                 </children>

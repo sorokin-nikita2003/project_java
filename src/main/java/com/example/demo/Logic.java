@@ -941,7 +941,8 @@ public class Logic {
                     BufferedWriter writer = new BufferedWriter(new FileWriter(file));
                     writer.write("Volume: 100.0 \n");
                     writer.write("Theme: light \n");
-                    writer.write("Volume: true ");
+                    writer.write("FullScrean: true\n");
+                    writer.write("Achivments: 0000");
                     writer.close();
                 } else {
                     System.out.println("Файл не создан. Что-то пошло не так.");
@@ -969,6 +970,17 @@ public class Logic {
                     ;
                 }
                 full_screan = Boolean.parseBoolean(scan.nextLine().substring(12));
+                String achivments = scan.nextLine().substring(12);
+                for(int i = 0 ; i< 4; i++){
+                    switch (achivments.substring(i, i+1)){
+                        case("1") ->{
+                            achievement[i] = true;
+                        }
+                        case("0") ->{
+                            achievement[i] = false;
+                        }
+                    }
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -979,7 +991,16 @@ public class Logic {
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
                 writer.write("Volume: " + sliderValue + " \n");
                 writer.write("Theme: " + theme_color + " \n");
-                writer.write("FullScrean: " + full_screan);
+                writer.write("FullScrean: " + full_screan + "\n");
+                writer.write("Achivments: ");
+                for (int i = 0; i < 4;  i++){
+                    if(achievement[i]){
+                        writer.write("1");
+                    }
+                else {
+                        writer.write("0");
+                    }
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }

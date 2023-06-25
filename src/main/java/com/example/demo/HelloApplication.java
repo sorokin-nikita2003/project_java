@@ -1,21 +1,16 @@
 package com.example.demo;
 
 import javafx.application.Application;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 import javafx.stage.Stage;
 import javafx.scene.media.MediaPlayer;
-import javafx.util.Duration;
 
 import java.io.*;
 import java.util.Objects;
-import java.util.Scanner;
 
 import static com.example.demo.Logic.WorkFile.*;
 
@@ -35,6 +30,7 @@ public class HelloApplication extends Application {
     public static String rect2Color;
     protected static String theme_color;
     protected static boolean full_screan;
+    protected static boolean[] achievement = new boolean[4];
     protected static final int[] mas_x = {152, 201, 249, 297, 345, 392, 441, 488, 537, 584};
     protected static final int[] mas_y = {258, 306, 354, 402, 450, 498, 546, 594, 642, 690};
     protected static final int[] mas_x_turn = {79, 104, 128, 152, 176, 200, 223, 248, 272, 296, 319, 344, 369, 392, 415, 440, 464, 488, 511, 536, 561};
